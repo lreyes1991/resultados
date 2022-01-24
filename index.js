@@ -44,5 +44,5 @@ app.get('/resultados', (req,res)=>{
     //console.log(path);
     
 });
-app.listen(7000);
+app.listen(3000);
 console.log('server using port 7000');
