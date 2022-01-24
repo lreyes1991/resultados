@@ -13,7 +13,7 @@ port = 25060
 database = defaultdb
 sslmode = REQUIRED
 */
-
+/*
 const mysql = require('mysql2');     
 
 const connection = mysql.createConnection({
@@ -30,6 +30,38 @@ const connection = mysql.createConnection({
     }
     console.log('Connected!')
 });
+
+*/
+var mysql_config = {
+    host     : 'localhost',
+    user     : 'root',
+    password : 'R0joc3rez@',
+    database : 'SGI_ROCHEGT'
+};
+var connection=null;
+function handleDisconnection() {
+    connection = mysql.createConnection(mysql_config);
+   console.log('trying...')
+    connection.connect(function(err) {
+        if(err) {
+            setTimeout('handleDisconnection()', 2000);
+        }
+    });
+
+    connection.on('error', function(err) {
+        logger.error('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+            logger.error('db error ejecutar reconexión:'+err.message);
+            handleDisconnection();
+        } else {
+            throw err;
+        }
+    });
+  //  exports.connection = connection;
+}
+
+handleDisconnection();
+
 
 
 var path    = require('path');
