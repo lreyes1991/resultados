@@ -32,6 +32,7 @@ const connection = mysql.createConnection({
 });
 
 */
+const mysql = require('mysql2');     
 var mysql_config = {
     host     : 'localhost',
     user     : 'root',
