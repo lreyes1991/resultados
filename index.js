@@ -1,9 +1,10 @@
 const express = require('express');
+/*
 const passport      = require('passport'); 
 const cookieParser  = require('cookie-parser');
 const session       = require('express-session');
 const PassportLocal = require('passport-local').Strategy;
-
+*/
 /*
 username = doadmin
 password = s4FYsEIGDNF4FSe6 hide
