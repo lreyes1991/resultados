@@ -13,7 +13,7 @@ port = 25060
 database = defaultdb
 sslmode = REQUIRED
 */
-
+/*
 const mysql = require('mysql2');     
 
 const connection = mysql.createConnection({
@@ -30,7 +30,7 @@ const connection = mysql.createConnection({
     }
     console.log('Connected!')
 });
-
+*/
 
 var path    = require('path');
 const app = express();
