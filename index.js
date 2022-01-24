@@ -13,15 +13,14 @@ port = 25060
 database = defaultdb
 sslmode = REQUIRED
 */
-/*
+
 const mysql = require('mysql2');     
 
 const connection = mysql.createConnection({
-    host     : 'db-resultados-do-user-10689106-0.b.db.ondigitalocean.com',
+    host     : 'localhost',
     user     : 'root',
     password : 'R0joc3rez@',
-    database : 'SGI_ROCHEGT',
-    port:3306
+    database : 'SGI_ROCHEGT'
   });
 
   connection.connect((err) => {
@@ -31,7 +30,7 @@ const connection = mysql.createConnection({
     }
     console.log('Connected!')
 });
-*/
+
 
 var path    = require('path');
 const app = express();
