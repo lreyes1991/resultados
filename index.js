@@ -19,8 +19,8 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'R0joc3rez@',
-    database : 'SGI_ROCHEGT'
+    password : 'Sg1nfo',
+    database : 'sgi_consultorio1'
   });
 
   connection.connect((err) => {
@@ -44,5 +44,5 @@ app.get('/resultados', (req,res)=>{
     //console.log(path);
     
 });
-app.listen(3000);
-console.log('server using port 3000');
+app.listen(7000);
+console.log('server using port 7000');
