@@ -69,6 +69,47 @@ console.log(req.params);
 		  function(err, results, fields) {
             res.send(`<p>${results[0].NombrePaciente}</p>`);
   			//res.json(results);
+              `<html lang="en"><head>
+
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <link rel="icon" type="image/png" href="img/person-circle.svg">
+              <title>Resultados</title>
+              <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+              <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+              
+              <link rel="stylesheet" href="css/resultados.css">
+              <script src="js/resultados.js"></script>
+          </head>
+          <header>
+          </header>
+          <div class="row col-12">
+              <h1 class="col-6">Hospital X</h1>
+              <img src="img/logo.jpg" class="col-6" style="width:50px;height:auto;"></img>
+              <p class="col-12">Información del paciente</p>
+              <p class="col-6">Centro</p><p class="col-6 form-control" id="i_centro">${results[0].Centro}</p>
+              <p class="col-6">Orden</p><p class="col-4 form-control" id="i_orden">${results[0].Orden}</p>
+              <p class="col-6">Paciente</p><p class="col-6" id="p_paciente">${results[0].NombrePaciente}</p>
+              <p class="col-6">Fecha de Nacimiento</p><p class="col-6" id="p_fechaNacimiento">${results[0].fechaDeNacimiento}</p>
+              <p class="col-6">Género</p><p class="col-6" id="p_genero">${results[0].Genero}</p>
+              <p class="col-6">Fecha de Orden</p><p class="col-6" id="p_fechaOrden">${results[0].FechaOrden}</p>
+              <h1 class="col-12" id="h_examen"></h1>
+              
+          </div>
+          <body>
+          
+          </body>
+          
+              <footer>
+                  <div class="row col-12 d-flex justify-content-center">
+                    <button class="btn btn-success col-4">Descargar en PDF</button>
+                  </div>
+              </footer>
+          </html>`
 	  	  }
 	 );
 });
