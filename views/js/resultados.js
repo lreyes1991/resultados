@@ -17,6 +17,10 @@ function consultarResultado(){
       var RESPUESTA  = (xhr.response);
           RESPUESTA=JSON.parse(RESPUESTA);
           console.log(RESPUESTA);
+          $('#p_paciente').text(RESPUESTA[0].NombrePaciente);
+          $('#p_p_fechaNacimiento').text(RESPUESTA[0].fechaDeNacimiento);
+          $('#p_genero').text(RESPUESTA[0].Genero);
+          $('#p_fechaOrden').text(RESPUESTA[0].FechaOrden);
    }
 
   
