@@ -67,9 +67,9 @@ console.log(req.params);
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
-            res.send(`<p>${results[0].NombrePaciente}</p>`);
+            
   			//res.json(results);
-              `<html lang="en"><head>
+              res.send(`<html lang="en"><head>
 
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,7 +109,7 @@ console.log(req.params);
                     <button class="btn btn-success col-4">Descargar en PDF</button>
                   </div>
               </footer>
-          </html>`
+          </html>`);
 	  	  }
 	 );
 });
