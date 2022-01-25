@@ -135,8 +135,13 @@ console.log(req.params);
           </head>
           <header class="row col-12">
           <h1 class="col-12">Resultados</h1>
-          <img src="${logoigss}" class="col-6" style="width:50px;height:auto;"></img>
-          <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
+            <div class="col-6">
+               <img src="${logoigss}" class="col-6" style="width:50px;height:auto;"></img>
+            </div>
+            <div class="col-6">
+               <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
+            </div>            
+            
           </header>
           <body>
           <div class="row col-12">
