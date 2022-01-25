@@ -82,14 +82,14 @@ console.log(req.params);
               <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
               
-              <link rel="stylesheet" href="css/resultados.css">
-              <script src="js/resultados.js"></script>
+              <link rel="stylesheet" href="views/css/resultados.css">
+              <script src="views/js/resultados.js"></script>
           </head>
           <header>
           </header>
           <div class="row col-12">
               <h1 class="col-6">Hospital X</h1>
-              <img src="img/logo.jpg" class="col-6" style="width:50px;height:auto;"></img>
+              <img src="views/img/logo.jpg" class="col-6" style="width:50px;height:auto;"></img>
               <p class="col-12">Información del paciente</p>
               <p class="col-6">Centro</p><p class="col-6 form-control" id="i_centro">${results[0].Centro}</p>
               <p class="col-6">Orden</p><p class="col-4 form-control" id="i_orden">${results[0].Orden}</p>
