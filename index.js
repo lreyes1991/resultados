@@ -158,7 +158,7 @@ console.log(req.params);
             <button class="btn btn-success col-4">Descargar en PDF</button>
           </div>
           <div class="row col-12">
-            <h1 class="col-12" id="h_examen">${nombreExamen}</h1>
+            <h1 class="col-12" id="h_examen"style="font-size: 1.5rem;">${nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
             <p class="col-4">${nombreExamen}</p><p class="col-4">${resultado}</p><p class="col-4">${valorDeReferencia}</p>
           </div>          
@@ -166,7 +166,7 @@ console.log(req.params);
           </body>
           
               <footer>
-                  <div class="text-center p-3" style="background-color:#007bff;position:fixed;bottom: 0;width: 100%;">
+                  <div class="text-center" style="background-color:#007bff;position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:
                   <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
                 </div>
