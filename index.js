@@ -49,10 +49,12 @@ app.get('/resultado/:codigo',(req, res)=>{
 console.log(req.params);
 
     //recibir contenido
-    var codigo = req.params.codigo;
-
+    var codigoenc = req.params.codigo;
     //decodificar
-
+    const atob = (base64) => {
+        return Buffer.from(base64, 'base64').toString('binary');
+    };
+    var codigo = atob(codigoenc);
     //crear array 
     var codigoarray = codigo.split('-');
     //asignar valores de arary a variables
