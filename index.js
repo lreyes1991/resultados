@@ -67,8 +67,8 @@ console.log(req.body);
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
+            res.render('index');
   			res.json(results);
-              //res.render('index');
 	  	  }
 	 );
 });
