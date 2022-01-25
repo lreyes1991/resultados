@@ -166,7 +166,7 @@ console.log(req.params);
           </body>
           
               <footer>
-                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);position:fixed;bottom: 0;width: 100%;">
+                  <div class="text-center p-3" style="background-color:#007bff;position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:
                   <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
                 </div>
