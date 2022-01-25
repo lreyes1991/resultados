@@ -9,11 +9,7 @@ function consultarResultado(){
     var orden = document.getElementById("i_orden").value;
     
     var codigodes = `${centro}-${orden}`;
-    const btoa = (text) => {
-        return Buffer.from(text, 'binary').toString('base64');
-    };
-    
-    var codigo = (btoa(codigodes));
+    var codigo = window.btoa(codigodes);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange=function(){
