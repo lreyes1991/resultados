@@ -95,15 +95,19 @@ console.log(req.params);
               <h1 class="col-6">Hospital X</h1>
               <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
               <p class="col-12">Información del paciente</p>
-              <p class="col-6">Centro</p><p class="col-6 form-control" id="i_centro">${results[0].Centro}</p>
-              <p class="col-6">Orden</p><p class="col-4 form-control" id="i_orden">${results[0].Orden}</p>
-              <p class="col-6">Paciente</p><p class="col-6" id="p_paciente">${results[0].NombrePaciente}</p>
-              <p class="col-6">Fecha de Nacimiento</p><p class="col-6" id="p_fechaNacimiento">${results[0].fechaDeNacimiento}</p>
-              <p class="col-6">Género</p><p class="col-6" id="p_genero">${results[0].Genero}</p>
-              <p class="col-6">Fecha de Orden</p><p class="col-6" id="p_fechaOrden">${results[0].FechaOrden}</p>
-              <h1 class="col-12" id="h_examen">${results[0].nombreExamen}</h1>
+              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${results[0].Centro}</p>
+              <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${results[0].Orden}</p>
+              <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${results[0].NombrePaciente}</p>
+              <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${results[0].fechaDeNacimiento}</p>
+              <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${results[0].Genero}</p>
+              <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${results[0].FechaOrden}</p>
           </div>
           
+          <div class="row col-12">
+            <h1 class="col-12" id="h_examen">${results[0].nombreExamen}</h1>
+            <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
+            <p class="col-4"></p><p class="col-4">${results[0].resultado}</p><p class="col-4">Referencia</p>
+          </div>          
           
           </body>
           
