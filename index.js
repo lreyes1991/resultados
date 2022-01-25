@@ -59,7 +59,7 @@ console.log(req.params);
     var centro = codigoarray[0];
     var orden  = codigoarray[1];
     //ejecutar consulta
-    connection.query(`SELECT O.NombrePaciente,O.fechaDeNacimiento,O.Genero,O.FechaOrden ,R.nombreExamen 
+    connection.query(`SELECT O.NombrePaciente,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen 
     FROM Orden as O 
     INNER JOIN Resultados as R 
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
