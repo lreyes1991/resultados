@@ -8,7 +8,7 @@ function consultarResultado(){
 
     const urlSearchParams = new URLSearchParams(window.location.search);
     var  codigo = urlSearchParams.get("codigo");
-    
+    console.log(codigo);
 /*
     var centro = document.getElementById("i_centro").value;
     var orden = document.getElementById("i_orden").value;
