@@ -49,15 +49,19 @@ app.get('/resultado/:codigo',(req, res)=>{
 
     //recibir contenido
     var codigo = req.body.codigo;
+
     //decodificar
 
     //crear array 
+    var codigoarray = codigo.split('-');
     //asignar valores de arary a variables
+    var centro = codigoarray[0];
+    var orden  = codigoarray[1];
     //ejecutar consulta
     connection.query(`SELECT O.NombrePaciente,O.fechaDeNacimiento,O.Genero,O.FechaOrden ,R.nombreExamen 
     FROM Orden as O 
     INNER JOIN Resultados as R 
-    ON O.Orden = R.Orden where O.Orden = '01220001' and O.Centro = 'IZ11';`,
+    ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
   			res.json(results);

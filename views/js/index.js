@@ -1,12 +1,14 @@
 $(document).ready(function(){
-  
+    $('#b_buscar').on("click",function(){
+        consultarResultado();
+    });
 });
 
 function consultarResultado(){
-
-    var orden = document.getElementById("i_orden").innerText;
     var centro = document.getElementById("i_centro").innerText;
-
+    var orden = document.getElementById("i_orden").innerText;
+    
+    var codigo = `${centro}-${orden}`;
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange=function(){
