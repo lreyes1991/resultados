@@ -105,8 +105,8 @@ console.log(req.params);
               </style>
               <script src="views/js/resultados.js"></script>
           </head>
-          <header>
-          <h1 class="col-12">Hospital X</h1>
+          <header class="row col-12">
+          <h1 class="col-12">Resultados</h1>
           <img src="${logoigss}" class="col-6" style="width:50px;height:auto;"></img>
           <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
           </header>
