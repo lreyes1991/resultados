@@ -109,7 +109,7 @@ console.log(req.params);
               <h1 class="col-6">Hospital X</h1>
               <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
               <p class="col-12">Información del paciente</p>
-              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${results[0].Centro}</p>
+              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${results[0].nombreCentro}</p>
               <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${results[0].Orden}</p>
               <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${results[0].NombrePaciente}</p>
               <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${results[0].fechaDeNacimiento}</p>
