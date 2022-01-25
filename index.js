@@ -135,10 +135,10 @@ console.log(req.params);
           </head>
           <header class="row col-12">
           <h1 class="col-12">Resultados</h1>
-            <div class="col-6">
+            <div class="col-6" style="text-align: center;">
                <img src="${logoigss}"  style="height:100px;"></img>
             </div>
-            <div class="col-6">
+            <div class="col-6" style="text-align: center;">
                <img src="${logoroche}" style="height:100px;"></img>
             </div>            
             
