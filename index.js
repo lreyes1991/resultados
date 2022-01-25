@@ -86,6 +86,20 @@ console.log(req.params);
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
               
               <link rel="stylesheet" href="views/css/resultados.css">
+              <style>
+              .row {
+                margin-right: 1px;
+                margin-left: 1px;
+              }
+              .respuesta{
+                font-weight:bold;
+              }
+            
+              .titulo{
+                font-weight:bold;
+                color:#0062cc;
+              }
+              </style>
               <script src="views/js/resultados.js"></script>
           </head>
           <header>
