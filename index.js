@@ -167,6 +167,11 @@ console.log(req.params);
                   <div class="row col-12 d-flex justify-content-center">
                     <button class="btn btn-success col-4">Descargar en PDF</button>
                   </div>
+
+                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                  © 2022 Copyright:
+                  <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
+                </div>
               </footer>
           </html>`);
 	  	  }
