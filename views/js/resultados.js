@@ -5,8 +5,8 @@ $(document).ready(function(){
 });
 
 function consultarResultado(){
-    var centro = document.getElementById("i_centro").innerText;
-    var orden = document.getElementById("i_orden").innerText;
+    var centro = document.getElementById("i_centro").value;
+    var orden = document.getElementById("i_orden").value;
     
     var codigo = `${centro}-${orden}`;
 
