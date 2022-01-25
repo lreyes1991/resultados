@@ -64,7 +64,7 @@ console.log(req.params);
     //ejecutar consulta
 
 
-    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado 
+    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia 
     FROM Orden as O 
     INNER JOIN Resultados as R 
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
@@ -106,7 +106,7 @@ console.log(req.params);
           <div class="row col-12">
             <h1 class="col-12" id="h_examen">${results[0].nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
-            <p class="col-4"></p><p class="col-4">${results[0].resultado}</p><p class="col-4">Referencia</p>
+            <p class="col-4"></p><p class="col-4">${results[0].resultado}</p><p class="col-4">${results[0].valorDeReferencia}</p>
           </div>          
           
           </body>
