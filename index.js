@@ -90,6 +90,7 @@ console.log(req.params);
           </head>
           <header>
           </header>
+          <body>
           <div class="row col-12">
               <h1 class="col-6">Hospital X</h1>
               <img src="${logoroche}" class="col-6" style="width:50px;height:auto;"></img>
@@ -102,7 +103,7 @@ console.log(req.params);
               <p class="col-6">Fecha de Orden</p><p class="col-6" id="p_fechaOrden">${results[0].FechaOrden}</p>
               <h1 class="col-12" id="h_examen">${results[0].nombreExamen}</h1>
           </div>
-          <body>
+          
           
           </body>
           
