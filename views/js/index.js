@@ -4,8 +4,8 @@ $(document).ready(function(){
 
 function consultarResultado(){
 
-    var orden = document.getElementById("p_orden").innerText;
-    var centro = document.getElementById("p_centro").innerText;
+    var orden = document.getElementById("i_orden").innerText;
+    var centro = document.getElementById("i_centro").innerText;
 
 
     var xhr = new XMLHttpRequest();
