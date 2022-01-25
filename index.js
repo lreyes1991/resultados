@@ -17,7 +17,7 @@ sslmode = REQUIRED
 const mysql = require('mysql2');     
 
 const connection = mysql.createConnection({
-    host     : 'db-resultados-do-user-10689106-0.b.db.ondigitalocean.com',
+    host     : 'localhost',
     user     : 'mli',
     password : 'R0joc3rez@',
     database : 'defaultdb',
