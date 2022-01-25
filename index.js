@@ -67,13 +67,35 @@ console.log(req.params);
     //ejecutar consulta
 
 
-    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia 
+    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia 
     FROM Orden as O 
     INNER JOIN Resultados as R 
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
             
+            var Orden             = results[0].Orden
+            var Centro            = results[0].Centro
+            var NombrePaciente    = results[0].NombrePaciente
+            var nombreCentro      = results[0].nombreCentro
+            var fechaDeNacimiento = results[0].fechaDeNacimiento
+            var Genero            = results[0].Genero
+            var FechaOrden        = results[0].FechaOrden
+            var nombreExamen      = results[0].nombreExamen
+            var resultado         = results[0].resultado
+            var valorDeReferencia = results[0].valorDeReferencia
+
+
+            if(Orden == null){Orden =''}
+            if(Centro == null){Centro =''}
+            if(NombrePaciente == null){NombrePaciente =''}
+            if(nombreCentro == null){nombreCentro =''}
+            if(valorDeReferencia == null){valorDeReferencia =''}
+            if(Genero == null){Genero =''}
+            if(FechaOrden == null){FechaOrden =''}
+            if(nombreExamen == null){nombreExamen =''}
+            if(resultado == null){resultado =''}
+            if(fechaDeNacimiento == null){fechaDeNacimiento =''}
   			//res.json(results);
               res.send(`<html lang="en"><head>
 
@@ -93,14 +115,20 @@ console.log(req.params);
               .row {
                 margin-right: 1px;
                 margin-left: 1px;
+                border: 1px solid #e3e6f0;
+                border-radius: 0.35rem;
               }
               .respuesta{
                 font-weight:bold;
               }
-            
+              .bloque{
+                border: 1px solid #e3e6f0;
+                border-radius: 0.35rem;
+              }
               .titulo{
                 font-weight:bold;
                 color:#0062cc;
+                background-color: #e3e6f0;
               }
               </style>
               <script src="views/js/resultados.js"></script>
@@ -114,18 +142,18 @@ console.log(req.params);
           <div class="row col-12">
 
               <p class="col-12">Información del paciente</p>
-              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${results[0].nombreCentro}</p>
-              <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${results[0].Orden}</p>
-              <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${results[0].NombrePaciente}</p>
-              <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${results[0].fechaDeNacimiento}</p>
-              <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${results[0].Genero}</p>
-              <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${results[0].FechaOrden}</p>
+              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${nombreCentro}</p>
+              <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
+              <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
+              <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
+              <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>
+              <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
           </div>
           
           <div class="row col-12">
-            <h1 class="col-12" id="h_examen">${results[0].nombreExamen}</h1>
+            <h1 class="col-12" id="h_examen">${nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
-            <p class="col-4"></p><p class="col-4">${results[0].resultado}</p><p class="col-4">${results[0].valorDeReferencia}</p>
+            <p class="col-4">${nombreExamen}</p><p class="col-4">${resultado}</p><p class="col-4">${valorDeReferencia}</p>
           </div>          
           
           </body>
