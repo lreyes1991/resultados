@@ -46,7 +46,8 @@ app.get('/resultados', (req,res)=>{
 });
 
 app.get('/resultado/:codigo',(req, res)=>{
-
+console.log(req.params);
+console.log(req.body);
     //recibir contenido
     var codigo = req.body.codigo;
 

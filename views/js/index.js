@@ -22,7 +22,7 @@ function consultarResultado(){
   
   }
   
-  xhr.open("GET",`http://159.223.159.94:3000/resultados/${codigo}`,true);
+  xhr.open("GET",`http://159.223.159.94:3000/resultado/${codigo}`,true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.send();
 }
