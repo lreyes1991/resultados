@@ -69,7 +69,7 @@ console.log(req.params);
 
     connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,O.fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia 
     FROM Orden as O 
-    INNER JOIN Resultados as R 
+    LEFT JOIN Resultados as R 
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
@@ -90,11 +90,11 @@ console.log(req.params);
             if(Centro == null){Centro =''}
             if(NombrePaciente == null){NombrePaciente =''}
             if(nombreCentro == null){nombreCentro =''}
-            if(valorDeReferencia == null){valorDeReferencia =''}
+            if(valorDeReferencia == null){valorDeReferencia ='Pendiente'}
             if(Genero == null){Genero =''}
             if(FechaOrden == null){FechaOrden =''}
             if(nombreExamen == null){nombreExamen =''}
-            if(resultado == null){resultado =''}
+            if(resultado == null){resultado ='Pendiente'}
             if(fechaDeNacimiento == null){fechaDeNacimiento =''}
   			//res.json(results);
               res.send(`<html lang="en"><head>
@@ -168,7 +168,7 @@ console.log(req.params);
                     <button class="btn btn-success col-4">Descargar en PDF</button>
                   </div>
 
-                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:
                   <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
                 </div>
