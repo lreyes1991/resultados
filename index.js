@@ -154,7 +154,9 @@ console.log(req.params);
               <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>
               <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
           </div>
-          
+          <div class="row col-12 d-flex justify-content-center">
+            <button class="btn btn-success col-4">Descargar en PDF</button>
+          </div>
           <div class="row col-12">
             <h1 class="col-12" id="h_examen">${nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
@@ -164,10 +166,6 @@ console.log(req.params);
           </body>
           
               <footer>
-                  <div class="row col-12 d-flex justify-content-center">
-                    <button class="btn btn-success col-4">Descargar en PDF</button>
-                  </div>
-
                   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:
                   <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
