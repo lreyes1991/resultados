@@ -74,4 +74,4 @@ console.log(req.body);
 
 
 app.listen(3000);
-console.log('server using port 7000');
+console.log('server using port 3000');
