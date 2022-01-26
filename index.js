@@ -49,6 +49,7 @@ app.get('/resultados/:orden', (req,res)=>{
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
       console.log(results);
+      res.json(results);
     }
   );
 });
