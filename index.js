@@ -208,7 +208,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                <img src="${logoigss}"  style="height:100px;"></img>
             </div>
             <div class="col-6"  id="c2">
-               <img src="${logoroche}" style="height:100px;"></img>
+              
             </div>            
             
           </header>
@@ -239,6 +239,7 @@ app.get('/resultado/:codigo',(req, res)=>{
 	 );
 });
 /*
+ <img src="${logoroche}" style="height:100px;"></img>
 <footer>
                   <div class="text-center" style="background-color:#007bff;position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:

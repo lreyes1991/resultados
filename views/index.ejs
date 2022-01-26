@@ -42,7 +42,7 @@
     localStorage.setItem("orden",orden);
     }
     
-    xhr.open("GET","http://159.223.159.94:3000/resultados/" + orden,true);
+    xhr.open("GET","https://consultaresultadoslaboratorio.health:80/resultados/" + orden,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
     });
@@ -57,7 +57,7 @@
      <img src="img/igss.jpg"  style="height:100px;"></img>
   </div>
   <div class="col-6"  id="c2">
-     <img src="img/roche.jpg" style="height:100px;"></img>
+     <!--<img src="img/roche.jpg" style="height:100px;"></img>-->
   </div>            
   
 </header>
