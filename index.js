@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.set('view engine', 'ejs' );
 //app.engine('ejs',require('ejs').__express);
 app.get('/resultados/:orden', (req,res)=>{
-    
+  var orden = req.params.orden;
   connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
