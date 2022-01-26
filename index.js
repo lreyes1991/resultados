@@ -191,7 +191,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","http://roche-resultverification.info:3000/resultados/" + orden,true);
+              xhr.open("GET","http://consultaresultadoslaboratorio.health:3000/resultados/" + orden,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
