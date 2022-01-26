@@ -39,7 +39,7 @@ const connection = mysql.createConnection({
 var path    = require('path');
 const app = express();
 var http    = require('http').Server(app);
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'resultado')));
 
 app.set('view engine', 'ejs' );
 
@@ -133,6 +133,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
               
               <link rel="stylesheet" href="views/css/resultados.css">
+              <script src="js/resultados.js"></script>
               <style>
               #c1{
                 text-align:center;

@@ -1,7 +1,5 @@
 $(document).ready(function(){
-    $('#b_buscar').on("click",function(){
-        consultarResultado();
-    });
+
     console.log('prueba script');
 });
 
