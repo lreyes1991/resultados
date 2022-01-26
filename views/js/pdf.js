@@ -4,16 +4,17 @@ const logoigss ="data:image/gif;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gKgSUNDX1BST
 
 $(document).ready(function(){
   cargarDatos();
-  crearPDF()
+  
 });
 
 
 function cargarDatos(){
-    console.log(localStorage.getItem("orden"));
-    console.log(localStorage.getItem("centro"));
+    var orden  = localStorage.getItem("orden");
+    var centro = localStorage.getItem("centro");
+    crearPDF(orden,centro);
 }
 
-function crearPDF(){
+function crearPDF(orden,centro){
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange=function(){
@@ -21,7 +22,7 @@ function crearPDF(){
     
       var RESPUESTA  = (xhr.response);
           RESPUESTA=JSON.parse(RESPUESTA);
-          var largo = RESPUESTA.length;
+          
           console.log(RESPUESTA);
    
           var doc = new jsPDF()
@@ -35,7 +36,7 @@ function crearPDF(){
           doc.setTextColor('#000000');
           //doc.setFontType('normal');
           doc.setFontSize(12);
-                  doc.setLineWidth(0.5)
+          doc.setLineWidth(0.5)
           doc.line(5, 56, 200, 56)
           //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
           doc.text(5, 20, 'Paciente:   ' + RESPUESTA[0].NombrePaciente);
@@ -62,8 +63,6 @@ function crearPDF(){
           doc.text(55, 100, 'Validado por:' );
           doc.save(+ RESPUESTA[0].Orden + '.pdf');
    }
-
-  localStorage.setItem("orden",orden);
   }
   
   xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden + "/" + centro,true);
