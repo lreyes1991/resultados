@@ -250,9 +250,9 @@ var fs = require('fs');
 var https = require('https');
 
 var credentials = {
-   ca: fs.readFileSync(__dirname + "/ssl/certificate.ca-bundle", 'utf8'), //la certification authority o CA
-   key: fs.readFileSync(__dirname + "/ssl/nombre_pagina.key", 'utf8'), //la clave SSL, que es el primer archivo que generamos ;)
-  cert: fs.readFileSync(__dirname + "/ssl/certificate.crt", 'utf8') //el certificado
+   ca: fs.readFileSync(__dirname + "/ssl/consultaresultadoslaboratorio_health.ca-bundle", 'utf8'), //la certification authority o CA
+   key: fs.readFileSync(__dirname + "/ssl/consultaresultadoslaboratorio_health.p7b", 'utf8'), //la clave SSL, que es el primer archivo que generamos ;)
+  cert: fs.readFileSync(__dirname + "/ssl/consultaresultadoslaboratorio_health.crt", 'utf8') //el certificado
 };
 
 
