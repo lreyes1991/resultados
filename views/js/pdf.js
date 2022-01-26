@@ -4,51 +4,73 @@ const logoigss ="data:image/gif;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gKgSUNDX1BST
 
 $(document).ready(function(){
   cargarDatos();
+  crearPDF()
 });
 
 
 function cargarDatos(){
     console.log(localStorage.getItem("orden"));
+    console.log(localStorage.getItem("centro"));
 }
 
 function crearPDF(){
 
-var doc = new jsPDF()
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+    if(this.readyState==4 && this.status==200){
+    
+      var RESPUESTA  = (xhr.response);
+          RESPUESTA=JSON.parse(RESPUESTA);
+          var largo = RESPUESTA.length;
+          console.log(RESPUESTA);
+   
+          var doc = new jsPDF()
 
-doc.setFontSize(12);
-doc.setTextColor('#000000');
-doc.setFontType('bold');
-doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
-doc.text(50, 10, 'Unidad Periferica IGSS Zona 11');
-doc.text(50, 15, 'Laboratorio Clinico');
-doc.setTextColor('#000000');
-//doc.setFontType('normal');
-doc.setFontSize(12);
-        doc.setLineWidth(0.5)
-doc.line(5, 56, 200, 56)
-//doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
-doc.text(5, 20, 'Paciente:   '  );
-doc.text(5, 25, 'Afiliacion: '  );
-doc.text(5, 30, 'Sexo:       '  );
-doc.text(5, 35, 'Edad:       '  );
-doc.text(5, 40, 'Origen:     ' );
-doc.text(155, 20, 'No.Petición: ');
-doc.text(155, 25, 'Recepción:   ');
-doc.text(95, 30, 'Medico:      ');
-doc.text(95, 40, 'Servicio:      ');
-doc.text(25, 50, 'EXAMEN:' );
-doc.text(55, 50, 'RESULTADO:' );
-doc.text(95, 50, 'UNIDADES:' );
-doc.text(125, 50, 'VALORES DE' );
-doc.text(125, 55, 'REFERENCIA:' );
-doc.text(165, 50, 'COMENTARIOS' );
-doc.text(95, 60, 'SEROLOGÍA' );
-doc.text(5, 70, 'SEROLOGÍA' );
-doc.text(55, 70, 'RESULTADO' );
-doc.text(95, 70, 'UNIDADES' );
-doc.text(125, 70, 'REF' );
-doc.text(165, 70, 'VALORES DE' );
-doc.text(55, 100, 'Validado por:' );
-doc.save(codigo + '.pdf');
+          doc.setFontSize(12);
+          doc.setTextColor('#000000');
+          doc.setFontType('bold');
+          doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
+          doc.text(50, 10, 'Unidad Periferica IGSS Zona 11');
+          doc.text(50, 15, 'Laboratorio Clinico');
+          doc.setTextColor('#000000');
+          //doc.setFontType('normal');
+          doc.setFontSize(12);
+                  doc.setLineWidth(0.5)
+          doc.line(5, 56, 200, 56)
+          //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
+          doc.text(5, 20, 'Paciente:   ' + RESPUESTA[0].NombrePaciente);
+          doc.text(5, 25, 'Afiliacion: ');
+          doc.text(5, 30, 'Sexo:       ' + RESPUESTA[0].Genero);
+          doc.text(5, 35, 'Edad:       ' );
+          doc.text(5, 40, 'Origen:     ' + RESPUESTA[0].nombreUnidadProcecencia);
+          doc.text(155, 20, 'No.Petición: ');
+          doc.text(155, 25, 'Recepción:   '+ RESPUESTA[0].FechaOrden);
+          doc.text(95, 30, 'Medico:      '+ RESPUESTA[0].nombreMedico);
+          doc.text(95, 40, 'Servicio:      ');
+          doc.text(25, 50, 'EXAMEN:' );
+          doc.text(55, 50, 'RESULTADO:' );
+          doc.text(95, 50, 'UNIDADES:' );
+          doc.text(125, 50, 'VALORES DE' );
+          doc.text(125, 55, 'REFERENCIA:' );
+          doc.text(165, 50, 'COMENTARIOS' );
+          doc.text(95, 60, 'SEROLOGÍA' );
+          doc.text(5, 70, 'SEROLOGÍA' );
+          doc.text(55, 70, 'RESULTADO' );
+          doc.text(95, 70, 'UNIDADES' );
+          doc.text(125, 70, 'REF' );
+          doc.text(165, 70, 'VALORES DE' );
+          doc.text(55, 100, 'Validado por:' );
+          doc.save(+ RESPUESTA[0].Orden + '.pdf');
+   }
+
+  localStorage.setItem("orden",orden);
+  }
+  
+  xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden + "/" + centro,true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send();
+
+
+
 
 }
