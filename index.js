@@ -148,8 +148,8 @@ console.log(path);
                       var largo = RESPUESTA.length;
                       
                       for(let i=0;i<=largo-1;i++){
-                        $('#tabla_datos').append('<p class="col-4">${RESPUESTA[i].nombreExamen}</p><p class="col-4">${RESPUESTA[i].resultado}</p><p class="col-4">${RESPUESTA[i].valorDeReferencia}</p>')
-                        
+                        $('#tabla_datos').append('<p class="col-4">${RESPUESTA[i].nombreExamen}</p>
+                        <p class="col-4">${RESPUESTA[i].resultado}</p><p class="col-4">${RESPUESTA[i].valorDeReferencia}</p>');
                         
                       }
 
