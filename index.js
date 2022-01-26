@@ -46,6 +46,7 @@ app.set('view engine', 'ejs' );
 app.get('/pdf/:orden', (req,res)=>{
 
   var orden = req.params.orden;
+  console.log(orden);
   var fs = require('fs');
   var pdf = require('html-pdf');
   var html =`<p>${orden}</p>`// fs.readFileSync('./test/businesscard.html', 'utf8');
