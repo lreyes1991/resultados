@@ -42,6 +42,22 @@ var http    = require('http').Server(app);
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.set('view engine', 'ejs' );
+
+app.get('/pdf/:orden', (req,res)=>{
+
+  var orden = req.params.orden;
+  var fs = require('fs');
+  var pdf = require('html-pdf');
+  var html =`<p>${orden}</p>`// fs.readFileSync('./test/businesscard.html', 'utf8');
+  var options = { format: 'Letter' };
+  
+  pdf.create(html, options).toFile('./businesscard.pdf', function(err, res) {
+    if (err) return console.log(err);
+    console.log(res); // { filename: '/app/businesscard.pdf' }
+  });
+
+});
+
 //app.engine('ejs',require('ejs').__express);
 app.get('/resultados/:orden', (req,res)=>{
   var orden = req.params.orden;
