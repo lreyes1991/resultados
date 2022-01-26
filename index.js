@@ -48,7 +48,6 @@ app.get('/resultados/:orden', (req,res)=>{
   connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
-      console.log(results);
       res.json(results);
     }
   );
@@ -146,14 +145,20 @@ console.log(path);
                 
                   var RESPUESTA  = (xhr.response);
                       RESPUESTA=JSON.parse(RESPUESTA);
-                      console.log(RESPUESTA);
+                      var largo = RESPUESTA.length;
+                      
+                      for(let i=0;i<=largo-1;i++){
+                        $('#tabla_datos').append('<p class="col-4">${RESPUESTA[i].nombreExamen}</p><p class="col-4">${RESPUESTA[i].resultado}</p><p class="col-4">${RESPUESTA[i].valorDeReferencia}</p>')
+                        
+                        
+                      }
 
                }
             
               
               }
               
-              xhr.open("GET","http://159.223.159.94:3000/resultados/${orden}",true);
+              xhr.open("GET","http://159.223.159.94:3000/resultados/" + orden,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
@@ -186,10 +191,9 @@ console.log(path);
           <div class="row col-12 d-flex justify-content-center">
             <button class="btn btn-success col-4">Descargar en PDF</button>
           </div>
-          <div class="row col-12">
+          <div class="row col-12" id="tabla_datos">
             <h1 class="col-12" id="h_examen"style="font-size: 1.5rem;">${nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
-            <p class="col-4">${nombreExamen}</p><p class="col-4">${resultado}</p><p class="col-4">${valorDeReferencia}</p>
           </div>          
           
           </body>
