@@ -152,7 +152,7 @@ console.log(path);
               
               }
               
-              xhr.open("GET","http://159.223.159.94:3000/resultados/${codigo}",true);
+              xhr.open("GET","http://159.223.159.94:3000/resultados/${orden}",true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
