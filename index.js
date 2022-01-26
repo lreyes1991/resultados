@@ -176,10 +176,10 @@ app.get('/resultado/:codigo',(req, res)=>{
               $(document).ready(function(){
                 
                 var orden = $("#i_orden").text();
-                var centro = $("#p_centro").text();
+                var centro = '${centro}'
+                //$("#p_centro").text();
           
-                var orden = '220126465';
-                var centro = '403';
+                
           
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange=function(){
@@ -191,7 +191,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                       console.log(RESPUESTA);
                
                       for(let i=0;i<=largo-1;i++){
-                        $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
+                        $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                       }
                }
             
@@ -220,7 +220,7 @@ app.get('/resultado/:codigo',(req, res)=>{
           <div class="row col-12">
 
               <p class="col-12">Información del paciente</p>
-              <p class="col-6">Centro</p><p class="col-3 respuesta id="p_centro">${centro}</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
+              <p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
               <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
               <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
               <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
