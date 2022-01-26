@@ -175,8 +175,11 @@ app.get('/resultado/:codigo',(req, res)=>{
               <script>
               $(document).ready(function(){
                 
-                var orden = document.getElementById("i_orden").innerText;
-                var centro = document.getElementById("p_centro").innerText;
+                var orden = $("#i_orden").text();
+                var centro = $("#p_centro").text();
+          
+                var orden = '220126465';
+                var centro = '403';
           
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange=function(){
@@ -195,7 +198,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","https://www.consultaresultadoslaboratorio.health:3000/resultados/" + orden + "/" + centro,true);
+              xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
             });
