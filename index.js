@@ -245,5 +245,5 @@ app.get('/resultado/:codigo',(req, res)=>{
               </footer>
 */
 
-app.listen(3000);
+app.listen(80);
 console.log('server using port 3000');
