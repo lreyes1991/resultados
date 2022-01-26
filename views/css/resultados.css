@@ -1,8 +1,33 @@
-.respuesta{
-    font-weight:bold;
+#c1{
+    text-align:center;
+  }
+  #c2{
+    text-align:center;
+ }
+  @media screen and (min-width: 480px) {
+ #c1{
+   text-align:start;
+ }
+ #c2{
+   text-align:end;
 }
 
-.titulo{
-font-weight:bold;
-color:#0062cc;
-}
+  }
+  .row {
+    margin-right: 1px;
+    margin-left: 1px;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+  }
+  .respuesta{
+    font-weight:bold;
+  }
+  .bloque{
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+  }
+  .titulo{
+    font-weight:bold;
+    color:#0062cc;
+    background-color: #e3e6f0;
+  }

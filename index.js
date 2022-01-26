@@ -188,7 +188,7 @@ app.get('/resultado/:codigo',(req, res)=>{
 
                }
             
-              
+              localStorage.setItem("orden",orden);
               }
               
               xhr.open("GET","http://159.223.159.94:3000/resultados/" + orden,true);
