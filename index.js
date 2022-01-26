@@ -261,7 +261,7 @@ console.log(__dirname);
 // CODIGO DE LAS RUTA Y DEMAS DE NUESTRA APP
 
 var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(80);
+httpsServer.listen(443);
 
 app.use(function (req, res, next) {
   if (req.headers['x-forwarded-proto'] == 'http') {
@@ -270,7 +270,6 @@ app.use(function (req, res, next) {
     return next()
   }
 })
-/*
+
 app.listen(80);
 console.log('server using port 3000');
-*/
