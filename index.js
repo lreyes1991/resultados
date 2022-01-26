@@ -256,6 +256,8 @@ var credentials = {
 };
 
 
+console.log(__dirname);
+
 // CODIGO DE LAS RUTA Y DEMAS DE NUESTRA APP
 
 var httpsServer = https.createServer(credentials, app);
