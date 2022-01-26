@@ -222,7 +222,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
           </div>
           <div class="row col-12 d-flex justify-content-center">
-            <button class="btn btn-success col-4">Descargar en PDF</button>
+            <button class="btn btn-success col-4" href="http://consultaresultadoslaboratorio.health">Descargar en PDF</button>
           </div>
           <div class="row col-12" id="tabla_datos">
             <h1 class="col-12" id="h_examen"style="font-size: 1.5rem;">${nombreExamen}</h1>
