@@ -196,7 +196,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","http://consultaresultadoslaboratorio.health:80/resultados/" + orden + "/" + centro,true);
+              xhr.open("GET","http://consultaresultadoslaboratorio.health:3000/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
@@ -275,5 +275,5 @@ app.use(function (req, res, next) {
   }
 })
 
-app.listen(80);
+app.listen(3000);
 console.log('server using port 3000');
