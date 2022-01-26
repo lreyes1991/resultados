@@ -64,9 +64,10 @@ res.render('index');
 });
 
 //app.engine('ejs',require('ejs').__express);
-app.get('/resultados/:orden', (req,res)=>{
+app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
-  connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}';`,
+  var centro = req.params.centro;
+  connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
       res.json(results);
@@ -173,7 +174,9 @@ app.get('/resultado/:codigo',(req, res)=>{
               </style>
               <script>
               $(document).ready(function(){
+                
                 var orden = document.getElementById("i_orden").innerText;
+                var centro = document.getElementById("p_centro").innerText;
           
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange=function(){
@@ -193,7 +196,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","https://www.consultaresultadoslaboratorio.health:80/resultados/" + orden,true);
+              xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
@@ -216,7 +219,7 @@ app.get('/resultado/:codigo',(req, res)=>{
           <div class="row col-12">
 
               <p class="col-12">Información del paciente</p>
-              <p class="col-6">Centro</p><p class="col-6 respuesta" id="i_centro">${nombreCentro}</p>
+              <p class="col-6">Centro</p><p id="p_centro">${centro}</p><p class="col-6 respuesta" id="i_centro">${nombreCentro}</p>
               <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
               <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
               <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
