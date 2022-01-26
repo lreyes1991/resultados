@@ -30,16 +30,15 @@ function crearPDF(){
     doc.setFontSize(22);
     doc.setTextColor('#7C079D');
     doc.setFontType('bold');
-    doc.text(55, 20, 'Hospital privado VALREV');
+    doc.text(55, 20, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
     doc.setTextColor('#000000');
     doc.setFontType('normal');
     doc.setFontSize(12);
-    doc.text(70, 30, 'km 78.4 Carretera a El Salvador');
-    doc.text(80, 40, 'Oratorio, Santa Rosa');
-    //doc.text(20, 50, 'PBX 79643131 54127603');
-    doc.addImage(img, 'jpg', 20, 20, 40, 40);
-    doc.text(70, 50, 'PBX 79643131');
-    doc.text(103, 50, '/');
+    doc.text(55, 40, 'Oratorio, Santa Rosa');// CENTRO
+    doc.text(55, 40, 'Laboratorio Clinico');
+    doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
+    doc.text(90, 10, 'Paciente');
+    doc.text(100, 20, 'Afiliacion');
     doc.text(108, 50, '54127603');
     doc.setTextColor('#0040FF');
     doc.text(70, 60, 'www.HOSPITALVALREV.COM');
