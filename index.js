@@ -15,7 +15,7 @@ httpsServer.listen(443);
 
 app.use(function (req, res, next) {
   if (req.headers['x-forwarded-proto'] == 'http') {
-    res.redirect('https://http://consultaresultadoslaboratorio.health/' + req.url, next)
+    res.redirect('https://consultaresultadoslaboratorio.health/' + req.url, next)
   } else {
     return next()
   }
