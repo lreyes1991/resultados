@@ -199,7 +199,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
-
+            });
           
 
               </script>
