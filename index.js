@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 app.set('view engine', 'ejs' );
 
-app.get('/pdf/:orden', (req,res)=>{
+app.get('/', (req,res)=>{
 
   var orden = req.params.orden;
   console.log(orden);
