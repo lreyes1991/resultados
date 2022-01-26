@@ -165,19 +165,19 @@ console.log(req.params);
           
           </body>
           
-              <footer>
+              
+          </html>`);
+	  	  }
+	 );
+});
+/*
+<footer>
                   <div class="text-center" style="background-color:#007bff;position:fixed;bottom: 0;width: 100%;">
                   © 2022 Copyright:
                   <a class="text-white" href="https://medlootinfo.com/">medlootinfo.com</a>
                 </div>
               </footer>
-          </html>`);
-	  	  }
-	 );
-});
-
-
-
+*/
 
 app.listen(3000);
 console.log('server using port 3000');
