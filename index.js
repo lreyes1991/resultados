@@ -43,12 +43,14 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 app.set('view engine', 'ejs' );
 //app.engine('ejs',require('ejs').__express);
-app.get('/resultados', (req,res)=>{
-    res.render('index');
-
-    //select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='220125627';
+app.get('/resultados/:orden', (req,res)=>{
     
-    
+  connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}';`,
+  //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
+    function(err, results, fields) {
+      console.log(results);
+    }
+  );
 });
 
 app.get('/resultado/:codigo',(req, res)=>{
@@ -133,7 +135,31 @@ console.log(path);
                 background-color: #e3e6f0;
               }
               </style>
-              <script src="resultados.js"></script>
+              <script>
+              $(document).ready(function(){
+                var orden = document.getElementById("i_orden").innerText;
+          
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                
+                  var RESPUESTA  = (xhr.response);
+                      RESPUESTA=JSON.parse(RESPUESTA);
+                      console.log(RESPUESTA);
+
+               }
+            
+              
+              }
+              
+              xhr.open("GET","http://159.223.159.94:3000/resultados/${codigo}",true);
+              xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhr.send();
+              });
+
+          
+
+              </script>
           </head>
           <header class="row col-12">
           <h1 class="col-12">Resultados</h1>
