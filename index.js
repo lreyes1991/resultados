@@ -196,7 +196,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","https://www.consultaresultadoslaboratorio.health:80/resultados/" + orden + "/" + centro,true);
+              xhr.open("GET","http://consultaresultadoslaboratorio.health:80/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
               });
