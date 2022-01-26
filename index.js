@@ -54,8 +54,7 @@ app.get('/resultados/:orden', (req,res)=>{
 });
 
 app.get('/resultado/:codigo',(req, res)=>{
-console.log(req.params);
-console.log(path);
+
     //recibir contenido
     var codigoenc = req.params.codigo;
     //decodificar
@@ -116,6 +115,15 @@ console.log(path);
               
               <link rel="stylesheet" href="views/css/resultados.css">
               <style>
+              @media screen and (min-width: 480px) {
+             #c1{
+               text-align:start;
+             }
+             #c2{
+               text-align:end;
+            }
+
+              }
               .row {
                 margin-right: 1px;
                 margin-left: 1px;
@@ -168,10 +176,10 @@ console.log(path);
           </head>
           <header class="row col-12">
           <h1 class="col-12">Resultados</h1>
-            <div class="col-6" style="text-align: center;">
+            <div class="col-6" style="text-align: center;" id="c1">
                <img src="${logoigss}"  style="height:100px;"></img>
             </div>
-            <div class="col-6" style="text-align: center;">
+            <div class="col-6" style="text-align: center;" id="c2">
                <img src="${logoroche}" style="height:100px;"></img>
             </div>            
             
