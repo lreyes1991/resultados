@@ -190,13 +190,12 @@ app.get('/resultado/:codigo',(req, res)=>{
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                       }
-
                }
             
               localStorage.setItem("orden",orden);
               }
               
-              xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
+              xhr.open("GET","https://www.consultaresultadoslaboratorio.health:3000/resultados/" + orden + "/" + centro,true);
               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhr.send();
             });
