@@ -45,13 +45,15 @@ app.set('view engine', 'ejs' );
 //app.engine('ejs',require('ejs').__express);
 app.get('/resultados', (req,res)=>{
     res.render('index');
-    //console.log(path);
+
+    //select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='220125627';
+    
     
 });
 
 app.get('/resultado/:codigo',(req, res)=>{
 console.log(req.params);
-
+console.log(path);
     //recibir contenido
     var codigoenc = req.params.codigo;
     //decodificar
@@ -131,7 +133,7 @@ console.log(req.params);
                 background-color: #e3e6f0;
               }
               </style>
-              <script src="views/js/resultados.js"></script>
+              <script src="resultados.js"></script>
           </head>
           <header class="row col-12">
           <h1 class="col-12">Resultados</h1>
