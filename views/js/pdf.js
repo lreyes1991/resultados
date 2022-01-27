@@ -17,7 +17,7 @@ $(document).ready(function(){
           
           console.log(RESPUESTA);
    
-          var doc = new jsPDF()
+          var doc = new jsPDF('p', 'pt', 'letter')
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
           doc.setFontSize(12);
           doc.setTextColor('#000000');
@@ -61,25 +61,25 @@ $(document).ready(function(){
           doc.text(125, 60, 'VALORES DE   ');
           doc.text(125, 65, 'REFERENCIA:  ');
           doc.text(165, 60, 'COMENTARIOS  ');
-          doc.text(5, 70, RESPUESTA[0].nombreExamen);
+          //doc.text(5, 70, RESPUESTA[0].nombreExamen);
           
           //bucle
-          var y = 70;
+          var y = 80;
 
           for (let i=0;i<=RESPUESTA.length -1 ;i++){
             doc.setFontSize(10);
             doc.setFontType('normal');
             doc.text(5, y, RESPUESTA[i].nombreExamen);
             doc.setFontType('bold');
-            doc.text(55, y, RESPUESTA[i].resultado);
+            doc.text(65, y, RESPUESTA[i].resultado);
             doc.setFontType('normal');
-            doc.text(95, y, RESPUESTA[i].unidadMedida);
-            doc.text(125, y, RESPUESTA[i].valorDeReferencia);
+            doc.text(105, y, RESPUESTA[i].unidadMedida);
+            doc.text(135, y, RESPUESTA[i].valorDeReferencia);
             y = y + 10;
           }
 
           //fin de bucle
-          doc.text(55, 100, 'Validado por: '+ RESPUESTA[0].usuarioValida);
+          doc.text(65, 100, 'Validado por: '+ RESPUESTA[0].usuarioValida);
           doc.save(RESPUESTA[0].Orden + '.pdf');
    }
   }
@@ -92,3 +92,38 @@ $(document).ready(function(){
 
 
 });
+
+function crearpdf(){
+  var pdf = new jsPDF('p', 'pt', 'letter')
+  , source = $('#i_orden')[0]
+  , specialElementHandlers = {
+    // element with id of "bypass" - jQuery style selector
+    '#bypassme': function(element, renderer){
+      // true = "handled elsewhere, bypass text extraction"
+      return true
+    }
+  }
+  
+  margins = {
+      top: 80,
+      bottom: 60,
+      left: 40,
+      width: 100
+    };
+  pdf.fromHTML(
+      source // HTML string or DOM elem ref.
+      , margins.left + 20 // x coord
+      , margins.top // y coord
+      , {
+        'width': margins.width // max width of content on PDF
+        , 'elementHandlers': specialElementHandlers
+      },
+      function (dispose) {
+        // dispose: object with X, Y of the last line add to the PDF
+        //          this allow the insertion of new lines after html
+          pdf.save('Test.pdf');
+        },
+      margins
+    )
+
+}
