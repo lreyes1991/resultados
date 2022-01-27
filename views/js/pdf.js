@@ -47,11 +47,19 @@ $(document).ready(function(){
           doc.text(125, 55, 'REFERENCIA:' );
           doc.text(165, 50, 'COMENTARIOS' );
           doc.text(5, 60, RESPUESTA[0].nombreExamen);
-          doc.text(5, 70, 'SEROLOGÍA' );
-          doc.text(55, 70, 'RESULTADO' );
-          doc.text(95, 70, 'UNIDADES' );
-          doc.text(125, 70, 'REF' );
-          doc.text(165, 70, 'VALORES DE' );
+          
+          //bucle
+          var y = 70;
+
+          for (let i=0;i<=RESPUESTA.length -1 ;i++){
+            doc.text(5, y, RESPUESTA[i].nombreExamen);
+            doc.text(55, y, RESPUESTA[i].resultado);
+            doc.text(95, y, RESPUESTA[i].unidadMedida);
+            doc.text(125, y, RESPUESTA[i].valorDeReferencia );
+            y = y + 10;
+          }
+
+          //fin de bucle
           doc.text(55, 100, 'Validado por:' );
           doc.save(RESPUESTA[0].Orden + '.pdf');
    }
