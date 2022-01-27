@@ -50,52 +50,53 @@ $(document).ready(function(){
             )
 
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
-          doc.setFontSize(12);
+          var doc = new jsPDF('p', 'pt', 'letter')
+    ''
+          doc.setFontSize(10);
           doc.setTextColor('#000000');
           doc.setFontType('bold');
-          doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
-          doc.text(50, 10, 'Unidad Periferica IGSS Zona 11');
-          doc.text(50, 15, 'Laboratorio Clinico');
+          doc.text(170, 20, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');//5
+          doc.text(170, 30, 'Unidad Periferica IGSS Zona 11');//10
+          doc.text(170, 40, 'Laboratorio Clinico');//15
           doc.setTextColor('#000000');
-          //doc.setFontType('normal');
-          doc.setFontSize(12);
+          doc.setFontType('normal');
+          doc.setFontSize(10);
           doc.setLineWidth(0.5)
-          doc.line(5, 56, 200, 56)
-          //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
-          doc.text(5, 30,   'Paciente:    '); //13
+          doc.line(5, 165, 600, 165)
+          doc.text(5, 80,   'Paciente:    '); //13
           doc.setFontType('normal');
-          doc.text(28,30,RESPUESTA[0].NombrePaciente);
+          doc.text(88,80,RESPUESTA[0].NombrePaciente);//28,20
           doc.setFontType('bold');
-          doc.text(5, 35,   'Afiliacion:  ');
-          doc.text(5, 40,   'Sexo:        ');
+          doc.text(5, 90,   'Afiliacion:  ');//5,25
+          doc.text(5, 100,   'Sexo:        ');
           doc.setFontType('normal');
-          doc.text(28, 40,RESPUESTA[0].Genero)
+          doc.text(88, 100,RESPUESTA[0].Genero)//28
           doc.setFontType('bold');
-          doc.text(5, 45,   'Edad:        ' );
-          doc.text(5, 50,   'Origen:      ');
+          doc.text(5, 110,   'Edad:        ' );
+          doc.text(5, 120,   'Origen:      ');
           doc.setFontType('normal');
-          doc.text(28, 50,RESPUESTA[0].nombreUnidadProcedencia);
+          doc.text(88, 120,RESPUESTA[0].nombreUnidadProcedencia);
           doc.setFontType('bold');
-          doc.text(155, 30, 'No.Petición: ');
-          doc.text(155, 35, 'Recepción:   ');
+          doc.text(400, 80, 'No.Petición: ');
+          doc.text(400, 90, 'Recepción:   ');
           doc.setFontType('normal');
-          doc.text(178,35,RESPUESTA[0].FechaOrden)
+          doc.text(460,90,RESPUESTA[0].FechaOrden);
           doc.setFontType('bold');
-          doc.text(95, 40,  'Medico:      ');
+          doc.text(300, 120,  'Medico:      ');
           doc.setFontType('normal');
-          doc.text(118,40,RESPUESTA[0].nombreMedico)
+          doc.text(350,120,RESPUESTA[0].nombreMedico)
           doc.setFontType('bold');
-          doc.text(95, 50,  'Servicio:    ');
-          doc.text(25, 60,  'EXAMEN:      ');
-          doc.text(55, 60,  'RESULTADO:   ');
-          doc.text(95, 60,  'UNIDADES:    ');
-          doc.text(125, 60, 'VALORES DE   ');
-          doc.text(125, 65, 'REFERENCIA:  ');
-          doc.text(165, 60, 'COMENTARIOS  ');
-          //doc.text(5, 70, RESPUESTA[0].nombreExamen);
+          doc.text(300, 130,  'Servicio:    ');
+          doc.text(25,150,  'EXAMEN:      ');
+          doc.text(150,150,  'RESULTADO:   ');
+          doc.text(250, 150,  'UNIDADES:    ');
+          doc.text(350, 150, 'VALORES DE   ');
+          doc.text(350, 160, 'REFERENCIA:  ');
+          doc.text(450, 150, 'COMENTARIOS  ');
+         // doc.text(250, 180, 'RESPUESTA[0].nombreExamen');5,
           
           //bucle
-          var y = 80;
+          var y = 150;
 
           for (let i=0;i<=RESPUESTA.length -1 ;i++){
             doc.setFontSize(10);
@@ -106,7 +107,7 @@ $(document).ready(function(){
             doc.setFontType('normal');
             doc.text(105, y, RESPUESTA[i].unidadMedida);
             doc.text(135, y, RESPUESTA[i].valorDeReferencia);
-            y = y + 10;
+            y = y + 50;
           }
 
           //fin de bucle
