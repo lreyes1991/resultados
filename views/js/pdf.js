@@ -33,7 +33,7 @@ $(document).ready(function(){
               left: 40,
               width: 100
             };
-          pdf.fromHTML(
+            doc.fromHTML(
               source // HTML string or DOM elem ref.
               , margins.left + 20 // x coord
               , margins.top // y coord
@@ -44,11 +44,11 @@ $(document).ready(function(){
               function (dispose) {
                 // dispose: object with X, Y of the last line add to the PDF
                 //          this allow the insertion of new lines after html
-                  pdf.save('Test.pdf');
+               // doc.save('Test.pdf');
                 },
               margins
             )
-            
+
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
           doc.setFontSize(12);
           doc.setTextColor('#000000');
