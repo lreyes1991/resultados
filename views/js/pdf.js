@@ -33,26 +33,26 @@ $(document).ready(function(){
           //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
           doc.text(5, 20,   'Paciente:    '); //13
           doc.setFontType('normal');
-          doc.text(18,20,RESPUESTA[0].NombrePaciente);
+          doc.text(28,20,RESPUESTA[0].NombrePaciente);
           doc.setFontType('bold');
           doc.text(5, 25,   'Afiliacion:  ');
           doc.text(5, 30,   'Sexo:        ');
           doc.setFontType('normal');
-          doc.text(18, 30,RESPUESTA[0].Genero)
+          doc.text(28, 30,RESPUESTA[0].Genero)
           doc.setFontType('bold');
           doc.text(5, 35,   'Edad:        ' );
           doc.text(5, 40,   'Origen:      ');
           doc.setFontType('normal');
-          doc.text(18, 40,RESPUESTA[0].nombreUnidadProcedencia);
+          doc.text(28, 40,RESPUESTA[0].nombreUnidadProcedencia);
           doc.setFontType('bold');
           doc.text(155, 20, 'No.Petición: ');
           doc.text(155, 25, 'Recepción:   ');
           doc.setFontType('normal');
-          doc.text(168,25,RESPUESTA[0].FechaOrden)
+          doc.text(178,25,RESPUESTA[0].FechaOrden)
           doc.setFontType('bold');
           doc.text(95, 30,  'Medico:      ');
           doc.setFontType('normal');
-          doc.text(108,30,RESPUESTA[0].nombreMedico)
+          doc.text(118,30,RESPUESTA[0].nombreMedico)
           doc.setFontType('bold');
           doc.text(95, 40,  'Servicio:    ');
           doc.text(25, 50,  'EXAMEN:      ');
