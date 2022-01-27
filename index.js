@@ -68,6 +68,7 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
   var centro = req.params.centro;
   connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente, O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento, O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,O.nombreUnidadProcedencia,O.nombreMedico, R.usuarioValida FROM Orden as O LEFT JOIN Resultados as R ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
+      res.render
       res.json(results);
     }
   );
@@ -216,8 +217,8 @@ app.get('/resultado/:codigo',(req, res)=>{
                }
             
               
-              localStorage.setItem("orden",${orden});
-              localStorage.setItem("centro",${centro});
+              localStorage.setItem("orden","${orden}");
+              localStorage.setItem("centro","${centro}");
               }
               
               xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
@@ -225,6 +226,9 @@ app.get('/resultado/:codigo',(req, res)=>{
               xhr.send();
             });
           
+            function redireccionar(){
+              document.location.href='https://consultaresultadoslaboratorio.health';
+            }
 
               </script>
           </head>
@@ -250,7 +254,7 @@ app.get('/resultado/:codigo',(req, res)=>{
               <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
           </div>
           <div class="row col-12 d-flex justify-content-center">
-            <button class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health">Descargar en PDF</button>
+            <button class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button>
           </div>
           <div class="row col-12" id="tabla_datos">
             <h1 class="col-12" id="h_examen"style="font-size: 1.5rem;">${nombreExamen}</h1>
