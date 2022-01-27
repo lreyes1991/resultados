@@ -18,7 +18,7 @@ $(document).ready(function(){
           console.log(RESPUESTA);
    
           var doc = new jsPDF()
-
+          doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14)
           doc.setFontSize(12);
           doc.setTextColor('#000000');
           doc.setFontType('bold');
