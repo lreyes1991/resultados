@@ -35,7 +35,7 @@ $(document).ready(function(){
           doc.text(5, 25, 'Afiliacion: ');
           doc.text(5, 30, 'Sexo:       ' + RESPUESTA[0].Genero);
           doc.text(5, 35, 'Edad:       ' );
-          doc.text(5, 40, 'Origen:     ' + RESPUESTA[0].nombreUnidadProcecencia);
+          doc.text(5, 40, 'Origen:     ' + RESPUESTA[0].nombreUnidadProcedencia);
           doc.text(155, 20, 'No.Petición: ');
           doc.text(155, 25, 'Recepción:   '+ RESPUESTA[0].FechaOrden);
           doc.text(95, 30, 'Medico:      '+ RESPUESTA[0].nombreMedico);
