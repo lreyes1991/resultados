@@ -15,10 +15,18 @@ $(document).ready(function(){
       var RESPUESTA  = (xhr.response);
           RESPUESTA=JSON.parse(RESPUESTA);
           
+
+          $("#i_centro").text(RESPUESTA[0].Centro);
+          $("#i_orden").text(RESPUESTA[0].Orden);
+          $("#p_paciente").text(RESPUESTA[0].NombrePaciente);
+          $("#p_fechaNacimiento").text(RESPUESTA[0].fechaDeNacimiento);
+          $("#p_genero").text(RESPUESTA[0].Genero);
+          $("#p_fechaOrden").text(RESPUESTA[0].FechaOrden);
+
           console.log(RESPUESTA);
    
           var doc = new jsPDF('p', 'pt', 'letter')
-          , source = RESPUESTA[0].nombreExamen
+          , source = $('#i_orden')[0]
           , specialElementHandlers = {
             '#bypassme': function(element, renderer){
               return true
@@ -30,7 +38,7 @@ $(document).ready(function(){
               left: 40,
               width: 100
             };
-            doc.text(
+            doc.fromHTML(
               source // HTML string or DOM elem ref.
               , margins.left // x coord ,se puede sumar: margins.left + 20
               , margins.top // y coord
@@ -47,7 +55,7 @@ $(document).ready(function(){
             )
 
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
-        //  var doc = new jsPDF('p', 'pt', 'letter')
+          var doc = new jsPDF('p', 'pt', 'letter')
     ''
           doc.setFontSize(10);
           doc.setTextColor('#000000');
