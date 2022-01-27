@@ -18,24 +18,21 @@ $(document).ready(function(){
           console.log(RESPUESTA);
    
           var doc = new jsPDF('p', 'pt', 'letter')
-          , source = $('#i_orden')[0]
+          , source = RESPUESTA[0].nombreExamen
           , specialElementHandlers = {
-            // element with id of "bypass" - jQuery style selector
             '#bypassme': function(element, renderer){
-              // true = "handled elsewhere, bypass text extraction"
               return true
             }
           }
-          
           margins = {
               top: 80,
               bottom: 60,
               left: 40,
               width: 100
             };
-            doc.fromHTML(
+            doc.text(
               source // HTML string or DOM elem ref.
-              , margins.left + 20 // x coord
+              , margins.left // x coord ,se puede sumar: margins.left + 20
               , margins.top // y coord
               , {
                 'width': margins.width // max width of content on PDF
