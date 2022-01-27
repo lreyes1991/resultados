@@ -31,36 +31,54 @@ $(document).ready(function(){
           doc.setLineWidth(0.5)
           doc.line(5, 56, 200, 56)
           //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
-          doc.text(5, 20, 'Paciente:   ' + RESPUESTA[0].NombrePaciente);
-          doc.text(5, 25, 'Afiliacion: ');
-          doc.text(5, 30, 'Sexo:       ' + RESPUESTA[0].Genero);
-          doc.text(5, 35, 'Edad:       ' );
-          doc.text(5, 40, 'Origen:     ' + RESPUESTA[0].nombreUnidadProcedencia);
+          doc.text(5, 20,   'Paciente:    '); //13
+          doc.setFontType('normal');
+          doc.text(18,20,RESPUESTA[0].NombrePaciente);
+          doc.setFontType('bold');
+          doc.text(5, 25,   'Afiliacion:  ');
+          doc.text(5, 30,   'Sexo:        ');
+          doc.setFontType('normal');
+          doc.text(18, 30,RESPUESTA[0].Genero)
+          doc.setFontType('bold');
+          doc.text(5, 35,   'Edad:        ' );
+          doc.text(5, 40,   'Origen:      ');
+          doc.setFontType('normal');
+          doc.text(18, 40,RESPUESTA[0].nombreUnidadProcedencia);
+          doc.setFontType('bold');
           doc.text(155, 20, 'No.Petición: ');
-          doc.text(155, 25, 'Recepción:   '+ RESPUESTA[0].FechaOrden);
-          doc.text(95, 30, 'Medico:      '+ RESPUESTA[0].nombreMedico);
-          doc.text(95, 40, 'Servicio:      ');
-          doc.text(25, 50, 'EXAMEN:' );
-          doc.text(55, 50, 'RESULTADO:' );
-          doc.text(95, 50, 'UNIDADES:' );
-          doc.text(125, 50, 'VALORES DE' );
-          doc.text(125, 55, 'REFERENCIA:' );
-          doc.text(165, 50, 'COMENTARIOS' );
+          doc.text(155, 25, 'Recepción:   ');
+          doc.setFontType('normal');
+          doc.text(168,25,RESPUESTA[0].FechaOrden)
+          doc.setFontType('bold');
+          doc.text(95, 30,  'Medico:      ');
+          doc.setFontType('normal');
+          doc.text(108,30,RESPUESTA[0].nombreMedico)
+          doc.setFontType('bold');
+          doc.text(95, 40,  'Servicio:    ');
+          doc.text(25, 50,  'EXAMEN:      ');
+          doc.text(55, 50,  'RESULTADO:   ');
+          doc.text(95, 50,  'UNIDADES:    ');
+          doc.text(125, 50, 'VALORES DE   ');
+          doc.text(125, 55, 'REFERENCIA:  ');
+          doc.text(165, 50, 'COMENTARIOS  ');
           doc.text(5, 60, RESPUESTA[0].nombreExamen);
           
           //bucle
           var y = 70;
 
           for (let i=0;i<=RESPUESTA.length -1 ;i++){
+            doc.setFontType('normal');
             doc.text(5, y, RESPUESTA[i].nombreExamen);
+            doc.setFontType('bold');
             doc.text(55, y, RESPUESTA[i].resultado);
+            doc.setFontType('normal');
             doc.text(95, y, RESPUESTA[i].unidadMedida);
-            doc.text(125, y, RESPUESTA[i].valorDeReferencia );
+            doc.text(125, y, RESPUESTA[i].valorDeReferencia);
             y = y + 10;
           }
 
           //fin de bucle
-          doc.text(55, 100, 'Validado por:' );
+          doc.text(55, 100, 'Validado por: '+ RESPUESTA[i].usuarioValida);
           doc.save(RESPUESTA[0].Orden + '.pdf');
    }
   }
