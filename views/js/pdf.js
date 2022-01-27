@@ -46,7 +46,7 @@ $(document).ready(function(){
           doc.text(125, 50, 'VALORES DE' );
           doc.text(125, 55, 'REFERENCIA:' );
           doc.text(165, 50, 'COMENTARIOS' );
-          doc.text(95, 60, RESPUESTA[0].nombreExamen);
+          doc.text(5, 60, RESPUESTA[0].nombreExamen);
           doc.text(5, 70, 'SEROLOGÍA' );
           doc.text(55, 70, 'RESULTADO' );
           doc.text(95, 70, 'UNIDADES' );

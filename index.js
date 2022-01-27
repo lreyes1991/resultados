@@ -68,10 +68,14 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
   var centro = req.params.centro;
   connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente, O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento, O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,O.nombreUnidadProcedencia,O.nombreMedico, R.usuarioValida,R.nombreExamen FROM Orden as O LEFT JOIN Resultados as R ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
-      res.render
       res.json(results);
-    }
-  );
+    });
+    
+  connection.query(`SELECT R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia FROM Resultados as O RIGHT JOIN Resultados as R ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+    function(err, results, fields) {
+      res.json(results);
+    });
+
 });
 
 app.get('/resultadospdf/:orden/:centro', (req,res)=>{
@@ -80,8 +84,7 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
   connection.query(`SELECT R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia FROM Resultados as O RIGHT JOIN Resultados as R ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
       res.json(results);
-    }
-  );
+    });
 });
 
 //app.engine('ejs',require('ejs').__express);
