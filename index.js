@@ -227,7 +227,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             });
           
             function redireccionar(){
-              document.location.href='https://consultaresultadoslaboratorio.health';
+              window.location.href='https://www.consultaresultadoslaboratorio.health/';
             }
 
               </script>
