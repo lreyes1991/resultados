@@ -47,7 +47,7 @@ $(document).ready(function(){
             )
 
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
-          var doc = new jsPDF('p', 'pt', 'letter')
+        //  var doc = new jsPDF('p', 'pt', 'letter')
     ''
           doc.setFontSize(10);
           doc.setTextColor('#000000');
