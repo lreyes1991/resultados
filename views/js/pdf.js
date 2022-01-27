@@ -18,6 +18,37 @@ $(document).ready(function(){
           console.log(RESPUESTA);
    
           var doc = new jsPDF('p', 'pt', 'letter')
+          , source = $('#i_orden')[0]
+          , specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function(element, renderer){
+              // true = "handled elsewhere, bypass text extraction"
+              return true
+            }
+          }
+          
+          margins = {
+              top: 80,
+              bottom: 60,
+              left: 40,
+              width: 100
+            };
+          pdf.fromHTML(
+              source // HTML string or DOM elem ref.
+              , margins.left + 20 // x coord
+              , margins.top // y coord
+              , {
+                'width': margins.width // max width of content on PDF
+                , 'elementHandlers': specialElementHandlers
+              },
+              function (dispose) {
+                // dispose: object with X, Y of the last line add to the PDF
+                //          this allow the insertion of new lines after html
+                  pdf.save('Test.pdf');
+                },
+              margins
+            )
+            
           doc.addImage(logoigss, 'JPEG', 25, 2, 14, 14);
           doc.setFontSize(12);
           doc.setTextColor('#000000');
