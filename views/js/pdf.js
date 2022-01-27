@@ -78,7 +78,7 @@ $(document).ready(function(){
           }
 
           //fin de bucle
-          doc.text(55, 100, 'Validado por: '+ RESPUESTA[i].usuarioValida);
+          doc.text(55, 100, 'Validado por: '+ RESPUESTA[0].usuarioValida);
           doc.save(RESPUESTA[0].Orden + '.pdf');
    }
   }
