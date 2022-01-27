@@ -26,7 +26,7 @@ $(document).ready(function(){
           console.log(RESPUESTA);
    
           var doc = new jsPDF('p', 'pt', 'letter')
-          , source = $('#i_orden')[0]
+          , source = $('#p_paciente')[0]
           , specialElementHandlers = {
             '#bypassme': function(element, renderer){
               return true
