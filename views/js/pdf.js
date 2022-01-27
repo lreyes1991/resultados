@@ -31,37 +31,37 @@ $(document).ready(function(){
           doc.setLineWidth(0.5)
           doc.line(5, 56, 200, 56)
           //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
-          doc.text(5, 20,   'Paciente:    '); //13
+          doc.text(5, 30,   'Paciente:    '); //13
           doc.setFontType('normal');
-          doc.text(28,20,RESPUESTA[0].NombrePaciente);
+          doc.text(28,30,RESPUESTA[0].NombrePaciente);
           doc.setFontType('bold');
-          doc.text(5, 25,   'Afiliacion:  ');
-          doc.text(5, 30,   'Sexo:        ');
+          doc.text(5, 35,   'Afiliacion:  ');
+          doc.text(5, 40,   'Sexo:        ');
           doc.setFontType('normal');
-          doc.text(28, 30,RESPUESTA[0].Genero)
+          doc.text(28, 40,RESPUESTA[0].Genero)
           doc.setFontType('bold');
-          doc.text(5, 35,   'Edad:        ' );
-          doc.text(5, 40,   'Origen:      ');
+          doc.text(5, 45,   'Edad:        ' );
+          doc.text(5, 50,   'Origen:      ');
           doc.setFontType('normal');
-          doc.text(28, 40,RESPUESTA[0].nombreUnidadProcedencia);
+          doc.text(28, 50,RESPUESTA[0].nombreUnidadProcedencia);
           doc.setFontType('bold');
-          doc.text(155, 20, 'No.Petición: ');
-          doc.text(155, 25, 'Recepción:   ');
+          doc.text(155, 30, 'No.Petición: ');
+          doc.text(155, 35, 'Recepción:   ');
           doc.setFontType('normal');
-          doc.text(178,25,RESPUESTA[0].FechaOrden)
+          doc.text(178,35,RESPUESTA[0].FechaOrden)
           doc.setFontType('bold');
-          doc.text(95, 30,  'Medico:      ');
+          doc.text(95, 40,  'Medico:      ');
           doc.setFontType('normal');
-          doc.text(118,30,RESPUESTA[0].nombreMedico)
+          doc.text(118,40,RESPUESTA[0].nombreMedico)
           doc.setFontType('bold');
-          doc.text(95, 40,  'Servicio:    ');
-          doc.text(25, 50,  'EXAMEN:      ');
-          doc.text(55, 50,  'RESULTADO:   ');
-          doc.text(95, 50,  'UNIDADES:    ');
-          doc.text(125, 50, 'VALORES DE   ');
-          doc.text(125, 55, 'REFERENCIA:  ');
-          doc.text(165, 50, 'COMENTARIOS  ');
-          doc.text(5, 60, RESPUESTA[0].nombreExamen);
+          doc.text(95, 50,  'Servicio:    ');
+          doc.text(25, 60,  'EXAMEN:      ');
+          doc.text(55, 60,  'RESULTADO:   ');
+          doc.text(95, 60,  'UNIDADES:    ');
+          doc.text(125, 60, 'VALORES DE   ');
+          doc.text(125, 65, 'REFERENCIA:  ');
+          doc.text(165, 60, 'COMENTARIOS  ');
+          doc.text(5, 70, RESPUESTA[0].nombreExamen);
           
           //bucle
           var y = 70;
