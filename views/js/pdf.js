@@ -101,17 +101,17 @@ $(document).ready(function(){
          // doc.text(250, 180, 'RESPUESTA[0].nombreExamen');5,
           
           //bucle
-          var y = 150;
+          var y = 180;
 
           for (let i=0;i<=RESPUESTA.length -1 ;i++){
             doc.setFontSize(10);
             doc.setFontType('normal');
             doc.text(5, y, RESPUESTA[i].nombreExamen);
             doc.setFontType('bold');
-            doc.text(65, y, RESPUESTA[i].resultado);
+            doc.text(150, y, RESPUESTA[i].resultado);
             doc.setFontType('normal');
-            doc.text(105, y, RESPUESTA[i].unidadMedida);
-            doc.text(135, y, RESPUESTA[i].valorDeReferencia);
+            doc.text(250, y, RESPUESTA[i].unidadMedida);
+            doc.text(350, y, RESPUESTA[i].valorDeReferencia);
             y = y + 50;
           }
 
