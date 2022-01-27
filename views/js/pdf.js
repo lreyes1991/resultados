@@ -67,6 +67,7 @@ $(document).ready(function(){
           var y = 70;
 
           for (let i=0;i<=RESPUESTA.length -1 ;i++){
+            doc.setFontSize(10);
             doc.setFontType('normal');
             doc.text(5, y, RESPUESTA[i].nombreExamen);
             doc.setFontType('bold');
