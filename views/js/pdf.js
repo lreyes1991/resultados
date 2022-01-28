@@ -39,19 +39,25 @@ xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden +
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 
-var doc = new jsPDF();
+
 var specialElementHandlers = {
     "#editor":function(element,renderer){
       return true;
     }
   };
-doc.fromHTML($('#target').html(),15,15,{
-"width":170,
-"elementHandlers":specialElementHandlers
+  $("#cmd").click(function(){
+    var doc = new jsPDF();
+    doc.fromHTML($('#target').html(),15,15,{
+    "width":170,
+    "elementHandlers":specialElementHandlers
+  });
+
 });
 
 doc.save(`${localStorage.getItem("orden")}`);
-});
+
+
+}); 
 /*
 $(document).ready(function(){
 
