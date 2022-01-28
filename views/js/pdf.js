@@ -24,9 +24,9 @@ $(document).ready(function(){
 
         for(let i=0;i<=largo-1;i++){
           $('#tblresultados tr:last').after(`<tr><td>  ${RESPUESTA[i].nombreExamen}  </td><td>  ${RESPUESTA[i].resultado}  </td>
-          <td>  ${RESPUESTA[i].unidadMedida}  </td><td>  ${RESPUESTA[i].valorDeReferencia}  </td></tr>`);
+          `);
         }
-        
+        //<td>  ${RESPUESTA[i].unidadMedida}  </td><td>  ${RESPUESTA[i].valorDeReferencia}  </td></tr>
 
     var doc = new jsPDF();
     doc.setFontSize(12);
@@ -90,144 +90,5 @@ xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden +
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 
-
-
-  $("#cmd").click(function(){
-
-
-    var doc = new jsPDF();
-    doc.setFontSize(12);
-    doc.setTextColor('#000000');
-    doc.setFontType('bold');
-    doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
-    //doc.text(50, 10, RESPUESTA[0].nombreCentro);
-    doc.text(50, 10, 'Laboratorio Clinico');
-    doc.setTextColor('#000000');
-    //doc.setFontType('normal');
-    doc.setFontSize(12);
-    doc.setLineWidth(0.5)
-    doc.line(5, 56, 200, 56)
-    //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
-    doc.text(5, 30,   'Paciente:    '); //13
-    doc.setFontType('normal');
-    doc.text(28,30,RESPUESTA[0].NombrePaciente);
-    doc.setFontType('bold');
-    doc.text(5, 35,   'Afiliacion:  ');
-    doc.text(5, 40,   'Sexo:        ');
-    doc.setFontType('normal');
-    doc.text(28, 40,RESPUESTA[0].Genero)
-    doc.setFontType('bold');
-    doc.text(5, 45,   'Edad:        ' );
-    doc.text(5, 50,   'Origen:      ');
-    doc.setFontType('normal');
-    doc.text(28, 50,RESPUESTA[0].nombreCentro);
-    doc.setFontType('bold');
-    doc.text(155, 30, 'No.Petición: ');
-    doc.setFontType('normal');
-    doc.text(178,30,RESPUESTA[0].Orden);
-    doc.text(155, 35, 'Recepción:   ');
-    doc.setFontType('normal');
-    doc.text(178,35,RESPUESTA[0].FechaOrden);
-    doc.setFontType('bold');
-    doc.text(95, 40,  'Medico:      ');
-    doc.setFontType('normal');
-    doc.text(112,40,RESPUESTA[0].nombreMedico)
-    doc.setFontType('bold');
-    /*
-    doc.text(95, 50,  'Servicio:    ');
-    doc.text(25, 60,  'EXAMEN:      ');
-    doc.text(55, 60,  'RESULTADO:   ');
-    doc.text(95, 60,  'UNIDADES:    ');
-    doc.text(125, 60, 'VALORES DE   ');
-    doc.text(125, 65, 'REFERENCIA:  ');
-    doc.text(165, 60, 'COMENTARIOS  ');
-    */
-    //doc.text(5, 70, RESPUESTA[0].nombreExamen);
-    doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#tblresultados')[0],5,80,{
-      "width":600,
-      "elementHandlers":specialElementHandlers
-      });
-    doc.save(`${localStorage.getItem("orden")}`);
-
 });
 
-
-
-
-}); 
-/*
-$(document).ready(function(){
-
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange=function(){
-  if(this.readyState==4 && this.status==200){
-  
-    var RESPUESTA  = (xhr.response);
-        RESPUESTA=JSON.parse(RESPUESTA);
-        var largo = RESPUESTA.length;
-
-        $("#i_centro").text(RESPUESTA[0].Centro);
-        $("#i_orden").text(RESPUESTA[0].Orden);
-        $("#p_paciente").text(RESPUESTA[0].NombrePaciente);
-        $("#p_fechaNacimiento").text(RESPUESTA[0].fechaDeNacimiento);
-        $("#p_genero").text(RESPUESTA[0].Genero);
-        $("#p_fechaOrden").text(RESPUESTA[0].FechaOrden);
-        console.log(RESPUESTA);
- 
-        for(let i=0;i<=largo-1;i++){
-          $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
-        }
- }
-
-
-}
-
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhr.send();
-
-
-});
-
-*/
-
-
-
-
-
-
-function crearpdf(){
-  var pdf = new jsPDF('p', 'pt', 'letter')
-  , source = $('#i_orden')[0]
-  , specialElementHandlers = {
-    // element with id of "bypass" - jQuery style selector
-    '#bypassme': function(element, renderer){
-      // true = "handled elsewhere, bypass text extraction"
-      return true
-    }
-  }
-  
-  margins = {
-      top: 80,
-      bottom: 60,
-      left: 40,
-      width: 100
-    };
-  pdf.fromHTML(
-      source // HTML string or DOM elem ref.
-      , margins.left + 20 // x coord
-      , margins.top // y coord
-      , {
-        'width': margins.width // max width of content on PDF
-        , 'elementHandlers': specialElementHandlers
-      },
-      function (dispose) {
-        // dispose: object with X, Y of the last line add to the PDF
-        //          this allow the insertion of new lines after html
-          pdf.save('Test.pdf');
-        },
-      margins
-    )
-
-}
