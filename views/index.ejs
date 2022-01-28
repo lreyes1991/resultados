@@ -12,10 +12,8 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/resultados.css">
-  <script src="js/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script>
-  <script src="js/pdf.js"></script>  
   <link rel="stylesheet" href="views/css/resultados.css">
-  <script src="js/resultados.js"></script>
+  
   <style>
   #c1{
     text-align:center;
@@ -82,56 +80,8 @@
 
 </body>
 <script>
-  $(document).ready(function(){
 
-    //$("#p_centro").text();
-
-    var orden = localStorage.getItem("orden");
-    var centro = localStorage.getItem("centro");
-
-
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange=function(){
-    if(this.readyState==4 && this.status==200){
-    
-      var RESPUESTA  = (xhr.response);
-          RESPUESTA=JSON.parse(RESPUESTA);
-          var largo = RESPUESTA.length;
-          console.log(RESPUESTA);
-   
-  $("#i_centro").text(RESPUESTA[0].Centro);
-  $("#i_orden").text(RESPUESTA[0].Orden);
-  $("#p_paciente").text(RESPUESTA[0].NombrePaciente);
-  $("#p_fechaNacimiento").text(RESPUESTA[0].fechaDeNacimiento);
-  $("#p_genero").text(RESPUESTA[0].Genero);
-  $("#p_fechaOrden").text(RESPUESTA[0].FechaOrden);
-
-          for(let i=0;i<=largo-1;i++){
-            $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
-
-
-          }
-   }
-  }
-  
-  xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden + "/" + centro,true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send();
-
-  var doc = new jsPDF();
-  var specialElementHandlers = {
-      "#editor":function(element,renderer){
-        return true;
-      }
-    };
-doc.fromHTML($('#target').html(),15,15,{
-  "width":170,
-  "elementHandlers":specialElementHandlers
-});
-
-doc.save(`${localStorage.getItem("orden")}`);
-});
   </script>
-  
+  <script src="js/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script>
+  <script src="js/pdf.js"></script>
 </html>
