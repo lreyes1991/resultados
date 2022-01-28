@@ -77,7 +77,7 @@ $(document).ready(function(){
     */
     //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#target')[0],5,80);
+    doc.fromHTML($('#target')[0],5,58);
     doc.save(`${localStorage.getItem("orden")}`);
       
  }
