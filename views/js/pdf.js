@@ -31,10 +31,59 @@ $("#p_fechaNacimiento").text(RESPUESTA[0].fechaDeNacimiento);
 $("#p_genero").text(RESPUESTA[0].Genero);
 $("#p_fechaOrden").text(RESPUESTA[0].FechaOrden);
 */
+var doc = new jsPDF();
+doc.setFontSize(12);
+doc.setTextColor('#000000');
+doc.setFontType('bold');
+doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
+doc.text(50, 10, 'Unidad Periferica IGSS Zona 11');
+doc.text(50, 15, 'Laboratorio Clinico');
+doc.setTextColor('#000000');
+//doc.setFontType('normal');
+doc.setFontSize(12);
+doc.setLineWidth(0.5)
+doc.line(5, 56, 200, 56)
+//doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
+doc.text(5, 30,   'Paciente:    '); //13
+doc.setFontType('normal');
+doc.text(28,30,RESPUESTA[0].NombrePaciente);
+doc.setFontType('bold');
+doc.text(5, 35,   'Afiliacion:  ');
+doc.text(5, 40,   'Sexo:        ');
+doc.setFontType('normal');
+doc.text(28, 40,RESPUESTA[0].Genero)
+doc.setFontType('bold');
+doc.text(5, 45,   'Edad:        ' );
+doc.text(5, 50,   'Origen:      ');
+doc.setFontType('normal');
+doc.text(28, 50,RESPUESTA[0].nombreUnidadProcedencia);
+doc.setFontType('bold');
+doc.text(155, 30, 'No.Petición: ');
+doc.text(155, 35, 'Recepción:   ');
+doc.setFontType('normal');
+doc.text(178,35,RESPUESTA[0].FechaOrden)
+doc.setFontType('bold');
+doc.text(95, 40,  'Medico:      ');
+doc.setFontType('normal');
+doc.text(112,40,RESPUESTA[0].nombreMedico)
+doc.setFontType('bold');
+doc.text(95, 50,  'Servicio:    ');
+doc.text(25, 60,  'EXAMEN:      ');
+doc.text(55, 60,  'RESULTADO:   ');
+doc.text(95, 60,  'UNIDADES:    ');
+doc.text(125, 60, 'VALORES DE   ');
+doc.text(125, 65, 'REFERENCIA:  ');
+doc.text(165, 60, 'COMENTARIOS  ');
+doc.text(5, 70, RESPUESTA[0].nombreExamen);
+doc.text(5, 80, 'TABLA  ');
+doc.addImage(logoigss,5,0,20,20);
+doc.fromHTML($('#target')[0],5,80);
+
 
         for(let i=0;i<=largo-1;i++){
           $('#tblresultados tr:last').after(`<tr><td>${RESPUESTA[i].nombreExamen}</td><td>${RESPUESTA[i].resultado}</td><td>${RESPUESTA[i].valorDeReferencia}</td></tr>`);
         }
+        doc.save(`${localStorage.getItem("orden")}`);
  }
 }
 
