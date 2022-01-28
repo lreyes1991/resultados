@@ -54,8 +54,8 @@ xhr.send();
     doc.setTextColor('#000000');
     doc.setFontType('bold');
     doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
-    doc.text(50, 10, 'Unidad Periferica IGSS Zona 11');
-    doc.text(50, 15, 'Laboratorio Clinico');
+    //doc.text(50, 10, RESPUESTA[0].nombreCentro);
+    doc.text(50, 10, 'Laboratorio Clinico');
     doc.setTextColor('#000000');
     //doc.setFontType('normal');
     doc.setFontSize(12);
@@ -74,17 +74,20 @@ xhr.send();
     doc.text(5, 45,   'Edad:        ' );
     doc.text(5, 50,   'Origen:      ');
     doc.setFontType('normal');
-    doc.text(28, 50,RESPUESTA[0].nombreUnidadProcedencia);
+    doc.text(28, 50,RESPUESTA[0].nombreCentro);
     doc.setFontType('bold');
     doc.text(155, 30, 'No.Petición: ');
+    doc.setFontType('normal');
+    doc.text(178,30,RESPUESTA[0].Orden);
     doc.text(155, 35, 'Recepción:   ');
     doc.setFontType('normal');
-    doc.text(178,35,RESPUESTA[0].FechaOrden)
+    doc.text(178,35,RESPUESTA[0].FechaOrden);
     doc.setFontType('bold');
     doc.text(95, 40,  'Medico:      ');
     doc.setFontType('normal');
     doc.text(112,40,RESPUESTA[0].nombreMedico)
     doc.setFontType('bold');
+    /*
     doc.text(95, 50,  'Servicio:    ');
     doc.text(25, 60,  'EXAMEN:      ');
     doc.text(55, 60,  'RESULTADO:   ');
@@ -92,6 +95,7 @@ xhr.send();
     doc.text(125, 60, 'VALORES DE   ');
     doc.text(125, 65, 'REFERENCIA:  ');
     doc.text(165, 60, 'COMENTARIOS  ');
+    */
     doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
     doc.fromHTML($('#target')[0],5,80);
