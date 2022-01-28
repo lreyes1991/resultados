@@ -142,7 +142,7 @@ xhr.send();
     //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
     doc.fromHTML($('#target')[0],5,80,{
-      "width":500,
+      "width":600,
       "elementHandlers":specialElementHandlers
       });
     doc.save(`${localStorage.getItem("orden")}`);
