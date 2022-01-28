@@ -23,10 +23,21 @@ $(document).ready(function(){
         console.log(RESPUESTA);
 
         for(let i=0;i<=largo-1;i++){
-          $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${RESPUESTA[i].nombreExamen}</font></td>
-                                                 <td><FONT SIZE="1">${RESPUESTA[i].resultado}</font></td>
-                                                 <td><FONT SIZE="1">${RESPUESTA[i].unidadMedida}</font></td>
-                                                 <td><FONT SIZE="1">${RESPUESTA[i].valorDeReferencia}</font></td></tr>`);
+
+          var nombreExamen      = results[i].nombreExamen
+          var resultado         = results[i].resultado
+          var unidadMedida      = results[i].unidadMedida
+          var valorDeReferencia = results[i].valorDeReferencia
+
+
+          if(nombreExamen == ''){Orden ='      '}
+          if(resultado == ''){Centro ='      '}
+          if(unidadMedida == ''){NombrePaciente ='      '}
+          if(valorDeReferencia == ''){nombreCentro ='      '}
+          $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${nombreExamen}</font></td>
+                                                 <td><FONT SIZE="1">${resultado}</font></td>
+                                                 <td><FONT SIZE="1">${unidadMedida}</font></td>
+                                                 <td><FONT SIZE="1">${valorDeReferencia}</font></td></tr>`);
         }
         
 
