@@ -51,10 +51,10 @@ var specialElementHandlers = {
     "width":170,
     "elementHandlers":specialElementHandlers
   });
-
+  doc.save(`${localStorage.getItem("orden")}`);
 });
 
-doc.save(`${localStorage.getItem("orden")}`);
+
 
 
 }); 
