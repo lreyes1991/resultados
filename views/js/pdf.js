@@ -60,14 +60,17 @@ $(document).ready(function(){
     doc.text(155, 30, 'No.Petición: ');
     doc.setFontType('normal');
     doc.text(178,30,RESPUESTA[0].Orden);
+    doc.setFontType('bold');
     doc.text(155, 35, 'Recepción:   ');
     doc.setFontType('normal');
     doc.text(178,35,RESPUESTA[0].FechaOrden);
     doc.setFontType('bold');
     doc.text(95, 40,  'Medico:      ');
+    doc.text(95, 50,  'Servicio:    ');
     doc.setFontType('normal');
     doc.text(112,40,RESPUESTA[0].nombreMedico)
-    doc.setFontType('bold');
+    doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
+    
     /*
     doc.text(95, 50,  'Servicio:    ');
     doc.text(25, 60,  'EXAMEN:      ');
@@ -79,7 +82,7 @@ $(document).ready(function(){
     */
     //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#target')[0],5,55,{
+    doc.fromHTML($('#target')[1],5,55,{
       "width":600,
       "elementHandlers":specialElementHandlers
       });
