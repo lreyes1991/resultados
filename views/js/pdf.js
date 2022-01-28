@@ -28,11 +28,11 @@ $(document).ready(function(){
           var resultado         = RESPUESTA[i].resultado;
           var unidadMedida      = RESPUESTA[i].unidadMedida;
           var valorDeReferencia = RESPUESTA[i].valorDeReferencia;
-console.log(nombreExamen);
+console.log(valorDeReferencia);
 
           if(nombreExamen == ''){nombreExamen ='      '};
-          if(resultado == ''){resultado ='------'};
-          if(unidadMedida == ''){unidadMedida ='      '};
+          if(resultado == ''){resultado ='      '};
+          if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='      '};
           $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${nombreExamen}</font></td>
                                                  <td><FONT SIZE="1">${resultado}</font></td>
