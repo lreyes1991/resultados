@@ -24,10 +24,10 @@ $(document).ready(function(){
 
         for(let i=0;i<=largo-1;i++){
 
-          var nombreExamen      = results[i].nombreExamen
-          var resultado         = results[i].resultado
-          var unidadMedida      = results[i].unidadMedida
-          var valorDeReferencia = results[i].valorDeReferencia
+          var nombreExamen      = RESPUESTA[i].nombreExamen
+          var resultado         = RESPUESTA[i].resultado
+          var unidadMedida      = RESPUESTA[i].unidadMedida
+          var valorDeReferencia = RESPUESTA[i].valorDeReferencia
 
 
           if(nombreExamen == ''){Orden ='      '}
