@@ -53,7 +53,9 @@ $(document).ready(function(){
     doc.text(28, 40,RESPUESTA[0].Genero)
     doc.setFontType('bold');
     doc.text(5, 45,   'Nacimiento:  ' );
+    doc.setFontType('normal');
     doc.text(28, 45,RESPUESTA[0].fechaDeNacimiento);
+    doc.setFontType('bold');
     doc.text(5, 50,   'Origen:      ');
     doc.setFontType('normal');
     doc.text(28, 50,RESPUESTA[0].nombreCentro);
@@ -71,17 +73,6 @@ $(document).ready(function(){
     doc.setFontType('normal');
     doc.text(112,40,RESPUESTA[0].nombreMedico)
     doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
-    
-    /*
-    doc.text(95, 50,  'Servicio:    ');
-    doc.text(25, 60,  'EXAMEN:      ');
-    doc.text(55, 60,  'RESULTADO:   ');
-    doc.text(95, 60,  'UNIDADES:    ');
-    doc.text(125, 60, 'VALORES DE   ');
-    doc.text(125, 65, 'REFERENCIA:  ');
-    doc.text(165, 60, 'COMENTARIOS  ');
-    */
-    //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
     doc.fromHTML($('#target').get(0),5,55,{
       "width":170,
