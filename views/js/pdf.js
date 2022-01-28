@@ -24,11 +24,11 @@ $(document).ready(function(){
 
         for(let i=0;i<=largo-1;i++){
           $('#tblresultados tr:last').after(`<tr><td>  ${RESPUESTA[i].nombreExamen}  </td><td>  ${RESPUESTA[i].resultado}  </td>
-          `);
+          <td>  ${RESPUESTA[i].unidadMedida}  </td><td>  ${RESPUESTA[i].valorDeReferencia}  </td></tr>`);
         }
-        //<td>  ${RESPUESTA[i].unidadMedida}  </td><td>  ${RESPUESTA[i].valorDeReferencia}  </td></tr>
+        
 
-    var doc = new jsPDF('p', 'pt', 'letter');
+    var doc = new jsPDF();
     doc.setFontSize(12);
     doc.setTextColor('#000000');
     doc.setFontType('bold');
