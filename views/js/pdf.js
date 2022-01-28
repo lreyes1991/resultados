@@ -31,7 +31,7 @@ $(document).ready(function(){
 console.log(valorDeReferencia);
 
           if(nombreExamen == ''){nombreExamen ='      '};
-          if(resultado == ''){resultado ='------'};
+          if(resultado == ''){resultado ='----------'};
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
           $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${nombreExamen}</font></td>
