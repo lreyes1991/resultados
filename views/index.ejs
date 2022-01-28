@@ -3,79 +3,39 @@
 
   <meta charset="UTF-8">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="views/css/resultados.css">
-  
-
 
 </head>
-<header class="row col-12">
-<h1 class="col-12">Resultados</h1>
-<div class="col-6"  id="c1">
+<header >
+<h1 >Resultados</h1>
+<div   id="c1">
   
 </div>
-<div class="col-6"  id="c2">
+<div  id="c2">
   
 </div>            
 
 </header>
 <body id="target">
-<div class="row col-12">
-
-  <p class="col-12">Información del paciente</p>
-  <p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro"></p>
-  <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden"></p>
-  <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente"></p>
-  <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento"></p>
-  <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero"></p>
-  <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden"></p>
+<div >
+  <p >Información del paciente</p>
+  <p >Centro</p><p  id="i_centro"></p>
+  <p >Orden</p><p  id="i_orden"></p>
+  <p >Paciente</p><p  id="p_paciente"></p>
+  <p >Fecha de Nacimiento</p><p  id="p_fechaNacimiento"></p>
+  <p >Género</p><p  id="p_genero"></p>
+  <p >Fecha de Orden</p><p id="p_fechaOrden"></p>
 </div>
-<div class="row col-12 d-flex justify-content-center">
-  <button id="cmd" class="btn btn-success col-4">Descargar en PDF</button> 
+<div >
+  <button id="cmd">Descargar en PDF</button> 
 </div> 
-<div class="row col-12" id="tabla_datos">
-<h1 class="col-12" id="h_examen"style="font-size: 1.5rem;"></h1>
-<p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
+<div  id="tabla_datos">
+<h1 id="h_examen"></h1>
 <h2>HTML Table</h2>
-
-<table>
+<table id="tblresultados">
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
+    <th>Examen</th>
+    <th>Resultado</th>
+    <th>Valor de referencia</th>
   </tr>
 </table>
 </div>          
