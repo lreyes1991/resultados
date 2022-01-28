@@ -77,7 +77,7 @@ $(document).ready(function(){
     */
     //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#target')[0],5,55,{
+    doc.fromHTML($('#tblresultados')[0],5,55,{
       "width":600,
       "elementHandlers":specialElementHandlers
       });
