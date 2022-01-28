@@ -52,7 +52,8 @@ $(document).ready(function(){
     doc.setFontType('normal');
     doc.text(28, 40,RESPUESTA[0].Genero)
     doc.setFontType('bold');
-    doc.text(5, 45,   'Edad:        ' );
+    doc.text(5, 45,   'Nacimiento:  ' );
+    doc.text(28, 45,RESPUESTA[0].fechaDeNacimiento);
     doc.text(5, 50,   'Origen:      ');
     doc.setFontType('normal');
     doc.text(28, 50,RESPUESTA[0].nombreCentro);
@@ -82,8 +83,8 @@ $(document).ready(function(){
     */
     //doc.text(5, 70, RESPUESTA[0].nombreExamen);
     doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#target')[1],5,55,{
-      "width":600,
+    doc.fromHTML($('#target').get(0),5,55,{
+      "width":170,
       "elementHandlers":specialElementHandlers
       });
     doc.save(`${localStorage.getItem("orden")}`);
