@@ -74,21 +74,12 @@ $(document).ready(function(){
     doc.text(112,40,RESPUESTA[0].nombreMedico)
     doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
     doc.addImage(logoigss,5,0,20,20);
-    /*doc.fromHTML($('#target').get(0),5,55,{
+    doc.fromHTML($('#target').get(0),5,55,{
       "width":170,
       "elementHandlers":specialElementHandlers
-      });*/
+      });
     doc.save(`${localStorage.getItem("orden")}`);
-      
-    doc.autoTable({
-      html: '#tblresultados',
-      columnStyles: {
-        0: {cellWidth: 100},
-        1: {cellWidth: 80},
-        2: {cellWidth: 80},
-        // etc
-      }
-    });
+
 
  }
 }
