@@ -5,7 +5,11 @@ const logoigss ="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gKgSUNDX1BS
 $(document).ready(function(){
 
   //$("#p_centro").text();
-
+  var specialElementHandlers = {
+    "#editor": function(element,renderer){
+      return true;
+    }
+  };
   var orden = localStorage.getItem("orden");
   var centro = localStorage.getItem("centro");
 
@@ -40,17 +44,15 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 
 
-var specialElementHandlers = {
-    "#editor":function(element,renderer){
-      return true;
-    }
-  };
+
   $("#cmd").click(function(){
+
     var doc = new jsPDF();
+
     doc.fromHTML($('#target').html(),15,15,{
     "width":170,
     "elementHandlers":specialElementHandlers
-  });
+    });
   doc.save(`${localStorage.getItem("orden")}`);
 });
 
