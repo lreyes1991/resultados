@@ -24,9 +24,9 @@ $(document).ready(function(){
 
         for(let i=0;i<=largo-1;i++){
           $('#tblresultados tr:last').after(`<tr><td><small>${RESPUESTA[i].nombreExamen}</small></td>
-                                             <td><small>${RESPUESTA[i].resultado}</small></td>
-                                             <td><small>${RESPUESTA[i].unidadMedida}</small></td>
-                                             <td><small>${RESPUESTA[i].valorDeReferencia}</small></td></tr>`);
+                                                 <td><small>${RESPUESTA[i].resultado}</small></td>
+                                                 <td><small>${RESPUESTA[i].unidadMedida}</small></td>
+                                                 <td><small>${RESPUESTA[i].valorDeReferencia}</small></td></tr>`);
         }
         
 
