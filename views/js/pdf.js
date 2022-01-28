@@ -24,16 +24,16 @@ $(document).ready(function(){
 
         for(let i=0;i<=largo-1;i++){
 
-          var nombreExamen      = RESPUESTA[i].nombreExamen
-          var resultado         = RESPUESTA[i].resultado
-          var unidadMedida      = RESPUESTA[i].unidadMedida
-          var valorDeReferencia = RESPUESTA[i].valorDeReferencia
+          var nombreExamen      = RESPUESTA[i].nombreExamen;
+          var resultado         = RESPUESTA[i].resultado;
+          var unidadMedida      = RESPUESTA[i].unidadMedida;
+          var valorDeReferencia = RESPUESTA[i].valorDeReferencia;
+console.log(nombreExamen);
 
-
-          if(nombreExamen == ''){nombreExamen ='      '}
-          if(resultado == ''){resultado ='      '}
-          if(unidadMedida == ''){unidadMedida ='      '}
-          if(valorDeReferencia == ''){valorDeReferencia ='      '}
+          if(nombreExamen == ''){nombreExamen ='      '};
+          if(resultado == ''){resultado ='------'};
+          if(unidadMedida == ''){unidadMedida ='      '};
+          if(valorDeReferencia == ''){valorDeReferencia ='      '};
           $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${nombreExamen}</font></td>
                                                  <td><FONT SIZE="1">${resultado}</font></td>
                                                  <td><FONT SIZE="1">${unidadMedida}</font></td>
