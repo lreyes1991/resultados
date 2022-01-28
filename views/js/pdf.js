@@ -23,7 +23,7 @@ $(document).ready(function(){
         console.log(RESPUESTA);
 
         for(let i=0;i<=largo-1;i++){
-          $('#tblresultados tr:last').after(`<tr><td><FONT SIZE=1>${RESPUESTA[i].nombreExamen}</font></td>
+          $('#tblresultados').append(`<tr><td><FONT SIZE=1>${RESPUESTA[i].nombreExamen}</font></td>
                                                  <td><FONT SIZE=1>${RESPUESTA[i].resultado}</font></td>
                                                  <td><FONT SIZE=1>${RESPUESTA[i].unidadMedida}</font></td>
                                                  <td><FONT SIZE=1>${RESPUESTA[i].valorDeReferencia}</font></td></tr>`);
