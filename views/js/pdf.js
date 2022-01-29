@@ -34,10 +34,10 @@ console.log(valorDeReferencia);
           if(resultado == ''){resultado =''};
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
-          $('#tblresultados tr:last').after(`<tr><td><FONT SIZE="1">${nombreExamen}</font></td>
-                                                 <td><FONT SIZE="1">${resultado}</font></td>
-                                                 <td><FONT SIZE="1">${unidadMedida}</font></td>
-                                                 <td><FONT SIZE="1">${valorDeReferencia}</font></td></tr>`);
+          $('#tblresultados tr:last').after(`<tr><td><span style="color:#ff0000;">${nombreExamen}</span></td>
+                                                 <td><span>${resultado}</span></td>
+                                                 <td><span>${unidadMedida}</span></td>
+                                                 <td><span>${valorDeReferencia}</span></td></tr>`);
         }
         
 
