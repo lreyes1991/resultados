@@ -85,8 +85,8 @@ console.log(valorDeReferencia);
     doc.text(112,40,RESPUESTA[0].nombreMedico)
     doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
     doc.addImage(logoigss,5,0,20,20);
-    doc.fromHTML($('#target').get(0),5,55,{
-      "width":170,
+    doc.fromHTML($('#target').html(),5,55,{
+      "width":500,
       "elementHandlers":specialElementHandlers
       });
     doc.save(`${localStorage.getItem("orden")}`);
