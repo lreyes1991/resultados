@@ -86,7 +86,7 @@ console.log(valorDeReferencia);
     doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
     doc.addImage(logoigss,5,0,20,20);
     doc.fromHTML($('#target').html(),5,55,{
-      "width":500,
+      "width":550,
       "elementHandlers":specialElementHandlers
       });
     doc.save(`${localStorage.getItem("orden")}`);
