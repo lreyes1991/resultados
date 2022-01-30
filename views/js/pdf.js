@@ -41,7 +41,7 @@ console.log(valorDeReferencia);
         }
         
 
-    var doc = new jsPDF();
+    var doc = new jsPDF("p","ml","letter");
     doc.setFontSize(12);
     doc.setTextColor('#000000');
     doc.setFontType('bold');
