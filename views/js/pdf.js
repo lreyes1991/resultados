@@ -44,7 +44,7 @@ console.log(valorDeReferencia);
         
 
     var doc = new jsPDF("p","mm","letter");
-    doc.setFontSize(12);
+    doc.setFontSize(11);
     doc.setTextColor('#000000');
     doc.setFontType('bold');
     doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
