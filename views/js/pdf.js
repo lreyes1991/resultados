@@ -92,7 +92,7 @@ $("#p_servicio").text(servicio);
         .save();
         
       }
-      setTimeout(regresar(),2000);
+     // setTimeout(regresar(),2000);
     }
 
 
