@@ -90,8 +90,9 @@ $("#p_servicio").text(servicio);
         })
         .from(elemento)
         .save();
-        setTimeout(regresar(),2000);
+        
       }
+      setTimeout(regresar(),2000);
     }
 
 
@@ -103,5 +104,5 @@ xhr.send();
 
 function regresar(){
   window.location.href="https://www.consultaresultadoslaboratorio.health/resultado/NDAzLTIyMDEyNjUzNw==";
-  alert('Impreso con éxito');
+  
 }
