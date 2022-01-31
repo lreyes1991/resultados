@@ -17,6 +17,38 @@ $(document).ready(function(){
         var largo = RESPUESTA.length;
         console.log(RESPUESTA);
 
+//etiquetas
+
+
+
+var nombrepaciente    = RESPUESTA[0].NombrePaciente
+var afiliacion        = RESPUESTA[0].idPaciente
+var genero            = RESPUESTA[0].Genero
+var fechadenacimiento = RESPUESTA[0].fechaDeNacimiento
+var origen            = RESPUESTA[0].nombreCentro
+
+var nombremedico      = RESPUESTA[0].nombreMedico
+var servicio          = RESPUESTA[0].nombreUnidadProcedencia
+
+var orden             = RESPUESTA[0].Orden
+var centro            = RESPUESTA[0].Centro
+
+
+$("#p_centro").text(centro);
+$("#p_orden").text(orden);
+$("#p_paciente").text(nombrepaciente);
+$("#p_afiliacion").text(afiliacion);
+$("#p_genero").text(genero);
+$("#p_nacimiento").text(fechadenacimiento);
+$("#p_origen").text(origen);
+
+
+$("#p_peticion").text(centro);
+$("#p_recepcion").text(centro);
+
+$("#p_medico").text(nombremedico);
+$("#p_servicio").text(servicio);
+
         for(let i=0;i<=largo-1;i++){
 
           var nombreExamen      = RESPUESTA[i].nombreExamen;
