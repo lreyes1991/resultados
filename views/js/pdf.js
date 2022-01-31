@@ -68,7 +68,7 @@ $("#p_servicio").text(servicio);
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>`);
         }
-        const elemento = document.body;
+        const elemento = document.getElementById("body1");
         var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
         html2pdf()
@@ -104,6 +104,6 @@ xhr.send();
 });
 
 function regresar(){
-  $('body').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
+  $('#body2').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
   
 }
