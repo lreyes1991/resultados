@@ -11,6 +11,11 @@
  #c2{
    text-align:end;
 }
+th,table{
+  text-align: inherit;
+  border: 1px solid #000;
+
+}
 
   }
   .row {
