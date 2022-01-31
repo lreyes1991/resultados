@@ -32,6 +32,26 @@ $(document).ready(function(){
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>`);
         }
+        const elemento = document.body;
+        html2pdf()
+        .set({
+          margin:1,
+          filename:'documento.pdf',
+          image:{
+            type:'jpeg',
+            quality:0.98
+          },html2canvas:{
+            scale:3,
+            letterRendering:true
+          },
+          jsPDF:{
+            unit:"mm",
+            format:"letter",
+            orientation:'portrait'
+          }
+        })
+        .from(elemento)
+        .save();
  
       }
     }
