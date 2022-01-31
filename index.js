@@ -119,7 +119,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
 		  function(err, results, fields) {
-            
+            var color = '#000000';
             var Orden             = results[0].Orden
             var Centro            = results[0].Centro
             var NombrePaciente    = results[0].NombrePaciente
@@ -140,7 +140,10 @@ app.get('/resultado/:codigo',(req, res)=>{
             if(Genero == null){Genero =''}
             if(FechaOrden == null){FechaOrden =''}
             if(nombreExamen == null){nombreExamen =''}
-            if(resultado == null){resultado ='Pendiente'}
+            if(resultado == null){
+              resultado ='Pendiente'
+              color='#FF0000';
+            }
             if(fechaDeNacimiento == null){fechaDeNacimiento =''}
   			//res.json(results);
               res.send(`<html lang="en"><head>
@@ -211,7 +214,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                       console.log(RESPUESTA);
                
                       for(let i=0;i<=largo-1;i++){
-                        $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
+                        $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta" style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                       }
                }
             
