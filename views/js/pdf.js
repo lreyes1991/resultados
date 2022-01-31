@@ -102,6 +102,6 @@ xhr.send();
 });
 
 function regresar(){
-  window.history.back();
+  window.location.href="https://www.consultaresultadoslaboratorio.health/resultado/NDAzLTIyMDEyNjUzNw==";
   alert('Impreso con éxito');
 }
