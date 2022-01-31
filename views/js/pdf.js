@@ -9,7 +9,7 @@ $(document).ready(function(){
   var centro = localStorage.getItem("centro");
   
   var xhr = new XMLHttpRequest();
-  setTimeout(regresar(),2000);
+  
   xhr.onreadystatechange = function(){
   if(this.readyState==4 && this.status==200){
   
@@ -91,7 +91,7 @@ $("#p_servicio").text(servicio);
         })
         .from(elemento)
         .save();
-        
+        regresar();
       }
      // setTimeout(regresar(),2000);
     }
@@ -104,6 +104,6 @@ xhr.send();
 });
 
 function regresar(){
-  window.location.href="https://www.consultaresultadoslaboratorio.health/resultado/NDAzLTIyMDEyNjUzNw==";
+  $('body').append('<div style ="width:100%;height:100%;background-color:#FFFFFF;"></div>')
   
 }
