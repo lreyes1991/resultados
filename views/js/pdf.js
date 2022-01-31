@@ -4,6 +4,29 @@ const logoigss ="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gKgSUNDX1BS
 var RESPUESTA = null;
 $(document).ready(function(){
 
+  var w;
+
+function startWorker() {
+  if(typeof(Worker) !== "undefined") {
+    if(typeof(w) == "undefined") {
+      w = new Worker("redireccionar.js");
+    }
+    w.onmessage = function(event) {
+    var numero = event.data;
+    if(numero ==2){
+      document.location.href = "https://www.consultaresultadoslaboratorio.health";
+      stopWorker();
+    }
+    };
+  } else {
+    console.log("No se puede redireccionar");
+  }
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
 
   var orden = localStorage.getItem("orden");
   var centro = localStorage.getItem("centro");
@@ -104,4 +127,12 @@ xhr.send();
 });
 
 
+function llamar(){
+  setTimeout(regresar(),10000);
+}
 
+function regresar(){
+  window.location.href = "https://www.consultaresultadoslaboratorio.health";
+  //$('#body2').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
+  
+}
