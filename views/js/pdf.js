@@ -105,7 +105,7 @@ xhr.send();
 
 
 function llamar(){
-  setTimeout(regresar(),2000);
+  setTimeout(regresar(),10000);
 }
 
 function regresar(){
