@@ -35,7 +35,7 @@ var centro            = RESPUESTA[0].Centro
 
 
 $("#p_centro").text(centro);
-$("#p_orden").text(orden);
+//$("#p_orden").text(orden);
 $("#p_paciente").text(nombrepaciente);
 $("#p_afiliacion").text(afiliacion);
 $("#p_genero").text(genero);
@@ -43,7 +43,7 @@ $("#p_nacimiento").text(fechadenacimiento);
 $("#p_origen").text(origen);
 
 
-$("#p_peticion").text(centro);
+$("#p_peticion").text(orden);
 $("#p_recepcion").text(centro);
 
 $("#p_medico").text(nombremedico);
