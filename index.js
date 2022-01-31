@@ -201,9 +201,7 @@ console.log(resultado);
                 var orden = $("#i_orden").text();
                 var centro = '${centro}'
                 //$("#p_centro").text();
-          
-                
-          
+
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange=function(){
                 if(this.readyState==4 && this.status==200){
@@ -213,6 +211,7 @@ console.log(resultado);
                       var largo = RESPUESTA.length;
                       console.log(RESPUESTA);
                if(largo == 0){
+                 console.log('ninguno');
                 $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">'Pendiente'</p><p class="col-4 respuesta" style="color:#FF0000;">'Pendiente'</p><p class="col-4" style="color:#FF0000;">'+ 'Pendiente' +'</p>');
                }
 
