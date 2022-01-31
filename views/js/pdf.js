@@ -91,7 +91,7 @@ $("#p_servicio").text(servicio);
         })
         .from(elemento)
         .save();
-        setTimeout(regresar(),2000);
+        llamar();
       }
      // setTimeout(regresar(),2000);
     }
@@ -102,6 +102,11 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 
 });
+
+
+function llamar(){
+  setTimeout(regresar(),2000);
+}
 
 function regresar(){
   $('#body2').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
