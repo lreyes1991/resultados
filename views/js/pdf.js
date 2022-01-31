@@ -9,7 +9,8 @@ $(document).ready(function(){
   var centro = localStorage.getItem("centro");
   
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange=function(){
+  setTimeout(regresar(),2000);
+  xhr.onreadystatechange = function(){
   if(this.readyState==4 && this.status==200){
   
         RESPUESTA  = (xhr.response);
