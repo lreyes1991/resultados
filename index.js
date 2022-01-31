@@ -131,7 +131,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             var resultado         = results[0].resultado
             var valorDeReferencia = results[0].valorDeReferencia
 
-
+console.log(resultado);
             if(Orden == null){Orden =''}
             if(Centro == null){Centro =''}
             if(NombrePaciente == null){NombrePaciente =''}
