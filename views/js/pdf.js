@@ -104,6 +104,6 @@ xhr.send();
 });
 
 function regresar(){
-  $('body').append('<div style ="width:100%;height:100%;background-color:#FFFFFF;"></div>')
+  $('body').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
   
 }
