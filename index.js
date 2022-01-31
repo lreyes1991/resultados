@@ -140,7 +140,7 @@ console.log(resultado);
             if(Genero == null){Genero =''}
             if(FechaOrden == null){FechaOrden =''}
             if(nombreExamen == null){nombreExamen =''}
-            if(resultado == ''){
+            if(resultado == 'null'){
               resultado ='Pendiente'
               color='#FF0000';
             }
