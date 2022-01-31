@@ -103,4 +103,5 @@ xhr.send();
 
 function regresar(){
   window.history.back();
+  alert('Impreso con éxito');
 }
