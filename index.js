@@ -259,7 +259,6 @@ app.get('/resultado/:codigo',(req, res)=>{
             <button class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
           </div> 
           <div class="row col-12" id="tabla_datos">
-            <h1 class="col-12" id="h_examen"style="font-size: 1.5rem;">${nombreExamen}</h1>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
           </div>          
           
