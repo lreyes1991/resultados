@@ -7,7 +7,7 @@ $(document).ready(function(){
 
   var orden = localStorage.getItem("orden");
   var centro = localStorage.getItem("centro");
-
+  
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange=function(){
   if(this.readyState==4 && this.status==200){
@@ -34,28 +34,29 @@ $(document).ready(function(){
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>`);
         }
-        //const elemento = document.body;
-        
-        var element = document.body;
-        var opt = {
-          margin:       1,
-          filename:     'myfile.pdf',
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2 },
-          jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
-        };
-         
-        // New Promise-based usage:
-        var doc = new html2pdf();
-        doc.setFontSize(10);
-        doc.setTextColor('#000000');
-        doc.setFontType('bold');
+        const elemento = document.body;
+        var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
+        html2pdf()
+        .set({
+          margin:1,
+          filename:'documento.pdf',
+          image:{
+            type:'jpeg',
+            quality:0.98
+          },html2canvas:{
+            scale:3,
+            letterRendering:true
+          },
+          jsPDF:{
+            unit:"mm",
+            format:"letter",
+            orientation:'portrait'
+          }
 
-        doc.from(element).set(opt).save();
-         
-        // Old monolithic-style usage:
-        //html2pdf(element, opt);
+        })
+        .from(elemento)
+        .save();
  
       }
     }
