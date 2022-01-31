@@ -90,7 +90,7 @@ $("#p_servicio").text(servicio);
         })
         .from(elemento)
         .save();
-        window.history.back();
+        setTimeOut(window.history.back(),1000);
       }
     }
 
