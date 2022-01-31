@@ -73,7 +73,7 @@ $("#p_servicio").text(servicio);
         html2pdf()
         .set({
           margin:1,
-          filename:'documento.pdf',
+          filename:orden + centro +  '.pdf',
           image:{
             type:'jpeg',
             quality:0.98
