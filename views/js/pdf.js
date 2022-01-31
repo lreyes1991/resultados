@@ -91,7 +91,7 @@ $("#p_servicio").text(servicio);
         })
         .from(elemento)
         .save();
-        regresar();
+        setTimeout(regresar(),2000);
       }
      // setTimeout(regresar(),2000);
     }
