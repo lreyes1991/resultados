@@ -213,6 +213,11 @@ console.log(resultado);
                   if(largo == 0){
                    console.log('ninguno');
                    $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
+                   $('#botondescarga').prop('disabled',true);
+                   $('#botondescarga').removeClass(btn-success);
+                   $('#botondescarga').addClass(btn-danger);
+
+
                   }
 
 
@@ -249,7 +254,6 @@ console.log(resultado);
           </header>
           <body>
           <div class="row col-12">
-
               <p class="col-12">Información del paciente</p>
               <p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
               <p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
@@ -259,7 +263,7 @@ console.log(resultado);
               <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
           </div>
           <div class="row col-12 d-flex justify-content-center">
-            <button class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
+            <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
           </div> 
           <div class="row col-12" id="tabla_datos">
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
