@@ -9,12 +9,12 @@ startWorker();
 function startWorker() {
   if(typeof(Worker) !== "undefined") {
     if(typeof(w) == "undefined") {
-      w = new Worker("redireccionar.js");
+      w = new Worker("js/redireccionar.js");
     }
     w.onmessage = function(event) {
     var numero = event.data;
     if(numero ==2){
-      document.location.href = "https://www.consultaresultadoslaboratorio.health";
+      window.history.back();
       stopWorker();
     }
     };
