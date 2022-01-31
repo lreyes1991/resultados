@@ -210,10 +210,10 @@ console.log(resultado);
                       RESPUESTA=JSON.parse(RESPUESTA);
                       var largo = RESPUESTA.length;
                       console.log(RESPUESTA);
-               if(largo == 0){
-                 console.log('ninguno');
-                $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">'Pendiente'</p><p class="col-4 respuesta" style="color:#FF0000;">'Pendiente'</p><p class="col-4" style="color:#FF0000;">'+ 'Pendiente' +'</p>');
-               }
+                  if(largo == 0){
+                   console.log('ninguno');
+                   $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
+                  }
 
 
                       for(let i=0;i<=largo-1;i++){
