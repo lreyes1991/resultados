@@ -32,6 +32,7 @@ var servicio          = RESPUESTA[0].nombreUnidadProcedencia
 
 var orden             = RESPUESTA[0].Orden
 var centro            = RESPUESTA[0].Centro
+var recepcion         = RESPUESTA[0].FechaOrden
 
 
 $("#p_centro").text(centro);
@@ -44,7 +45,7 @@ $("#p_origen").text(origen);
 
 
 $("#p_peticion").text(orden);
-$("#p_recepcion").text(centro);
+$("#p_recepcion").text(recepcion);
 
 $("#p_medico").text(nombremedico);
 $("#p_servicio").text(servicio);
