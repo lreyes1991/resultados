@@ -212,7 +212,11 @@ console.log(resultado);
                       RESPUESTA=JSON.parse(RESPUESTA);
                       var largo = RESPUESTA.length;
                       console.log(RESPUESTA);
-               
+               if(largo == 0){
+                $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">'Pendiente'</p><p class="col-4 respuesta" style="color:#FF0000;">'Pendiente'</p><p class="col-4" style="color:#FF0000;">'+ 'Pendiente' +'</p>');
+               }
+
+
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta" style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                       }
