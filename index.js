@@ -69,7 +69,7 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
   connection.query(`SELECT O.Orden,O.Centro,O.idPaciente,O.NombrePaciente, O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento, O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,O.nombreUnidadProcedencia,O.nombreMedico, R.usuarioValida,R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia  FROM Orden as O INNER JOIN Resultados as R ON O.Orden = R.Orden and O.orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
       res.json(results);
-      setTimeout(res.redirect('https://www.consultaresultadoslaboratorio.health/impreso'),2000);
+      res.redirect('https://www.consultaresultadoslaboratorio.health/impreso');
     });
 });
 
