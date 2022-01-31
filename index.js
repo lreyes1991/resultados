@@ -140,7 +140,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             if(Genero == null){Genero =''}
             if(FechaOrden == null){FechaOrden =''}
             if(nombreExamen == null){nombreExamen =''}
-            if(resultado == null){
+            if(resultado == ''){
               resultado ='Pendiente'
               color='#FF0000';
             }
