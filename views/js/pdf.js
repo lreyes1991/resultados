@@ -5,7 +5,7 @@ var RESPUESTA = null;
 $(document).ready(function(){
 
   var w;
-
+startWorker();
 function startWorker() {
   if(typeof(Worker) !== "undefined") {
     if(typeof(w) == "undefined") {
