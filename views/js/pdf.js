@@ -33,8 +33,54 @@ $(document).ready(function(){
                                                  <td>${valorDeReferencia}</td></tr>`);
         }
         const elemento = document.body;
-        html2pdf()
-        .set({
+        var doc = new html2pdf()
+        doc.setFontSize(10);
+        doc.setTextColor('#000000');
+        doc.setFontType('bold');
+        doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
+        //doc.text(50, 10, RESPUESTA[0].nombreCentro);
+        doc.text(50, 10, 'Laboratorio Clinico');
+        doc.setTextColor('#000000');
+        //doc.setFontType('normal');
+        doc.setFontSize(12);
+        doc.setLineWidth(0.5)
+        doc.line(5, 56, 200, 56)
+        //doc.addImage(logoigss, 'jpg', 20, 20, 25, 25);
+        doc.text(5, 30,   'Paciente:    '); //13
+        doc.setFontType('normal');
+        doc.text(28,30,RESPUESTA[0].NombrePaciente);
+        doc.setFontType('bold');
+        doc.text(5, 35,   'Afiliacion:  ');
+        doc.text(5, 40,   'Sexo:        ');
+        doc.setFontType('normal');
+        doc.text(28, 40,RESPUESTA[0].Genero)
+        doc.setFontType('bold');
+        doc.text(5, 45,   'Nacimiento:  ' );
+        doc.setFontType('normal');
+        doc.text(28, 45,RESPUESTA[0].fechaDeNacimiento);
+        doc.setFontType('bold');
+        doc.text(5, 50,   'Origen:      ');
+        doc.setFontType('normal');
+        doc.text(28, 50,RESPUESTA[0].nombreCentro);
+        doc.setFontType('bold');
+        doc.text(155, 30, 'No.Petición: ');
+        doc.setFontType('normal');
+        doc.text(178,30,RESPUESTA[0].Orden);
+        doc.setFontType('bold');
+        doc.text(155, 35, 'Recepción:   ');
+        doc.setFontType('normal');
+        doc.text(178,35,RESPUESTA[0].FechaOrden);
+        doc.setFontType('bold');
+        doc.text(95, 40,  'Medico:      ');
+        doc.text(95, 50,  'Servicio:    ');
+        doc.setFontType('normal');
+        doc.text(112,40,RESPUESTA[0].nombreMedico)
+        doc.text(112, 50,RESPUESTA[0].nombreUnidadProcedencia);
+        doc.addImage(logoigss,5,0,20,20);
+        
+        //html2pdf()
+
+        doc.set({
           margin:1,
           filename:'documento.pdf',
           image:{
@@ -49,6 +95,7 @@ $(document).ready(function(){
             format:"letter",
             orientation:'portrait'
           }
+
         })
         .from(elemento)
         .save();
