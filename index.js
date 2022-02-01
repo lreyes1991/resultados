@@ -209,14 +209,14 @@ app.get('/resultado/:codigo',(req, res)=>{
                       for(let i=0;i<=largo-1;i++){
 
                         var rcomentario = RESPUESTA[i].Comentario;
-                        if (rcomentario == 'null'){
+                        if (rcomentario == null){
                           rcomentario = '';
                         }
 
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p>'+
                         '<p class="col-4 respuesta ">' + RESPUESTA[i].resultado + '</p>'+
                         '<p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>'+
-                        '<p class="col-12" style="font-weight: bold;";>' + rcomentario + '</p>');
+                        '<p class="col-12" style="font-weight: bold;">' + rcomentario + '</p>');
                       }
                     }
                   }
