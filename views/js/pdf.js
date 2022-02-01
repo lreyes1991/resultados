@@ -94,7 +94,7 @@ $("#p_servicio").text(servicio);
                                                  <td>${resultado}</td>
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>`);
-                                                 if(RESPUESTA[i].rcomentario != null){
+                                                 if(RESPUESTA[i].rcomentario != 'null'){
                                                   $('#tblresultados tr:last').after(`<tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`)
                                                  }
                                                  

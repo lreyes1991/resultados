@@ -210,7 +210,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                       for(let i=0;i<=largo-1;i++){
 
                         var rcomentario = RESPUESTA[i].Comentario;
-                        if (rcomentario == 'null'){
+                        if (rcomentario == null){
                           rcomentario = '';
                         }
 
