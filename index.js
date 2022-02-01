@@ -87,7 +87,7 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
-  connection.query(`select nombreExamen,resultado,valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
+  connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
       res.json(results);
