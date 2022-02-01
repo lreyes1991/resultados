@@ -232,7 +232,7 @@ console.log(resultado);
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta " style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                         if(RESPUESTA[i].rcomentario != ''){
-                          $('#tabla_datos').append('<p class="col-12"+RESPUESTA[i].Comentario+</p>');
+                          $('#tabla_datos').append('<p class="col-12">+RESPUESTA[i].Comentario+</p>');
                         }
                       }
                }
