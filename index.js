@@ -113,7 +113,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     //ejecutar consulta
 
 
-    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
+    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
     FROM Orden as O 
     LEFT JOIN Resultados as R 
     ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
@@ -130,6 +130,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             var nombreExamen      = results[0].nombreExamen
             var resultado         = results[0].resultado
             var valorDeReferencia = results[0].valorDeReferencia
+            var ordencomentario   = results[0].Comentario
 
 console.log(resultado);
             if(Orden == null){Orden =''}
@@ -222,6 +223,8 @@ console.log(resultado);
                     text: 'Sus resultados aún no están listos!'
                   })
 
+                  }else{
+                    $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">${ordencomentario}</p>');
                   }
 
 
