@@ -225,7 +225,7 @@ console.log(resultado);
                   })
 
                   }else{
-                    $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">RESPUESTA[i].ccomentario</p>');
+                    $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">RESPUESTA[0].ccomentario</p>');
                   }
 
 
