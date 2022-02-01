@@ -124,7 +124,7 @@ $("#p_servicio").text(servicio);
           }
 
         })
-        .from(elemento)
+        .from(elemento,5,120)
         .save();
         //llamar();
       }
