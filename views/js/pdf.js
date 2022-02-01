@@ -86,12 +86,15 @@ $("#p_servicio").text(servicio);
           if(resultado == ''){resultado ='Pendiente'};
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
-          $('tblresultados caption').text(RESPUESTA[0].ccomentario)
+         // $('tblresultados caption').text(RESPUESTA[0].ccomentario);
+
+
+         
           $('#tblresultados tr:last').after(`<tr><td>${nombreExamen}</td>
                                                  <td>${resultado}</td>
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>
-                                                 <tr>${RESPUESTA[i].rcomentario}</tr>`);
+                                                 <tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`);
         }
         const elemento = document.getElementById("body1");
         var doc = new jsPDF();
