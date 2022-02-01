@@ -219,9 +219,9 @@ console.log(resultado);
                     $('#botondescarga').removeClass("btn-success");
                     $('#botondescarga').css("visibility","hidden");
                     Swal.fire({
-                      icon: 'error',
-                      title: 'Lo sentimos...',
-                      text: 'Sus resultados aún no están listos!'
+                      icon: 'info',
+                      title: 'Información',
+                      text: 'Sus resultados estan pendientes!'
                     })
                   }else{
                     for(let i=0;i<=largo-1;i++){
