@@ -93,8 +93,11 @@ $("#p_servicio").text(servicio);
           $('#tblresultados tr:last').after(`<tr><td>${nombreExamen}</td>
                                                  <td>${resultado}</td>
                                                  <td>${unidadMedida}</td>
-                                                 <td>${valorDeReferencia}</td></tr>
-                                                 <tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`);
+                                                 <td>${valorDeReferencia}</td></tr>`);
+                                                 if(RESPUESTA[i].rcomentario != 'null'){
+                                                  $('#tblresultados tr:last').after(`<tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`)
+                                                 }
+                                                 
         }
         const elemento = document.getElementById("body1");
         var doc = new jsPDF();
