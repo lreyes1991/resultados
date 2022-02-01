@@ -80,13 +80,15 @@ $("#p_servicio").text(servicio);
           var resultado         = RESPUESTA[i].resultado;
           var unidadMedida      = RESPUESTA[i].unidadMedida;
           var valorDeReferencia = RESPUESTA[i].valorDeReferencia;
-
+          var comentariogeneral = RESPUESTA[i].ccomentario;
 
           if(nombreExamen == ''){nombreExamen ='      '};
           if(resultado == ''){resultado ='Pendiente'};
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
-          $('#titulotabla').text(RESPUESTA[0].ccomentario);
+
+          if(comentariogeneral == 'null'){comentariogeneral =''};
+          $('#titulotabla').text('Comentario:' + comentariogeneral);
 
 
          
@@ -94,7 +96,9 @@ $("#p_servicio").text(servicio);
                                                  <td>${resultado}</td>
                                                  <td>${unidadMedida}</td>
                                                  <td>${valorDeReferencia}</td></tr>`);
-                                                 if(RESPUESTA[i].rcomentario != 'null'){
+                                                 if(RESPUESTA[i].rcomentario == null){
+                                                  
+                                                 }else{
                                                   $('#tblresultados tr:last').after(`<tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`)
                                                  }
                                                  
