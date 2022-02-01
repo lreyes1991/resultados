@@ -86,7 +86,7 @@ $("#p_servicio").text(servicio);
           if(resultado == ''){resultado ='Pendiente'};
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
-         // $('tblresultados caption').text(RESPUESTA[0].ccomentario);
+          $('#titulotabla').text(RESPUESTA[0].ccomentario);
 
 
          
