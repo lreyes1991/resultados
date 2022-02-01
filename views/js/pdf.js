@@ -87,7 +87,7 @@ $("#p_servicio").text(servicio);
           if(unidadMedida == ''){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
 
-          if(comentariogeneral == 'null'){comentariogeneral =''};
+          if(comentariogeneral == null){comentariogeneral =''};
           $('#titulotabla').text('Comentario:' + comentariogeneral);
 
 
