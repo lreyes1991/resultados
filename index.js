@@ -122,7 +122,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             if(Genero == null){Genero =''}
             if(FechaOrden == null){FechaOrden =''}
             if(nombreExamen == null){nombreExamen =''}
-            if(ordencomentario == 'null'){ordencomentario =''}
+            if(ordencomentario == null){ordencomentario =''}
             if(resultado == 'null'){
               resultado ='Pendiente'
               color='#FF0000';
