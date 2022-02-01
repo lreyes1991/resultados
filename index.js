@@ -87,7 +87,7 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
-  connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
+  connection.query(`select nombreExamen,resultado,Comentario valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
       res.json(results);
@@ -232,7 +232,7 @@ console.log(resultado);
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta " style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                         if(RESPUESTA[i].rcomentario != ''){
-                          $('#tabla_datos').append('<p class="col-12"+rcomentario+</p>');
+                          $('#tabla_datos').append('<p class="col-12"+RESPUESTA[i].Comentario+</p>');
                         }
                       }
                }
