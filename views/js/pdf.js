@@ -66,6 +66,7 @@ $("#p_afiliacion").text(afiliacion);
 $("#p_genero").text(genero);
 $("#p_nacimiento").text(fechadenacimiento);
 $("#p_origen").text(origen);
+$("#p_origen2").text(origen);
 
 
 $("#p_peticion").text(orden);
