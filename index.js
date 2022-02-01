@@ -228,7 +228,7 @@ console.log(resultado);
                   
                   
 
-                  $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">'+${ordencomentario}+'</p>');
+                  $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">${ordencomentario}</p>');
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta " style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                         if(RESPUESTA[i].rcomentario != ''){
