@@ -120,11 +120,12 @@ $("#p_servicio").text(servicio);
           jsPDF:{
             unit:"mm",
             format:"letter",
-            orientation:'portrait'
+            orientation:'portrait',
+            top:120
           }
 
         })
-        .from(5,120,elemento)
+        .from(elemento)
         .save();
         //llamar();
       }
