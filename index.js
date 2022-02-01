@@ -198,14 +198,14 @@ console.log(resultado);
               }
               </style>
               <script>
-              $(document).ready(function(){
+            $(document).ready(function(){
                 
                 var orden = $("#i_orden").text();
                 var centro = '${centro}'
                 //$("#p_centro").text();
 
                 var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange=function(){
+              xhr.onreadystatechange=function(){
                 if(this.readyState==4 && this.status==200){
                 
                   var RESPUESTA  = (xhr.response);
@@ -213,22 +213,21 @@ console.log(resultado);
                       var largo = RESPUESTA.length;
                       console.log(RESPUESTA);
                   if(largo == 0){
-                   console.log('ninguno');
-                   $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
-                   $('#botondescarga').prop('disabled',true);
-                   $('#botondescarga').removeClass("btn-success");
-                   $('#botondescarga').css("visibility","hidden");
-                   Swal.fire({
-                    icon: 'error',
-                    title: 'Lo sentimos...',
-                    text: 'Sus resultados aún no están listos!'
-                  })
+                    console.log('ninguno');
+                    $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
+                    $('#botondescarga').prop('disabled',true);
+                    $('#botondescarga').removeClass("btn-success");
+                    $('#botondescarga').css("visibility","hidden");
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Lo sentimos...',
+                      text: 'Sus resultados aún no están listos!'
+                    })
+                  }
+                  
+                  
 
-                  
-                  
-                  
-
-                  $('#tabla_datos').before('<p class="col-12" style="color:#FF0000;">${ordencomentario}</p>');
+                 
                       for(let i=0;i<=largo-1;i++){
                         $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p><p class="col-4 respuesta " style="color:${color};">' + RESPUESTA[i].resultado + '</p><p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>');
                         if(RESPUESTA[i].rcomentario != ''){
@@ -238,8 +237,8 @@ console.log(resultado);
                }
             
               
-              localStorage.setItem("orden","${orden}");
-              localStorage.setItem("centro","${centro}");
+                localStorage.setItem("orden","${orden}");
+                localStorage.setItem("centro","${centro}");
               }
               
               xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
