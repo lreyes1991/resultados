@@ -113,6 +113,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             var resultado         = results[0].resultado;
             var valorDeReferencia = results[0].valorDeReferencia;
             var ordencomentario   = results[0].ccomentario;
+            var resultadocomentario = results[0].rcomentario;
             
             if(Orden == null){Orden =''}
             if(Centro == null){Centro =''}
@@ -209,7 +210,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                       for(let i=0;i<=largo-1;i++){
 
                         var rcomentario = RESPUESTA[i].Comentario;
-                        if (rcomentario == null){
+                        if (rcomentario == 'null'){
                           rcomentario = '';
                         }
 
