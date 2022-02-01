@@ -191,7 +191,10 @@ app.get('/resultado/:codigo',(req, res)=>{
                     var RESPUESTA  = (xhr.response);
                         RESPUESTA=JSON.parse(RESPUESTA);
                         var largo = RESPUESTA.length;
-                        
+                        var rcomentario = RESPUESTA[i].Comentario;
+                        if (rcomentario == 'null'){
+                          rcomentario = '';
+                        }
                     if(largo == 0){
                       
                       $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
