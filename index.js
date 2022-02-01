@@ -66,7 +66,7 @@ res.render('index');
 app.get('/pdf/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
-  connection.query(`SELECT O.Orden,O.Centro,O.idPaciente,O.NombrePaciente, O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento, O.Genero,O.Comentario,R.Comentario DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,O.nombreUnidadProcedencia,O.nombreMedico, R.usuarioValida,R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia  FROM Orden as O INNER JOIN Resultados as R ON O.Orden = R.Orden and O.orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+  connection.query(`SELECT O.Orden,O.Centro,O.idPaciente,O.NombrePaciente, O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento, O.Genero,O.Comentario,R.Comentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,O.nombreUnidadProcedencia,O.nombreMedico, R.usuarioValida,R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia  FROM Orden as O INNER JOIN Resultados as R ON O.Orden = R.Orden and O.orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
       res.json(results);
     });
@@ -87,7 +87,7 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
-  connection.query(`select nombreExamen,resultado,Comentario valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
+  connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   //fecha FROM ingreso_pacientes where codigo != "000" and fecha between '${fecha1} 00:00:00' and '${fecha2} 23:59:59'`,
     function(err, results, fields) {
       res.json(results);
