@@ -228,7 +228,7 @@ console.log(resultado);
                       $('#tabla_datos').append('<p class="col-4">'+RESPUESTA[i].nombreExamen+'</p>'+
                       '<p class="col-4 respuesta ">' + RESPUESTA[i].resultado + '</p>'+
                       '<p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>'+
-                      '<p class="col-12">' + RESPUESTA[i].Comentario + '</p>');
+                      '<p class="col-12" style="font-weight: bold;";>' + RESPUESTA[i].Comentario + '</p>');
                       
                         
                       
@@ -282,6 +282,7 @@ console.log(resultado);
             <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
           </div> 
           <div class="row col-12" id="tabla_datos">
+          <p class="col-12" style="font-weight: bold;">${ordencomentario}</p>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
           </div>          
           
