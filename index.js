@@ -214,9 +214,13 @@ console.log(resultado);
                    console.log('ninguno');
                    $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
                    $('#botondescarga').prop('disabled',true);
-                   $('#botondescarga').removeClass(btn-success);
-                   $('#botondescarga').addClass(btn-danger);
-
+                   $('#botondescarga').removeClass("btn-success");
+                   $('#botondescarga').css("visibility","hidden");
+                   Swal.fire({
+                    icon: 'error',
+                    title: 'Lo sentimos...',
+                    text: 'Sus resultados aún no están listos!'
+                  })
 
                   }
 
