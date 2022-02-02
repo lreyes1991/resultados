@@ -187,7 +187,8 @@ app.get('/resultado/:codigo',(req, res)=>{
                       $('#botondescarga').prop('disabled',true);
                       $('#botondescarga').removeClass("btn-success");
                       $('#botondescarga').css("visibility","hidden");
-
+                      $('#pcomentario').css("display","none");
+                      
                       Swal.fire({
                         icon: 'info',
                         title: 'Información',
@@ -244,7 +245,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
           </div> 
           <div class="row col-12" id="tabla_datos">
-            <p class="col-12" style="font-weight: bold;">Comentario: ${ordencomentario}</p><br>
+            <p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
           </div>
           </body>
