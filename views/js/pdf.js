@@ -81,6 +81,30 @@ case "412":
 break;
 default:
   $('#pdfinfo').attr('src', "/img/blanco.JPG");
+  
+  $("#tp_paciente").css('top','10%');
+  $("#tp_afiliacion").css('top','15%');
+  $("#tp_genero").css('top','20%');
+  $("#tp_nacimiento").css('top','25%');
+  $("#tp_origen").css('top','30%');
+  
+  $("#tp_peticion").css('top','10%');
+  $("#tp_recepcion").css('top','15%');
+
+  $("#tp_medico").css('top','20%');
+  $("#tp_servicio").css('top','25%');
+  //
+  $("#p_paciente").css('top','10%');
+  $("#p_afiliacion").css('top','15%');
+  $("#p_genero").css('top','20%');
+  $("#p_nacimiento").css('top','25%');
+  $("#p_origen").css('top','30%');
+  
+  $("#p_peticion").css('top','10%');
+  $("#p_recepcion").css('top','15%');
+
+  $("#p_medico").css('top','20%');
+  $("#p_servicio").css('top','25%');
 }
   
 
