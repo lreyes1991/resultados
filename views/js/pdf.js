@@ -116,6 +116,7 @@ default:
         }
         
         const elemento = document.getElementById("body1");
+        debugger;
         var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
         html2pdf()
