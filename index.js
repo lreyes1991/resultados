@@ -173,9 +173,16 @@ app.get('/resultado/:codigo',(req, res)=>{
                 
                 var orden = $("#i_orden").text();
                 var centro = '${centro}'
-                if (centro != "412"){
-                  $('#infoigss').css('display','none');
-                }
+                switch(centro){
+                  case "402":
+                    $('#pdfinfo').attr('src', "img/infoigssvillanueva.JPG");
+                  break;
+                  default:
+                    $('#pdfinfo').attr('src', "img/blanco.JPG");
+                    break;
+                  
+                  }
+                    
 
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange=function(){

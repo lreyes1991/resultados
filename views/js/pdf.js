@@ -75,6 +75,18 @@ $("#p_recepcion").text(recepcion);
 $("#p_medico").text(nombremedico);
 $("#p_servicio").text(servicio);
 
+switch(centro){
+case "402":
+  $('#pdfinfo').attr('src', "img/infoigssvillanueva.JPG");
+break;
+default:
+  $('#pdfinfo').attr('src', "img/blanco.JPG");
+  break;
+
+}
+  
+
+
         for(let i=0;i<=largo-1;i++){
 
           var nombreExamen      = RESPUESTA[i].nombreExamen;
@@ -104,7 +116,7 @@ $("#p_servicio").text(servicio);
                                                  }
                                                  
         }
-        //$('#tblresultados').after('<img src="img/infoigss.JPG"  style="width:100%;"></img>');
+        
         const elemento = document.getElementById("body1");
         var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
