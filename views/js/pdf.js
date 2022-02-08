@@ -128,10 +128,10 @@ default:
 
 
          
-          $('#tblresultados tr:last').after(`<tr><td>${nombreExamen}</td>
-                                                 <td>${resultado}</td>
-                                                 <td>${unidadMedida}</td>
-                                                 <td>${valorDeReferencia}</td></tr>`);
+          $('#tblresultados tr:last').after(`<tr><td class="letra">${nombreExamen}</td>
+                                                 <td class="letra">${resultado}</td>
+                                                 <td class="letra">${unidadMedida}</td>
+                                                 <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
                                                  }else{
