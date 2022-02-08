@@ -104,7 +104,7 @@ $("#p_servicio").text(servicio);
                                                  }
                                                  
         }
-        $('#tblresultados').after('<img src="img/infoigss.JPG"  style="width:100%;"></img>')
+        //$('#tblresultados').after('<img src="img/infoigss.JPG"  style="width:100%;"></img>');
         const elemento = document.getElementById("body1");
         var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
