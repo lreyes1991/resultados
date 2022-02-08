@@ -175,10 +175,10 @@ app.get('/resultado/:codigo',(req, res)=>{
                 var centro = '${centro}'
                 switch(centro){
                   case "412":
-                    $('#infoigss').attr('src', "img/infoigssvillanueva.JPG");
+                    $('#infoigss').attr('src', "/img/infoigssvillanueva.JPG");
                   break;
                   default:
-                    $('#infoigss').attr('src', "img/blanco.JPG");
+                    $('#infoigss').attr('src', "/img/blanco.JPG");
                 }
                     
 
@@ -257,7 +257,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             <p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
           </div>
-          <img id="infoigss" style="width:100%;" src="img/blanco.JPG"></img>
+          <img id="infoigss" style="width:100%;" src="/img/blanco.JPG"></img>
           </body>
           </html>`);
 	  	  }

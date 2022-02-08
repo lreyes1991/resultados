@@ -77,10 +77,10 @@ $("#p_servicio").text(servicio);
 
 switch(centro){
 case "412":
-  $('#pdfinfo').attr('src', "img/infoigssvillanueva.JPG");
+  $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
 break;
 default:
-  $('#pdfinfo').attr('src', "img/blanco.JPG");
+  $('#pdfinfo').attr('src', "/img/blanco.JPG");
 }
   
 
