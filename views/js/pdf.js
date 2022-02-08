@@ -81,8 +81,6 @@ case "402":
 break;
 default:
   $('#pdfinfo').attr('src', "img/blanco.JPG");
-  break;
-
 }
   
 

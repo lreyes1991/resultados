@@ -179,8 +179,6 @@ app.get('/resultado/:codigo',(req, res)=>{
                   break;
                   default:
                     $('#pdfinfo').attr('src', "img/blanco.JPG");
-                    break;
-                  
                   }
                     
 
