@@ -76,7 +76,7 @@ $("#p_medico").text(nombremedico);
 $("#p_servicio").text(servicio);
 
 switch(centro){
-case "402":
+case "412":
   $('#pdfinfo').attr('src', "img/infoigssvillanueva.JPG");
 break;
 default:

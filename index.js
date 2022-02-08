@@ -174,7 +174,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                 var orden = $("#i_orden").text();
                 var centro = '${centro}'
                 switch(centro){
-                  case "402":
+                  case "412":
                     $('#pdfinfo').attr('src', "img/infoigssvillanueva.JPG");
                   break;
                   default:
