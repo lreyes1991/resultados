@@ -120,7 +120,7 @@ default:
 
           if(nombreExamen == ''){nombreExamen ='      '};
           if(resultado == ''){resultado ='Pendiente'};
-          if(unidadMedida == ''){unidadMedida ='------'};
+          if(unidadMedida == NaN){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
 
           if(comentariogeneral == null){comentariogeneral =''};
