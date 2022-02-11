@@ -147,7 +147,7 @@ default:
         html2pdf()
         .set({
           margin:1,
-          filename:orden + centro +  '.pdf',
+          filename:orden1 + centro1 +  '.pdf',
           image:{
             type:'jpeg',
             quality:0.98
