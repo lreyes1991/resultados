@@ -90,8 +90,7 @@ app.get('/resultado/:codigo',(req, res)=>{
 
 
     connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
-    FROM Orden as O 
-    inner JOIN Resultados as R 
+    FROM Orden as O left JOIN Resultados as R 
     
     ON 
     O.centro = R.centro and
