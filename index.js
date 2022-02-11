@@ -37,10 +37,7 @@ res.render('index');
 app.get('/pdf/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
-  connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
-  FROM Orden as O 
-  LEFT JOIN Resultados as R 
-  ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+  connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
     function(err, results, fields) {
       res.json(results);
     });
