@@ -40,7 +40,9 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
   connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
   FROM Orden as O 
   inner JOIN Resultados as R 
-  ON O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+  ON 
+  O.centro = R.centro and O.Orden = R.Orden 
+  where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
       res.json(results);
     });
