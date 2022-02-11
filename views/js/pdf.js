@@ -28,8 +28,8 @@ function stopWorker() {
   w = undefined;
 }
 
-  var orden = localStorage.getItem("orden");
-  var centro = localStorage.getItem("centro");
+  var orden1 = localStorage.getItem("orden");
+  var centro1 = localStorage.getItem("centro");
   
   var xhr = new XMLHttpRequest();
   
@@ -171,7 +171,7 @@ default:
     }
 
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden + "/" + centro,true);
+xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden1 + "/" + centro1,true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 
