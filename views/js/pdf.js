@@ -83,29 +83,30 @@ default:
   $('#pdfinfo').attr('src', "/img/blanco.JPG");
   $('#pdfinfo').css('display', 'inline');
 
+
   $("#tp_paciente").css('top','13%');
-  $("#tp_afiliacion").css('top','25%');
-  $("#tp_genero").css('top','30%');
-  $("#tp_nacimiento").css('top','35%');
-  $("#tp_origen").css('top','40%');
+  $("#tp_afiliacion").css('top','16%');
+  $("#tp_genero").css('top','19%');
+  $("#tp_nacimiento").css('top','22%');
+  $("#tp_origen").css('top','25%');
   
-  $("#tp_peticion").css('top','20%');
-  $("#tp_recepcion").css('top','25%');
+  $("#tp_peticion").css('top','16%');
+  $("#tp_recepcion").css('top','13%');
 
-  $("#tp_medico").css('top','30%');
-  $("#tp_servicio").css('top','35%');
+  $("#tp_medico").css('top','19%');
+  $("#tp_servicio").css('top','22%');
   //
-  $("#p_paciente").css('top','20%');
-  $("#p_afiliacion").css('top','25%');
-  $("#p_genero").css('top','30%');
-  $("#p_nacimiento").css('top','35%');
-  $("#p_origen").css('top','40%');
+  $("#p_paciente").css('top','13%');
+  $("#p_afiliacion").css('top','16%');
+  $("#p_genero").css('top','19%');
+  $("#p_nacimiento").css('top','22%');
+  $("#p_origen").css('top','25%');
   
-  $("#p_peticion").css('top','20%');
-  $("#p_recepcion").css('top','25%');
+  $("#p_peticion").css('top','16%');
+  $("#p_recepcion").css('top','13%');
 
-  $("#p_medico").css('top','30%');
-  $("#p_servicio").css('top','35%');
+  $("#p_medico").css('top','19%');
+  $("#p_servicio").css('top','22%');
 }
   
 
