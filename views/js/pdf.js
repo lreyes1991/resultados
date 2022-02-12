@@ -141,7 +141,7 @@ default:
                                                  
         }
         
-        const elemento = document.getElementById("body1");
+        const elemento = document.getElementById("tblresultados");
         
         var doc = new jsPDF();
         doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
