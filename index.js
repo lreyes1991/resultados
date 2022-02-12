@@ -265,8 +265,7 @@ app.get('/resultado/:codigo',(req, res)=>{
             <p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
             <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
           </div>
-          <div class="col-12 d-flex justify-content-center">
-            </div>
+     
           </body>
           </html>`);
 	  	  }
