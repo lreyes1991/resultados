@@ -186,7 +186,7 @@ app.get('/resultado/:codigo',(req, res)=>{
                   break;
                   default:
                    // $('#infoigss').attr('src', "/img/blanco.JPG");
-                    $('#infoigss').attr('src', "");
+                    $('#infoigss').remove();
                 }
                     
 
