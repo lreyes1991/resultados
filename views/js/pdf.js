@@ -83,7 +83,7 @@ default:
   $('#pdfinfo').attr('src', "/img/blanco.JPG");
   $('#pdfinfo').css('display', 'inline');
 
-  $("#tp_paciente").css('top','20%');
+  $("#tp_paciente").css('top','13%');
   $("#tp_afiliacion").css('top','25%');
   $("#tp_genero").css('top','30%');
   $("#tp_nacimiento").css('top','35%');
