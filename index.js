@@ -185,7 +185,8 @@ app.get('/resultado/:codigo',(req, res)=>{
                     $('#infoigss').attr('src', "/img/infoigssvillanueva.JPG");
                   break;
                   default:
-                    $('#infoigss').attr('src', "/img/blanco.JPG");
+                   // $('#infoigss').attr('src', "/img/blanco.JPG");
+                    $('#infoigss').attr('src', "");
                 }
                     
 
