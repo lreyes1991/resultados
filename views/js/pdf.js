@@ -134,7 +134,7 @@ default:
                                                  <td class="letra">${unidadMedida}</td>
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
-                                                  $("#p_servicio").after("<br><br>");
+                                                 // $("#p_servicio").after("<br><br>");
 
                                                   $("#tp_paciente").css('top','18%');
                                                   $("#tp_afiliacion").css('top','21%');
