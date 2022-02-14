@@ -135,8 +135,8 @@ default:
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
                                                   $("#p_servicio").after("<br><br>");
-                                                  
-                                                  $("#tp_paciente").css('top','13%');
+
+                                                  $("#tp_paciente").css('top','18%');
                                                   $("#tp_afiliacion").css('top','16%');
                                                   $("#tp_genero").css('top','19%');
                                                   $("#tp_nacimiento").css('top','22%');
