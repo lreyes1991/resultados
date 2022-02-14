@@ -134,7 +134,7 @@ default:
                                                  <td class="letra">${unidadMedida}</td>
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
-                                                  $("#p_servicio").after("<hr>");
+                                                  $("#p_servicio").after("<br>");
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
