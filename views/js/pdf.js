@@ -135,7 +135,7 @@ default:
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
                                                   $("#p_servicio").after("<br><br>");
-                                                  $('#pdfinfo').attr('height', "0%");
+                                                  $('#pdfinfo').attr('width', "0%");
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
