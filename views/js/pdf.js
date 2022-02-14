@@ -137,16 +137,28 @@ default:
                                                   $("#p_servicio").after("<br><br>");
 
                                                   $("#tp_paciente").css('top','18%');
-                                                  $("#tp_afiliacion").css('top','16%');
-                                                  $("#tp_genero").css('top','19%');
-                                                  $("#tp_nacimiento").css('top','22%');
-                                                  $("#tp_origen").css('top','25%');
+                                                  $("#tp_afiliacion").css('top','21%');
+                                                  $("#tp_genero").css('top','24%');
+                                                  $("#tp_nacimiento").css('top','27%');
+                                                  $("#tp_origen").css('top','30%');
                                                   
-                                                  $("#tp_peticion").css('top','16%');
-                                                  $("#tp_recepcion").css('top','13%');
+                                                  $("#tp_peticion").css('top','21%');
+                                                  $("#tp_recepcion").css('top','18%');
                                                 
-                                                  $("#tp_medico").css('top','19%');
-                                                  $("#tp_servicio").css('top','22%');
+                                                  $("#tp_medico").css('top','24%');
+                                                  $("#tp_servicio").css('top','27%');
+
+                                                  $("#p_paciente").css('top','18%');
+                                                  $("#p_afiliacion").css('top','21%');
+                                                  $("#p_genero").css('top','24%');
+                                                  $("#p_nacimiento").css('top','27%');
+                                                  $("#p_origen").css('top','30%');
+                                                  
+                                                  $("#p_peticion").css('top','21%');
+                                                  $("#p_recepcion").css('top','18%');
+                                                
+                                                  $("#p_medico").css('top','24%');
+                                                  $("#p_servicio").css('top','27%');
                                                   $('#pdfinfo').remove();
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
