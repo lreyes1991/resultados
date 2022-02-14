@@ -80,7 +80,7 @@ case "412":
   $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
 break;
 default:
-  $('#pdfinfo').attr('src', "/img/blanco.JPG");
+ // $('#pdfinfo').attr('src', "/img/blanco.JPG");
   $('#pdfinfo').css('display', 'inline');
 
 
