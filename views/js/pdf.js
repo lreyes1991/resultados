@@ -81,7 +81,7 @@ case "412":
 break;
 default:
   $('#pdfinfo').attr('src', "/img/blanco.JPG");
-  $('#pdfinfo').css('display', 'none');
+  $('#pdfinfo').css('display', 'inline');
 
 
   $("#tp_paciente").css('top','13%');
