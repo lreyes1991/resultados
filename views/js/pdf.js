@@ -135,6 +135,18 @@ default:
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
                                                   $("#p_servicio").after("<br><br>");
+                                                  
+                                                  $("#tp_paciente").css('top','13%');
+                                                  $("#tp_afiliacion").css('top','16%');
+                                                  $("#tp_genero").css('top','19%');
+                                                  $("#tp_nacimiento").css('top','22%');
+                                                  $("#tp_origen").css('top','25%');
+                                                  
+                                                  $("#tp_peticion").css('top','16%');
+                                                  $("#tp_recepcion").css('top','13%');
+                                                
+                                                  $("#tp_medico").css('top','19%');
+                                                  $("#tp_servicio").css('top','22%');
                                                   $('#pdfinfo').remove();
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
