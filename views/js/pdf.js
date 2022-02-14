@@ -154,8 +154,8 @@ default:
                                                   $("#p_nacimiento").css('top','33%');
                                                   $("#p_origen").css('top','38%');
                                                   
-                                                  $("#p_peticion").css('top','28%');
-                                                  $("#p_recepcion").css('top','33%');
+                                                  $("#p_peticion").css('top','23%');
+                                                  $("#p_recepcion").css('top','18%');
                                                 
                                                   $("#p_medico").css('top','28%');
                                                   $("#p_servicio").css('top','33%');
