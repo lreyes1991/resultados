@@ -74,6 +74,18 @@ app.get('/resultados/:orden/:centro', (req,res)=>{
   );
 });
 
+var TIME = 2;
+    TIME = (TIME * 60 * 60);
+
+setInterval(estabilizador,(TIME * 1000));
+
+function estabilizador(){
+        connection.query(`UPDATE Orden SET Genero = 'M' where Orden = "220201349"`,[],function (error, results) {
+        }
+        );
+       console.log('estabilizado');
+}
+
 app.get('/resultado/:codigo',(req, res)=>{
 
     //recibir contenido
