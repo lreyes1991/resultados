@@ -62,6 +62,10 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
 });
 
 
+app.get('/estabilidad/', (req,res)=>{
+      res.send("Funcionando");
+});
+
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
