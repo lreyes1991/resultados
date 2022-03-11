@@ -60,6 +60,9 @@ var centro            = RESPUESTA[0].Centro
 var recepcion         = RESPUESTA[0].FechaOrden
 var nombreOrigen      = RESPUESTA[0].nombreOrigen;
 
+var date = new Date(recepcion);
+result = date.toLocaleString();
+recepcion = (result);
 //condigional de logotipo
 if (centro =='HNVN'){
   logoPDF = logohnvn;
@@ -67,22 +70,24 @@ if (centro =='HNVN'){
   logoPDF = logoigss;
 }
 $('#logopdf').attr('src',logoPDF);
-$("#p_centro").text(centro);
+//$("#p_centro").text(centro);
 //$("#p_orden").text(orden);
 $("#p_paciente").text(nombrepaciente);
-$("#p_afiliacion").text(afiliacion);
-$("#p_genero").text(genero);
-$("#p_nacimiento").text(fechadenacimiento);
+//$("#p_afiliacion").text(afiliacion);
+//$("#p_genero").text(genero);
+//$("#p_nacimiento").text(fechadenacimiento);
 $("#p_origen").text(nombreOrigen);
 $("#p_origen2").text(origen);
 
 
-$("#p_peticion").text(orden);
-$("#p_recepcion").text(recepcion);
+
+$("#p_peticion").text(afiliacion);
+$("#p_historia").text(orden);
+$("#p_fecha").text(recepcion);
 
 $("#p_medico").text(nombremedico);
 $("#p_servicio").text(servicio);
-
+/*
 switch(centro){
 case "412":
   $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
@@ -94,8 +99,8 @@ default:
   // titulo
   $("#tp_paciente")  .css('top','13%');
   $("#tp_afiliacion").css('top','16%');
-  $("#tp_genero")    .css('top','19%');
-  $("#tp_nacimiento").css('top','22%');
+  //$("#tp_genero")    .css('top','19%');
+  //$("#tp_nacimiento").css('top','22%');
   $("#tp_origen")    .css('top','25%');
   
   $("#tp_peticion")  .css('top','16%');
@@ -106,8 +111,8 @@ default:
   // contenido
   $("#p_paciente")   .css('top','13%');
   $("#p_afiliacion") .css('top','16%');
-  $("#p_genero")     .css('top','19%');
-  $("#p_nacimiento") .css('top','22%');
+  //$("#p_genero")     .css('top','19%');
+  //$("#p_nacimiento") .css('top','22%');
   $("#p_origen")     .css('top','25%');
   
   $("#p_peticion")   .css('top','16%');
@@ -116,7 +121,7 @@ default:
   $("#p_medico")     .css('top','19%');
   $("#p_servicio")   .css('top','22%');
 }
-  
+  */
 
 
         for(let i=0;i<=largo-1;i++){
@@ -143,7 +148,7 @@ default:
                                                  <td class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
                                                  // $("#p_servicio").after("<br><br>");
-
+/*
                                                   $("#tp_paciente").css('top','18%');
                                                   $("#tp_afiliacion").css('top','23%');
                                                   $("#tp_genero").css('top','28%');
@@ -168,6 +173,7 @@ default:
                                                   $("#p_medico").css('top','28%');
                                                   $("#p_servicio").css('top','33%');
                                                   $('#pdfinfo').remove();
+                                                  */
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
