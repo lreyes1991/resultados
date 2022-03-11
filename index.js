@@ -134,7 +134,6 @@ app.get('/resultado/:codigo',(req, res)=>{
             var valorDeReferencia = results[0].valorDeReferencia;
             var ordencomentario   = results[0].ccomentario;
             var resultadocomentario = results[0].rcomentario;
-            var unidadMedida      = results[0].unidadMedida;
             
             
             if(Orden == NULL){Orden =''}
@@ -151,12 +150,6 @@ app.get('/resultado/:codigo',(req, res)=>{
               color='#FF0000';
             }
 
-
-            if(unidadMedida == 'null'){
-              valorDeReferencia ='Pendiente'
-              color='#FF0000';
-            }            
-            
 /*
 
 */
