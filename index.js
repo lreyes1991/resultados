@@ -36,9 +36,11 @@ app.get('/', (req,res)=>{
 res.render('index');
 });
 
+/*
 app.get('/HNVN', (req,res)=>{
   res.render('indexHNVN');
   });
+  */
 /*
 VISUALIZADOR y PDF
 */
