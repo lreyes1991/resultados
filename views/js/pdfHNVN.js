@@ -143,10 +143,10 @@ default:
 
 
          
-          $('#tblresultados tr:last').after(`<tr><td class="letra">${nombreExamen}</td>
-                                                 <td class="letra">${resultado}</td>
-                                                 <td class="letra">${unidadMedida}</td>
-                                                 <td class="letra">${valorDeReferencia}</td></tr>`);
+          $('#tblresultados tr:last').after(`<tr><td  style="font-style:Arial;font-size:10px;"class="letra">${nombreExamen}</td>
+                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${resultado}</td>
+                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${unidadMedida}</td>
+                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${valorDeReferencia}</td></tr>`);
                                                  if(i == 2){
                                                  // $("#p_servicio").after("<br><br>");
 /*
