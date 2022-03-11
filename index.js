@@ -35,6 +35,10 @@ app.set('view engine', 'ejs' );
 app.get('/', (req,res)=>{
 res.render('index');
 });
+
+app.get('/HNVN', (req,res)=>{
+  res.render('indexHNVN');
+  });
 /*
 VISUALIZADOR y PDF
 */
@@ -378,7 +382,7 @@ xhr.send();
 });
 
 function redireccionar(){
-window.location.href='https://www.consultaresultadoslaboratorio.health/';
+window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 }
 
 </script>
