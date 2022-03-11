@@ -60,6 +60,7 @@ var centro            = RESPUESTA[0].Centro
 var recepcion         = RESPUESTA[0].FechaOrden
 var nombreOrigen      = RESPUESTA[0].nombreOrigen;
 
+
 var date = new Date(recepcion);
 result = date.toLocaleString();
 recepcion = (result);
@@ -67,7 +68,7 @@ recepcion = (result);
 if (centro =='HNVN'){
   logoPDF = logohnvn;
 }else{
-  logoPDF = logoigss;
+ // logoPDF = logoigss;
 }
 $('#logopdf').attr('src',logoPDF);
 //$("#p_centro").text(centro);
@@ -147,9 +148,9 @@ default:
                                                  <td  style="font-style:Arial;font-size:10px;"class="letra">${resultado}</td>
                                                  <td  style="font-style:Arial;font-size:10px;"class="letra">${unidadMedida}</td>
                                                  <td  style="font-style:Arial;font-size:10px;"class="letra">${valorDeReferencia}</td></tr>`);
-                                                 if(i == 2){
+                                                // if(i == 2){
                                                  // $("#p_servicio").after("<br><br>");
-/*
+                                                  /*
                                                   $("#tp_paciente").css('top','18%');
                                                   $("#tp_afiliacion").css('top','23%');
                                                   $("#tp_genero").css('top','28%');
@@ -175,11 +176,11 @@ default:
                                                   $("#p_servicio").css('top','33%');
                                                   $('#pdfinfo').remove();
                                                   */
-                                                }
+                                               // }
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
                                                  }else{
-                                                  $('#tblresultados tr:last').after(`<tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`)
+                                                  $('#tblresultados tr:last').after(`<tr><td colspan = "4">${RESPUESTA[i].rcomentario}</td></tr>`);
                                                  }
                                                  
         }

@@ -134,22 +134,31 @@ app.get('/resultado/:codigo',(req, res)=>{
             var valorDeReferencia = results[0].valorDeReferencia;
             var ordencomentario   = results[0].ccomentario;
             var resultadocomentario = results[0].rcomentario;
+            var unidadMedida      = results[0].unidadMedida;
             
             
-            if(Orden == null){Orden =''}
-            if(Centro == null){Centro =''}
-            if(NombrePaciente == null){NombrePaciente =''}
-            if(nombreCentro == null){nombreCentro =''}
-            if(valorDeReferencia == null){valorDeReferencia ='Pendiente'}
-            if(Genero == null){Genero =''}
-            if(FechaOrden == null){FechaOrden =''}
-            if(nombreExamen == null){nombreExamen =''}
-            if(ordencomentario == null){ordencomentario =''}
+            if(Orden == NULL){Orden =''}
+            if(Centro == NULL){Centro =''}
+            if(NombrePaciente == NULL){NombrePaciente =''}
+            if(nombreCentro == NULL){nombreCentro =''}
+            if(valorDeReferencia == NULL){valorDeReferencia ='Pendiente'}
+            if(Genero == NULL){Genero =''}
+            if(FechaOrden == NULL){FechaOrden =''}
+            if(nombreExamen == NULL){nombreExamen =''}
+            if(ordencomentario == NULL){ordencomentario =''}
             if(resultado == 'null'){
               resultado ='Pendiente'
               color='#FF0000';
             }
-
+            if(valorDeReferencia == 'null'){
+              valorDeReferencia ='Pendiente'
+              color='#FF0000';
+            }
+            if(unidadMedida == 'null'){
+              unidadMedida ='Pendiente'
+              color='#FF0000';
+            }            
+            
 /*
 
 */
