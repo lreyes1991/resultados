@@ -6,28 +6,28 @@ var RESPUESTA = null;
 $(document).ready(function(){
 
   var w;
-startWorker();
-function startWorker() {
-  if(typeof(Worker) !== "undefined") {
-    if(typeof(w) == "undefined") {
-      w = new Worker("js/redireccionar.js");
+  startWorker();
+  function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+      if(typeof(w) == "undefined") {
+        w = new Worker("js/redireccionar.js");
+      }
+      w.onmessage = function(event) {
+        var numero = event.data;
+        if(numero ==2){
+          window.history.back();
+          stopWorker();
+        }
+      };
+    } else {
+      console.log("No se puede redireccionar");
     }
-    w.onmessage = function(event) {
-    var numero = event.data;
-    if(numero ==2){
-      window.history.back();
-      stopWorker();
-    }
-    };
-  } else {
-    console.log("No se puede redireccionar");
   }
-}
 
-function stopWorker() { 
-  w.terminate();
-  w = undefined;
-}
+  function stopWorker() { 
+    w.terminate();
+    w = undefined;
+  }
 
   var orden1 = localStorage.getItem("orden");
   var centro1 = localStorage.getItem("centro");
@@ -35,95 +35,95 @@ function stopWorker() {
   var xhr = new XMLHttpRequest();
   
   xhr.onreadystatechange = function(){
-  if(this.readyState==4 && this.status==200){
+    if(this.readyState==4 && this.status==200){
   
         RESPUESTA  = (xhr.response);
         RESPUESTA=JSON.parse(RESPUESTA);
         var largo = RESPUESTA.length;
         console.log(RESPUESTA);
 
-//etiquetas
+        //etiquetas
 
 
 
-var nombrepaciente    = RESPUESTA[0].NombrePaciente
-var afiliacion        = RESPUESTA[0].idPaciente
-var genero            = RESPUESTA[0].Genero
-var fechadenacimiento = RESPUESTA[0].fechaDeNacimiento
-var origen            = RESPUESTA[0].nombreCentro
+        var nombrepaciente    = RESPUESTA[0].NombrePaciente
+        var afiliacion        = RESPUESTA[0].idPaciente
+        var genero            = RESPUESTA[0].Genero
+        var fechadenacimiento = RESPUESTA[0].fechaDeNacimiento
+        var origen            = RESPUESTA[0].nombreCentro
 
-var nombremedico      = RESPUESTA[0].nombreMedico
-var servicio          = RESPUESTA[0].nombreUnidadProcedencia
+        var nombremedico      = RESPUESTA[0].nombreMedico
+        var servicio          = RESPUESTA[0].nombreUnidadProcedencia
 
-var orden             = RESPUESTA[0].Orden
-var centro            = RESPUESTA[0].Centro
-var recepcion         = RESPUESTA[0].FechaOrden
-var nombreOrigen      = RESPUESTA[0].nombreOrigen;
-
-
-var date = new Date(recepcion);
-result = date.toLocaleString();
-recepcion = (result);
-//condigional de logotipo
-if (centro =='HNVN'){
-  logoPDF = logohnvn;
-}else{
- // logoPDF = logoigss;
-}
-$('#logopdf').attr('src',logoPDF);
-//$("#p_centro").text(centro);
-//$("#p_orden").text(orden);
-$("#p_paciente").text(nombrepaciente);
-//$("#p_afiliacion").text(afiliacion);
-//$("#p_genero").text(genero);
-//$("#p_nacimiento").text(fechadenacimiento);
-$("#p_origen").text(nombreOrigen);
-$("#p_origen2").text(origen);
+        var orden             = RESPUESTA[0].Orden
+        var centro            = RESPUESTA[0].Centro
+        var recepcion         = RESPUESTA[0].FechaOrden
+        var nombreOrigen      = RESPUESTA[0].nombreOrigen;
 
 
+        var date = new Date(recepcion);
+        result = date.toLocaleString();
+        recepcion = (result);
+        //condigional de logotipo
+        if (centro =='HNVN'){
+          logoPDF = logohnvn;
+        }else{
+         // logoPDF = logoigss;
+        }
+        $('#logopdf').attr('src',logoPDF);
+        //$("#p_centro").text(centro);
+        //$("#p_orden").text(orden);
+        $("#p_paciente").text(nombrepaciente);
+        //$("#p_afiliacion").text(afiliacion);
+        //$("#p_genero").text(genero);
+        //$("#p_nacimiento").text(fechadenacimiento);
+        $("#p_origen").text(nombreOrigen);
+        $("#p_origen2").text(origen);
+        
+        
+        
+        $("#p_peticion").text(afiliacion);
+        $("#p_historia").text(orden);
+        $("#p_fecha").text(recepcion);
 
-$("#p_peticion").text(afiliacion);
-$("#p_historia").text(orden);
-$("#p_fecha").text(recepcion);
-
-$("#p_medico").text(nombremedico);
-$("#p_servicio").text(servicio);
-$("#firmapdf").attr('src',sellohnvn);
-/*
-switch(centro){
-case "412":
-  $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
-break;
-default:
-  $('#pdfinfo').attr('src', "/img/blanco.JPG");
-  $('#pdfinfo').css('display', 'inline');
-
-  // titulo
-  $("#tp_paciente")  .css('top','13%');
-  $("#tp_afiliacion").css('top','16%');
-  //$("#tp_genero")    .css('top','19%');
-  //$("#tp_nacimiento").css('top','22%');
-  $("#tp_origen")    .css('top','25%');
-  
-  $("#tp_peticion")  .css('top','16%');
-  $("#tp_recepcion") .css('top','13%');
-
-  $("#tp_medico")    .css('top','19%');
-  $("#tp_servicio")  .css('top','22%');
-  // contenido
-  $("#p_paciente")   .css('top','13%');
-  $("#p_afiliacion") .css('top','16%');
-  //$("#p_genero")     .css('top','19%');
-  //$("#p_nacimiento") .css('top','22%');
-  $("#p_origen")     .css('top','25%');
-  
-  $("#p_peticion")   .css('top','16%');
-  $("#p_recepcion")  .css('top','13%');
-
-  $("#p_medico")     .css('top','19%');
-  $("#p_servicio")   .css('top','22%');
-}
-  */
+        $("#p_medico").text(nombremedico);
+        $("#p_servicio").text(servicio);
+        $("#firmapdf").attr('src',sellohnvn);
+        /*
+        switch(centro){
+        case "412":
+          $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
+        break;
+        default:
+          $('#pdfinfo').attr('src', "/img/blanco.JPG");
+          $('#pdfinfo').css('display', 'inline');
+        
+          // titulo
+          $("#tp_paciente")  .css('top','13%');
+          $("#tp_afiliacion").css('top','16%');
+          //$("#tp_genero")    .css('top','19%');
+          //$("#tp_nacimiento").css('top','22%');
+          $("#tp_origen")    .css('top','25%');
+          
+          $("#tp_peticion")  .css('top','16%');
+          $("#tp_recepcion") .css('top','13%');
+                
+          $("#tp_medico")    .css('top','19%');
+          $("#tp_servicio")  .css('top','22%');
+          // contenido
+          $("#p_paciente")   .css('top','13%');
+          $("#p_afiliacion") .css('top','16%');
+          //$("#p_genero")     .css('top','19%');
+          //$("#p_nacimiento") .css('top','22%');
+          $("#p_origen")     .css('top','25%');
+          
+          $("#p_peticion")   .css('top','16%');
+          $("#p_recepcion")  .css('top','13%');
+        
+          $("#p_medico")     .css('top','19%');
+          $("#p_servicio")   .css('top','22%');
+        }
+          */
 
 
         for(let i=0;i<=largo-1;i++){
@@ -141,9 +141,6 @@ default:
 
           if(comentariogeneral == null){comentariogeneral =''};
           $('#titulotabla').text('Comentario:' + comentariogeneral);
-
-
-         
           $('#tblresultados tr:last').after(`<tr><td  style="font-style:Arial;font-size:10px;"class="letra">${nombreExamen}</td>
                                                  <td  style="font-style:Arial;font-size:10px;"class="letra">${resultado}</td>
                                                  <td  style="font-style:Arial;font-size:10px;"class="letra">${unidadMedida}</td>
@@ -211,14 +208,14 @@ default:
         .from(elemento)
         .save();
         //llamar();
-      }
-     // setTimeout(regresar(),2000);
     }
+        // setTimeout(regresar(),2000);
+  }
 
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden1 + "/" + centro1,true);
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhr.send();
+  xhr.open("GET","https://www.consultaresultadoslaboratorio.health/pdf/" + orden1 + "/" + centro1,true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send();
 
 });
 
