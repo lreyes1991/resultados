@@ -150,12 +150,10 @@ app.get('/resultado/:codigo',(req, res)=>{
               resultado ='Pendiente'
               color='#FF0000';
             }
-            if(valorDeReferencia == 'null'){
-              valorDeReferencia ='Pendiente'
-              color='#FF0000';
-            }
+
+
             if(unidadMedida == 'null'){
-              unidadMedida ='Pendiente'
+              valorDeReferencia ='Pendiente'
               color='#FF0000';
             }            
             
