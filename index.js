@@ -36,11 +36,9 @@ app.get('/', (req,res)=>{
 res.render('index');
 });
 
-
 app.get('/HNVN', (req,res)=>{
   res.render('indexHNVN');
   });
-
 /*
 VISUALIZADOR y PDF
 */
@@ -69,11 +67,11 @@ app.get('/resultadospdf/:orden/:centro', (req,res)=>{
     });
 });
 
-/*
+
 app.get('/estabilidad/', (req,res)=>{
       res.send("Funcionando");
 });
-*/
+
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
@@ -138,15 +136,15 @@ app.get('/resultado/:codigo',(req, res)=>{
             var resultadocomentario = results[0].rcomentario;
             
             
-            if(Orden == NULL){Orden =''}
-            if(Centro == NULL){Centro =''}
-            if(NombrePaciente == NULL){NombrePaciente =''}
-            if(nombreCentro == NULL){nombreCentro =''}
-            if(valorDeReferencia == NULL){valorDeReferencia ='Pendiente'}
-            if(Genero == NULL){Genero =''}
-            if(FechaOrden == NULL){FechaOrden =''}
-            if(nombreExamen == NULL){nombreExamen =''}
-            if(ordencomentario == NULL){ordencomentario =''}
+            if(Orden == null){Orden =''}
+            if(Centro == null){Centro =''}
+            if(NombrePaciente == null){NombrePaciente =''}
+            if(nombreCentro == null){nombreCentro =''}
+            if(valorDeReferencia == null){valorDeReferencia ='Pendiente'}
+            if(Genero == null){Genero =''}
+            if(FechaOrden == null){FechaOrden =''}
+            if(nombreExamen == null){nombreExamen =''}
+            if(ordencomentario == null){ordencomentario =''}
             if(resultado == 'null'){
               resultado ='Pendiente'
               color='#FF0000';
