@@ -141,10 +141,10 @@ $(document).ready(function(){
 
           if(comentariogeneral == null){comentariogeneral =''};
           $('#titulotabla').text('Comentario:' + comentariogeneral);
-          $('#tblresultados tr:last').after(`<tr><td  style="font-style:Arial;font-size:10px;"class="letra">${nombreExamen}</td>
-                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${resultado}</td>
-                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${unidadMedida}</td>
-                                                 <td  style="font-style:Arial;font-size:10px;"class="letra">${valorDeReferencia}</td></tr>`);
+          $('#tblresultados tr:last').after(`<tr><td  style="font-style:Arial;font-size:9px;"class="letra">${nombreExamen}</td>
+                                                 <td  style="font-style:Arial;font-size:9px;"class="letra">${resultado}</td>
+                                                 <td  style="font-style:Arial;font-size:9px;"class="letra">${unidadMedida}</td>
+                                                 <td  style="font-style:Arial;font-size:9px;"class="letra">${valorDeReferencia}</td></tr>`);
                                                 // if(i == 2){
                                                  // $("#p_servicio").after("<br><br>");
                                                   /*
