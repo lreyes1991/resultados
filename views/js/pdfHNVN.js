@@ -87,7 +87,7 @@ $("#p_fecha").text(recepcion);
 
 $("#p_medico").text(nombremedico);
 $("#p_servicio").text(servicio);
-$("#firmapdf").attr(src,sellohnvn);
+$("#firmapdf").attr('src',sellohnvn);
 /*
 switch(centro){
 case "412":
