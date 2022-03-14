@@ -64,19 +64,16 @@ $(document).ready(function(){
         var date = new Date(recepcion);
         result = date.toLocaleString();
         recepcion = (result);
-        //condigional de logotipo
+     
         if (centro =='HNVN'){
           logoPDF = logohnvn;
         }else{
-         // logoPDF = logoigss;
+      
         }
         $('#logopdf').attr('src',logoPDF);
-        //$("#p_centro").text(centro);
-        //$("#p_orden").text(orden);
+
         $("#p_paciente").text(nombrepaciente);
-        //$("#p_afiliacion").text(afiliacion);
-        //$("#p_genero").text(genero);
-        //$("#p_nacimiento").text(fechadenacimiento);
+
         $("#p_origen").text(nombreOrigen);
         $("#p_origen2").text(origen);
         
@@ -89,42 +86,6 @@ $(document).ready(function(){
         $("#p_medico").text(nombremedico);
         $("#p_servicio").text(servicio);
         $("#firmapdf").attr('src',sellohnvn);
-        /*
-        switch(centro){
-        case "412":
-          $('#pdfinfo').attr('src', "/img/infoigssvillanueva.JPG");
-        break;
-        default:
-          $('#pdfinfo').attr('src', "/img/blanco.JPG");
-          $('#pdfinfo').css('display', 'inline');
-        
-          // titulo
-          $("#tp_paciente")  .css('top','13%');
-          $("#tp_afiliacion").css('top','16%');
-          //$("#tp_genero")    .css('top','19%');
-          //$("#tp_nacimiento").css('top','22%');
-          $("#tp_origen")    .css('top','25%');
-          
-          $("#tp_peticion")  .css('top','16%');
-          $("#tp_recepcion") .css('top','13%');
-                
-          $("#tp_medico")    .css('top','19%');
-          $("#tp_servicio")  .css('top','22%');
-          // contenido
-          $("#p_paciente")   .css('top','13%');
-          $("#p_afiliacion") .css('top','16%');
-          //$("#p_genero")     .css('top','19%');
-          //$("#p_nacimiento") .css('top','22%');
-          $("#p_origen")     .css('top','25%');
-          
-          $("#p_peticion")   .css('top','16%');
-          $("#p_recepcion")  .css('top','13%');
-        
-          $("#p_medico")     .css('top','19%');
-          $("#p_servicio")   .css('top','22%');
-        }
-          */
-
 
         for(let i=0;i<=largo-1;i++){
 
@@ -138,42 +99,13 @@ $(document).ready(function(){
           if(resultado == ''){resultado ='Pendiente'};
           if(unidadMedida == NaN){unidadMedida ='------'};
           if(valorDeReferencia == ''){valorDeReferencia ='------'};
-
           if(comentariogeneral == null){comentariogeneral =''};
           $('#titulotabla').text('Comentario:' + comentariogeneral);
           $('#tblresultados tr:last').after(`<tr><td  style="font-style:Arial;font-size:9px;"class="letra">${nombreExamen}</td>
                                                  <td  style="font-style:Arial;font-size:9px;"class="letra">${resultado}</td>
                                                  <td  style="font-style:Arial;font-size:9px;"class="letra">${unidadMedida}</td>
                                                  <td  style="font-style:Arial;font-size:9px;"class="letra">${valorDeReferencia}</td></tr>`);
-                                                // if(i == 2){
-                                                 // $("#p_servicio").after("<br><br>");
-                                                  /*
-                                                  $("#tp_paciente").css('top','18%');
-                                                  $("#tp_afiliacion").css('top','23%');
-                                                  $("#tp_genero").css('top','28%');
-                                                  $("#tp_nacimiento").css('top','33%');
-                                                  $("#tp_origen").css('top','38%');
-                                                  
-                                                  $("#tp_peticion").css('top','23%');
-                                                  $("#tp_recepcion").css('top','18%');
-                                                
-                                                  $("#tp_medico").css('top','28%');
-                                                  $("#tp_servicio").css('top','33%');
-
-                                                  $("#p_paciente").css('top','18%');
-                                                  $("#p_afiliacion").css('top','23%');
-                                                  $("#p_genero").css('top','28%');
-                                                  $("#p_nacimiento").css('top','33%');
-                                                  $("#p_origen").css('top','38%');
-                                                  
-                                                  $("#p_peticion").css('top','23%');
-                                                  $("#p_recepcion").css('top','18%');
-                                                
-                                                  $("#p_medico").css('top','28%');
-                                                  $("#p_servicio").css('top','33%');
-                                                  $('#pdfinfo').remove();
-                                                  */
-                                               // }
+                                               
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
                                                  }else{
@@ -185,7 +117,6 @@ $(document).ready(function(){
         const elemento = document.getElementById("body1");
         
         var doc = new jsPDF();
-        //doc.text(50, 5, 'INSTITUTO GUATEMALTECO DE SEGURIDAD SOCIAL');
         html2pdf()
         .set({
           margin:1,
@@ -207,9 +138,9 @@ $(document).ready(function(){
         })
         .from(elemento)
         .save();
-        //llamar();
+     
     }
-        // setTimeout(regresar(),2000);
+     
   }
 
 
@@ -226,6 +157,6 @@ function llamar(){
 
 function regresar(){
   window.location.href = "https://www.consultaresultadoslaboratorio.health";
-  //$('#body2').append('<div style ="    width: 100%;height: 100%;background-color: #FFFFFF;position: absolute;top: 0%;"></div>')
+
   
 }
