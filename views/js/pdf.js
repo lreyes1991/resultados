@@ -105,7 +105,7 @@ default:
   $("#tp_nacimiento").css('top','22%');
   $("#tp_origen")    .css('top','25%');
   
-  $("#tp_peticion")  .css('top','16%');
+  $("#tp_peticion")  .css('top','17%');
   $("#tp_recepcion") .css('top','13%');
 
   $("#tp_medico")    .css('top','19%');
@@ -117,7 +117,7 @@ default:
   $("#p_nacimiento") .css('top','22%');
   $("#p_origen")     .css('top','25%');
   
-  $("#p_peticion")   .css('top','16%');
+  $("#p_peticion")   .css('top','17%');
   $("#p_recepcion")  .css('top','13%');
 
   $("#p_medico")     .css('top','19%');
