@@ -7,12 +7,6 @@ var htmlaenviar='';
 const express = require('express');
 
 
-
-var infoigss = IMAGENES.iinfoigss;
-var logoigss = IMAGENES.ilogoigss;
-var logohnvn = IMAGENES.ilogohnvn;
-
-
 const mysql = require('mysql2');     
 
 const connection = mysql.createConnection({
