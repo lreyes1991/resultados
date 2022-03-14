@@ -57,13 +57,15 @@ var orden             = RESPUESTA[0].Orden
 var centro            = RESPUESTA[0].Centro
 var recepcion         = RESPUESTA[0].FechaOrden
 var nombreOrigen      = RESPUESTA[0].nombreOrigen;
-
+/*
 var date = new Date(recepcion);
 const formatDate = (date)=>{
 let formatted_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
  return formatted_date;
 }
+
 recepcion = (formatDate(date));
+*/
 
 //condigional de logotipo
 if (centro =='HNVN'){

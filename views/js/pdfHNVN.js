@@ -60,11 +60,11 @@ $(document).ready(function(){
         var recepcion         = RESPUESTA[0].FechaOrden
         var nombreOrigen      = RESPUESTA[0].nombreOrigen;
 
-
+/*
         var date = new Date(recepcion);
         result = date.toLocaleString();
         recepcion = (result);
-     
+  */   
         if (centro =='HNVN'){
           logoPDF = logohnvn;
         }else{
