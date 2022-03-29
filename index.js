@@ -115,15 +115,14 @@ app.get('/resultado/:codigo',(req, res)=>{
 
     connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
     FROM Orden as O left JOIN Resultados as R 
-    
     ON 
     O.centro = R.centro and
     O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     
 		  function(err, results, fields) {
             var color = '#000000';
-            var Orden             = results[0].Orden;
-            var Centro            = results[0].Centro;
+            //var Orden             = results[0].Orden;
+            //var Centro            = results[0].Centro;
             var NombrePaciente    = results[0].NombrePaciente;
             var nombreCentro      = results[0].nombreCentro;
             var fechaDeNacimiento = results[0].fechaDeNacimiento;
@@ -136,8 +135,8 @@ app.get('/resultado/:codigo',(req, res)=>{
             var resultadocomentario = results[0].rcomentario;
             
             
-            if(Orden == null){Orden =''}
-            if(Centro == null){Centro =''}
+            //if(Orden == null){Orden =''}
+            //if(Centro == null){Centro =''}
             if(NombrePaciente == null){NombrePaciente =''}
             if(nombreCentro == null){nombreCentro =''}
             if(valorDeReferencia == null){valorDeReferencia ='Pendiente'}
@@ -254,7 +253,7 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/';
 <div class="row col-12">
 <p class="col-12">Información del paciente</p>
 <p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
 <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
 <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
 <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>
@@ -397,7 +396,7 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 <div class="row col-12">
 <p class="col-12">Villa nueva HNVN</p>
 <p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${Orden}</p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
 <p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
 <p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
 <p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>

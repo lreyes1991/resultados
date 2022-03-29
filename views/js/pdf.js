@@ -83,7 +83,6 @@ $("#p_nacimiento").text(fechadenacimiento);
 $("#p_origen").text(nombreOrigen);
 $("#p_origen2").text(origen);
 
-
 $("#p_peticion").text(orden);
 $("#p_recepcion").text(recepcion);
 
@@ -97,7 +96,6 @@ break;
 default:
   $('#pdfinfo').attr('src', "/img/blanco.JPG");
   $('#pdfinfo').css('display', 'inline');
-
   // titulo
   $("#tp_paciente")  .css('top','13%');
   $("#tp_afiliacion").css('top','16%');
@@ -123,8 +121,6 @@ default:
   $("#p_medico")     .css('top','19%');
   $("#p_servicio")   .css('top','22%');
 }
-  
-
 
         for(let i=0;i<=largo-1;i++){
 
@@ -151,30 +147,30 @@ default:
                                                  if(i == 2){
                                                  // $("#p_servicio").after("<br><br>");
 
-                                                  $("#tp_paciente").css('top','18%');
+                                                  $("#tp_paciente")  .css('top','18%');
                                                   $("#tp_afiliacion").css('top','23%');
-                                                  $("#tp_genero").css('top','28%');
+                                                  $("#tp_genero")    .css('top','28%');
                                                   $("#tp_nacimiento").css('top','33%');
-                                                  $("#tp_origen").css('top','38%');
+                                                  $("#tp_origen")    .css('top','38%');
                                                   
-                                                  $("#tp_peticion").css('top','23%');
-                                                  $("#tp_recepcion").css('top','18%');
+                                                  $("#tp_peticion")  .css('top','23%');
+                                                  $("#tp_recepcion") .css('top','18%');
                                                 
-                                                  $("#tp_medico").css('top','28%');
-                                                  $("#tp_servicio").css('top','33%');
+                                                  $("#tp_medico")    .css('top','28%');
+                                                  $("#tp_servicio")  .css('top','33%');
 
-                                                  $("#p_paciente").css('top','18%');
-                                                  $("#p_afiliacion").css('top','23%');
-                                                  $("#p_genero").css('top','28%');
-                                                  $("#p_nacimiento").css('top','33%');
-                                                  $("#p_origen").css('top','38%');
+                                                  $("#p_paciente")   .css('top','18%');
+                                                  $("#p_afiliacion") .css('top','23%');
+                                                  $("#p_genero")     .css('top','28%');
+                                                  $("#p_nacimiento") .css('top','33%');
+                                                  $("#p_origen")     .css('top','38%');
                                                   
-                                                  $("#p_peticion").css('top','23%');
-                                                  $("#p_recepcion").css('top','18%');
+                                                  $("#p_peticion")   .css('top','23%');
+                                                  $("#p_recepcion")  .css('top','18%');
                                                 
-                                                  $("#p_medico").css('top','28%');
-                                                  $("#p_servicio").css('top','33%');
-                                                  $('#pdfinfo').remove();
+                                                  $("#p_medico")     .css('top','28%');
+                                                  $("#p_servicio")   .css('top','33%');
+                                                  $('#pdfinfo')      .remove();
                                                 }
                                                  if(RESPUESTA[i].rcomentario == null){
                                                   
