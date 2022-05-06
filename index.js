@@ -42,6 +42,7 @@ app.get('/HNVN', (req,res)=>{
 /*
 VISUALIZADOR y PDF
 */
+
 app.get('/pdf/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
@@ -55,18 +56,6 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
       res.json(results);
     });
 });
-
-app.get('/resultadospdf/:orden/:centro', (req,res)=>{
-  var orden = req.params.orden;
-  var centro = req.params.centro;
-  connection.query(`SELECT R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia 
-  FROM Resultados as R
-  WHERE Orden = '${orden}' and Centro = '${centro}';`,
-    function(err, results, fields) {
-      res.json(results);
-    });
-});
-
 
 app.get('/estabilidad/', (req,res)=>{
       res.send("Funcionando");
@@ -113,47 +102,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     
 
 
-    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
-    FROM Orden as O left JOIN Resultados as R 
-    ON 
-    O.centro = R.centro and
-    O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
-    
-		  function(err, results, fields) {
-            var color = '#000000';
-            //var Orden             = results[0].Orden;
-            //var Centro            = results[0].Centro;
-            var NombrePaciente    = results[0].NombrePaciente;
-            var nombreCentro      = results[0].nombreCentro;
-            var fechaDeNacimiento = results[0].fechaDeNacimiento;
-            var Genero            = results[0].Genero;
-            var FechaOrden        = results[0].FechaOrden;
-            var nombreExamen      = results[0].nombreExamen;
-            var resultado         = results[0].resultado;
-            var valorDeReferencia = results[0].valorDeReferencia;
-            var ordencomentario   = results[0].ccomentario;
-            var resultadocomentario = results[0].rcomentario;
-            
-            
-            //if(Orden == null){Orden =''}
-            //if(Centro == null){Centro =''}
-            if(NombrePaciente == null){NombrePaciente =''}
-            if(nombreCentro == null){nombreCentro =''}
-            if(valorDeReferencia == null){valorDeReferencia ='Pendiente'}
-            if(Genero == null){Genero =''}
-            if(FechaOrden == null){FechaOrden =''}
-            if(nombreExamen == null){nombreExamen =''}
-            if(ordencomentario == null){ordencomentario =''}
-            if(resultado == 'null'){
-              resultado ='Pendiente'
-              color='#FF0000';
-            }
-
-/*
-
-*/
-            if(fechaDeNacimiento == null){fechaDeNacimiento =''}
-  /**/ 
+  
   
 var htmligss = `<html lang="en"><head>
 
@@ -232,7 +181,7 @@ $(document).ready(function(){
     localStorage.setItem("centro","${centro}");
   }
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
+xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + ${orden} + "/" + ${centro},true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 });
@@ -252,18 +201,18 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/';
 <body>
 <div class="row col-12">
 <p class="col-12">Información del paciente</p>
-<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
-<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
-<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
-<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>
-<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
+<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro"></p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden"></p>
+<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente"></p>
+<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento"></p>
+<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero"></p>
+<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden"></p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
 <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
-<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
+<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: </p><br>
 <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
 </div>
 <div class="col-12 d-flex justify-content-center">
@@ -395,18 +344,18 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 <body>
 <div class="row col-12">
 <p class="col-12">Villa nueva HNVN</p>
-<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${nombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
-<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${NombrePaciente}</p>
-<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${fechaDeNacimiento}</p>
-<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${Genero}</p>
-<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
+<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro"></p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden"></p>
+<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente"></p>
+<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento"></p>
+<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero"></p>
+<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden"></p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
 <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
-<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
+<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: </p><br>
 <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
 </div>
 <div class="col-12 d-flex justify-content-center">
@@ -422,8 +371,8 @@ if (centro =='HNVN'){
   /**/			
               res.send(htmlaenviar);
 	  	  }
-	 );
-});
+	 
+);
 
 var fs = require('fs');
 var https = require('https');
