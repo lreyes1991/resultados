@@ -60,7 +60,15 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
 app.get('/estabilidad/', (req,res)=>{
       res.send("Funcionando");
 });
-
+/*
+          var centro            = RESPUESTA[0].nombreCentro;
+          var orden             = RESPUESTA[0].Orden;
+          var nombrepaciente    = RESPUESTA[0].NombrePaciente;
+          var fechadenacimiento = RESPUESTA[0].fechaDeNacimiento;
+          var genero            = RESPUESTA[0].Genero;
+          var recepcion         = RESPUESTA[0].FechaOrden;
+          var resultado         = RESPUESTA[0].resultado;
+*/
 app.get('/resultados/:orden/:centro', (req,res)=>{
   var orden = req.params.orden;
   var centro = req.params.centro;
