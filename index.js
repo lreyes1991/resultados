@@ -69,7 +69,6 @@ app.get('/resultados/:orden/:centro', (req,res)=>{
   ON 
   O.centro = R.centro and
   O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
-  
     function(err, results, fields) {
       res.json(results);
       
