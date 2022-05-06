@@ -178,7 +178,7 @@ var htmligss = `<html lang="en"><head>
 <script>
 $(document).ready(function(){
   
-  var orden = $("#i_orden").text();
+  var orden = '${orden}';
   var centro = '${centro}'
   switch(centro){
     case "412":
@@ -228,7 +228,7 @@ $(document).ready(function(){
     localStorage.setItem("centro","${centro}");
   }
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
+xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 });
@@ -256,7 +256,7 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/';
 <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
-<button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
+<button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/${orden}/${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
 <p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
@@ -319,7 +319,7 @@ var htmlhnvn = `<html lang="en"><head>
 <script>
 $(document).ready(function(){
   
-  var orden = $("#i_orden").text();
+  var orden = '${orden}';
   var centro = '${centro}'
   switch(centro){
     case "412":
@@ -371,7 +371,7 @@ $(document).ready(function(){
     localStorage.setItem("centro","${centro}");
   }
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/" + orden + "/" + centro,true);
+xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
 });
@@ -399,7 +399,7 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 <p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${FechaOrden}</p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
-<button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/ + ${orden} + "/" + ${centro}" onclick="redireccionar()">Descargar en PDF</button> 
+<button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/${orden}/${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
 <p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${ordencomentario}</p><br>
