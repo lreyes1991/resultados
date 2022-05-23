@@ -107,6 +107,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     var codigo = atob(codigoenc);
     
     var codigoarray = codigo.split('-');
+    console.log(codigoarray);
     
     var centro = codigoarray[0];
     var orden  = codigoarray[1];
@@ -123,15 +124,15 @@ app.get('/resultado/:codigo',(req, res)=>{
             var color = '#000000';
             //var Orden             = results[0].Orden;
             //var Centro            = results[0].Centro;
-            var RNombrePaciente    = results[0].NombrePaciente;
-            var RnombreCentro      = results[0].nombreCentro;
-            var RfechaDeNacimiento = results[0].fechaDeNacimiento;
-            var RGenero            = results[0].Genero;
-            var RFechaOrden        = results[0].FechaOrden;
-            var RnombreExamen      = results[0].nombreExamen;
-            var Rresultado         = results[0].resultado;
-            var RvalorDeReferencia = results[0].valorDeReferencia;
-            var Rordencomentario   = results[0].ccomentario;
+            var RNombrePaciente      = results[0].NombrePaciente;
+            var RnombreCentro        = results[0].nombreCentro;
+            var RfechaDeNacimiento   = results[0].fechaDeNacimiento;
+            var RGenero              = results[0].Genero;
+            var RFechaOrden          = results[0].FechaOrden;
+            var RnombreExamen        = results[0].nombreExamen;
+            var Rresultado           = results[0].resultado;
+            var RvalorDeReferencia   = results[0].valorDeReferencia;
+            var Rordencomentario     = results[0].ccomentario;
             var Rresultadocomentario = results[0].rcomentario;
             
             
