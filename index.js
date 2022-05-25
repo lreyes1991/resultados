@@ -121,6 +121,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     
 		  function(err, results, fields) {
+            console.log('Orden: ' + orden + 'Centro: ' + centro);
             var color = '#000000';
             //var Orden             = results[0].Orden;
             //var Centro            = results[0].Centro;
