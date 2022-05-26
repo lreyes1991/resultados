@@ -25,8 +25,8 @@ const connection = mysql.createConnection({
 });
 
 
-var path    = require('path');
-const app = express();
+var   path  = require('path');
+const app   = express();
 var http    = require('http').Server(app);
 app.use(express.static(path.join(__dirname, 'views')));
 
@@ -72,14 +72,26 @@ app.get('/estabilidad/', (req,res)=>{
       res.send("Funcionando");
 });
 
+//PARA DATOS DE PACIENTE
+app.get('/datospaciente/:orden/:centro', (req,res)=>{
+  var orden  = req.params.orden;
+  var centro = req.params.centro;
+
+  connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden FROM Orden O where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+    function(err, results, fields) {
+          res.json(results)
+    }
+  );
+});
+
+//LOS USA LA VISTA PREVIA DEL PDF
 app.get('/resultados/:orden/:centro', (req,res)=>{
-  var orden = req.params.orden;
+  var orden  = req.params.orden;
   var centro = req.params.centro;
   connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   
     function(err, results, fields) {
       res.json(results);
-      
     }
   );
 });
@@ -111,47 +123,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     
     var centro = codigoarray[0];
     var orden  = codigoarray[1];
-    
 
-
-    connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
-    FROM Orden as O left JOIN Resultados as R 
-    ON 
-    O.centro = R.centro and
-    O.Orden = R.Orden where O.Orden = '${orden}' and O.Centro = '${centro}';`,
-    
-		  function(err, results, fields) {
-            console.log('Orden: ' + orden + 'Centro: ' + centro);
-            var color = '#000000';
-            //var Orden             = results[0].Orden;
-            //var Centro            = results[0].Centro;
-            var RNombrePaciente      = results[0].NombrePaciente;
-            var RnombreCentro        = results[0].nombreCentro;
-            var RfechaDeNacimiento   = results[0].fechaDeNacimiento;
-            var RGenero              = results[0].Genero;
-            var RFechaOrden          = results[0].FechaOrden;
-            var RnombreExamen        = results[0].nombreExamen;
-            var Rresultado           = results[0].resultado;
-            var RvalorDeReferencia   = results[0].valorDeReferencia;
-            var Rordencomentario     = results[0].ccomentario;
-            var Rresultadocomentario = results[0].rcomentario;
-            
-            
-            //if(Orden == null){Orden =''}
-            //if(Centro == null){Centro =''}
-            if(RNombrePaciente == null){RNombrePaciente =''}
-            if(RnombreCentro == null){RnombreCentro =''}
-            if(RvalorDeReferencia == null){RvalorDeReferencia ='Pendiente'}
-            if(RGenero == null){RGenero =''}
-            if(RFechaOrden == null){RFechaOrden =''}
-            if(RnombreExamen == null){RnombreExamen =''}
-            if(Rordencomentario == null){Rordencomentario =''}
-            if(Rresultado == 'null'){
-              Rresultado ='Pendiente';
-              color='#FF0000';
-            }
-            if(RfechaDeNacimiento == null){RfechaDeNacimiento =''}
-  /**/ 
   
 var htmligss = `<html lang="en"><head>
 
@@ -189,21 +161,55 @@ $(document).ready(function(){
     default:
       $('#infoigss').attr('src', "/img/blanco.JPG");
   }
-  var xhr = new XMLHttpRequest();
+  getDatosPaciente();
+  getResultados();
+
+  function getDatosPaciente(){
+    var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+  
+      var RESPUESTA = (xhr.response);
+          RESPUESTA = JSON.parse(RESPUESTA);
+          var largo = RESPUESTA.length;
+
+        $('#i_centro')         .html(RESPUESTA[0].Centro);
+        $('#i_orden')          .html(RESPUESTA[0].Orden);
+        $('#p_paciente')       .html(RESPUESTA[0].NombrePaciente);
+        $('#p_genero')         .html(RESPUESTA[0].Genero);
+        $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
+        $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
+        $('#pcomentario')      .html(RESPUESTA[0].ccomentario);
+    }
+    localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
+    localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
+  }
+
+ xhr.open("GET","https://www.consultaresultadoslaboratorio.health/datospaciente/${orden}/${centro}",true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhr.send();
+
+  }
+  function getResultados(){
+    var xhr = new XMLHttpRequest();
   xhr.onreadystatechange=function(){
     if(this.readyState == 4 && this.status == 200){
   
-      var RESPUESTA  = (xhr.response);
-          RESPUESTA=JSON.parse(RESPUESTA);
+      var RESPUESTA = (xhr.response);
+          RESPUESTA = JSON.parse(RESPUESTA);
           var largo = RESPUESTA.length;
+
+
+
+          
 
       if(largo == 0){
         
-        $('#tabla_datos').append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
+        $('#tabla_datos')  .append('<p class="col-4" style="color:#FF0000;">Pendiente</p><p class="col-4 respuesta" style="color:#FF0000;">Pendiente</p><p class="col-4" style="color:#FF0000;">Pendiente</p>');
         $('#botondescarga').prop('disabled',true);
         $('#botondescarga').removeClass("btn-success");
         $('#botondescarga').css("visibility","hidden");
-        $('#pcomentario').css("display","none");
+        $('#pcomentario')  .css("display","none");
         
         Swal.fire({
           icon: 'info',
@@ -218,7 +224,6 @@ $(document).ready(function(){
           if (rcomentario == null){
             rcomentario = '';
           }
-
           $('#tabla_datos').append('<p class="col-4">'+ RESPUESTA[i].nombreExamen + '</p>'+
           '<p class="col-4 respuesta ">' + RESPUESTA[i].resultado + '</p>'+
           '<p class="col-4">'+ RESPUESTA[i].valorDeReferencia +'</p>'+
@@ -226,13 +231,15 @@ $(document).ready(function(){
         }
       }
     }
-    localStorage.setItem("orden","${orden}");
-    localStorage.setItem("centro","${centro}");
+    localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
+    localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
   }
 
-xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhr.send();
+ xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhr.send();
+
+  }
 });
 
 function redireccionar(){
@@ -250,18 +257,18 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/';
 <body>
 <div class="row col-12">
 <p class="col-12">Información del paciente</p>
-<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${RnombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
-<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${RNombrePaciente}</p>
-<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${RfechaDeNacimiento}</p>
-<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${RGenero}</p>
-<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${RFechaOrden}</p>
+<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro"></p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden"></p>
+<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente"></p>
+<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento"></p>
+<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero"></p>
+<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden"></p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
 <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/${orden}/${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
-<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${Rordencomentario}</p><br>
+<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: </p><br>
 <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
 </div>
 <div class="col-12 d-flex justify-content-center">
@@ -331,8 +338,37 @@ $(document).ready(function(){
       $('#infoigss').attr('src', "/img/blanco.JPG");
   }
       
+  getDatosPaciente();
+  getResultados();
+function getDatosPaciente(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+  
+        var RESPUESTA = (xhr.response);
+        RESPUESTA = JSON.parse(RESPUESTA);
+        var largo = RESPUESTA.length;
 
-  var xhr = new XMLHttpRequest();
+        $('#i_centro')         .html(RESPUESTA[0].Centro);
+        $('#i_orden')          .html(RESPUESTA[0].Orden);
+        $('#p_paciente')       .html(RESPUESTA[0].NombrePaciente);
+        $('#p_genero')         .html(RESPUESTA[0].Genero);
+        $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
+        $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
+        $('#pcomentario')      .html(RESPUESTA[0].ccomentario);
+    }
+    localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
+    localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
+  }
+
+ xhr.open("GET","https://www.consultaresultadoslaboratorio.health/datospaciente/${orden}/${centro}",true);
+ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhr.send();
+
+}
+
+function getResultados(){
+    var xhr = new XMLHttpRequest();
   xhr.onreadystatechange=function(){
     if(this.readyState == 4 && this.status == 200){
   
@@ -376,8 +412,9 @@ $(document).ready(function(){
 xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send();
+}
+  
 });
-
 function redireccionar(){
 window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 }
@@ -393,18 +430,18 @@ window.location.href='https://www.consultaresultadoslaboratorio.health/HNVN';
 <body>
 <div class="row col-12">
 <p class="col-12">Villa nueva HNVN</p>
-<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro">${RnombreCentro}</p>
-<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden">${orden}</p>
-<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente">${RNombrePaciente}</p>
-<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento">${RfechaDeNacimiento}</p>
-<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero">${RGenero}</p>
-<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden">${RFechaOrden}</p>
+<p class="col-6">Centro</p><p class="col-3 respuesta" id="i_centro"></p>
+<p class="col-6">Orden</p><p class="col-4 respuesta" id="i_orden"></p>
+<p class="col-6">Paciente</p><p class="col-6 respuesta" id="p_paciente"></p>
+<p class="col-6">Fecha de Nacimiento</p><p class="col-6 respuesta" id="p_fechaNacimiento"></p>
+<p class="col-6">Género</p><p class="col-6 respuesta" id="p_genero"></p>
+<p class="col-6">Fecha de Orden</p><p class="col-6 respuesta" id="p_fechaOrden"></p>
 </div>
 <div class="row col-12 d-flex justify-content-center">
 <button id="botondescarga" class="btn btn-success col-4" href="https://consultaresultadoslaboratorio.health/pdf/${orden}/${centro}" onclick="redireccionar()">Descargar en PDF</button> 
 </div> 
 <div class="row col-12" id="tabla_datos">
-<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: ${Rordencomentario}</p><br>
+<p class="col-12" style="font-weight: bold;" id="pcomentario">Comentario: </p><br>
 <p class="col-4 titulo">Prueba</p><p class="col-4 titulo">Resultado</p><p class="col-4 titulo">Referencia</p>
 </div>
 <div class="col-12 d-flex justify-content-center">
@@ -419,8 +456,8 @@ if (centro =='HNVN'){
 }
   /**/			
               res.send(htmlaenviar);
-	  	  }
-	 );
+	  	  
+	 
 });
 
 var fs = require('fs');
