@@ -179,7 +179,7 @@ $(document).ready(function(){
         $('#p_genero')         .html(RESPUESTA[0].Genero);
         $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
         $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
-        $('#pcomentario')      .html(RESPUESTA[0].ccomentario);
+        $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
     }
     localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
     localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
@@ -198,10 +198,6 @@ $(document).ready(function(){
       var RESPUESTA = (xhr.response);
           RESPUESTA = JSON.parse(RESPUESTA);
           var largo = RESPUESTA.length;
-
-
-
-          
 
       if(largo == 0){
         
@@ -355,7 +351,7 @@ function getDatosPaciente(){
         $('#p_genero')         .html(RESPUESTA[0].Genero);
         $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
         $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
-        $('#pcomentario')      .html(RESPUESTA[0].ccomentario);
+        $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
     }
     localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
     localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
