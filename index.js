@@ -113,7 +113,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     //recibir contenido
     var codigoenc = req.params.codigo;
     //decodificar
-    const atob = (base64) => {
+    var atob = (base64) => {
         return Buffer.from(base64, 'base64').toString('binary');
     };
     var codigo = atob(codigoenc);
@@ -152,7 +152,7 @@ var htmligss = `<html lang="en"><head>
 <script>
 $(document).ready(function(){
   
-  var orden = '${orden}';
+  var orden  = '${orden}';
   var centro = '${centro}';
   switch(centro){
     case "412":
@@ -179,8 +179,15 @@ $(document).ready(function(){
         $('#p_genero')         .html(RESPUESTA[0].Genero);
         $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
         $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
-        $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
-    }
+
+        var pac_comentario = RESPUESTA[0].ccomentario;
+        if (pac_comentario == null){
+          pac_comentario = '';
+          $('#pcomentario')      .html('Comentario: ' + pac_comentario);
+        }else{
+          $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
+        }
+        
     localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
     localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
   }
@@ -351,7 +358,14 @@ function getDatosPaciente(){
         $('#p_genero')         .html(RESPUESTA[0].Genero);
         $('#p_fechaNacimiento').html(RESPUESTA[0].fechaDeNacimiento);
         $('#p_fechaOrden')     .html(RESPUESTA[0].FechaOrden);
-        $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
+
+        var pac_comentario = RESPUESTA[0].ccomentario;
+        if (pac_comentario == null){
+          pac_comentario = '';
+          $('#pcomentario')      .html('Comentario: ' + pac_comentario);
+        }else{
+          $('#pcomentario')      .html('Comentario: ' + RESPUESTA[0].ccomentario);
+        }
     }
     localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
     localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
