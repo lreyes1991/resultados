@@ -203,7 +203,7 @@ $(document).ready(function(){
   }
   function getResultados(){
     var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange=function(){
+    xhr.onreadystatechange=function(){
     if(this.readyState == 4 && this.status == 200){
   
       var RESPUESTA = (xhr.response);
@@ -245,9 +245,9 @@ $(document).ready(function(){
  xhr.open("GET","https://www.consultaresultadoslaboratorio.health/resultados/${orden}/${centro}",true);
  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
  xhr.send();
-
   }
-});
+
+}});
 
 function redireccionar(){
 window.location.href='https://www.consultaresultadoslaboratorio.health/';
