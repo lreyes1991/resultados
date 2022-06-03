@@ -195,7 +195,7 @@ $(document).ready(function(){
     localStorage.setItem("orden","${orden}");// reemplazar por las variables al colocarlo en la web
     localStorage.setItem("centro","${centro}");// reemplazar por las variables al colocarlo en la web
   }
-
+}
  xhr.open("GET","https://www.consultaresultadoslaboratorio.health/datospaciente/${orden}/${centro}",true);
  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
  xhr.send();
@@ -247,7 +247,7 @@ $(document).ready(function(){
  xhr.send();
   }
 
-}});
+});
 
 function redireccionar(){
 window.location.href='https://www.consultaresultadoslaboratorio.health/';
