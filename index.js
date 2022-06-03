@@ -117,7 +117,7 @@ app.get('/resultado/:codigo',(req, res)=>{
     //recibir contenido
     var codigoenc = req.params.codigo;
     //decodificar
-    var atob = (base64) => {
+    const atob = (base64) => {
         return Buffer.from(base64, 'base64').toString('binary');
     };
     var codigo = atob(codigoenc);
