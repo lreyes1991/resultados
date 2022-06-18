@@ -118,10 +118,10 @@ app.get('/resultado/:codigo',(req, res)=>{
     //recibir contenido
     var codigoenc = req.params.codigo;
     //decodificar
-    let atob = (base64) => {
+    var debtoa = (base64) => {
         return Buffer.from(base64, 'base64').toString('ascii');
     };
-    var codigo = atob(codigoenc);
+    var codigo = debtoa(codigoenc);
     
     var codigoarray = codigo.split('-');
     console.log(codigoarray);
