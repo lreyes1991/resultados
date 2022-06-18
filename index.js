@@ -44,8 +44,8 @@ app.get('/HNVN', (req,res)=>{
 VISUALIZADOR y PDF
 */
 app.get('/pdf/:orden/:centro', (req,res)=>{
-  var orden = req.params.orden;
-  var centro = req.params.centro;
+  let orden = req.params.orden;
+  let centro = req.params.centro;
   connection.query(`SELECT O.Orden,O.Centro,O.idPaciente, O.nombreMedico, O.nombreUnidadProcedencia,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario,O.nombreOrigen,R.Comentario as rcomentario,DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden,R.nombreExamen,R.resultado,R.valorDeReferencia ,R.unidadMedida
   FROM Orden as O 
   inner JOIN Resultados as R 
@@ -58,8 +58,8 @@ app.get('/pdf/:orden/:centro', (req,res)=>{
 });
 
 app.get('/resultadospdf/:orden/:centro', (req,res)=>{
-  var orden = req.params.orden;
-  var centro = req.params.centro;
+  let orden = req.params.orden;
+  let centro = req.params.centro;
   connection.query(`SELECT R.nombreExamen,R.resultado,R.unidadMedida,R.valorDeReferencia 
   FROM Resultados as R
   WHERE Orden = '${orden}' and Centro = '${centro}';`,
@@ -75,8 +75,8 @@ app.get('/estabilidad/', (req,res)=>{
 
 //PARA DATOS DE PACIENTE
 app.get('/datospaciente/:orden/:centro', (req,res)=>{
-  var orden  = req.params.orden;
-  var centro = req.params.centro;
+  let orden  = req.params.orden;
+  let centro = req.params.centro;
 
   connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden FROM Orden O where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
@@ -87,8 +87,8 @@ app.get('/datospaciente/:orden/:centro', (req,res)=>{
 
 //LOS USA LA VISTA PREVIA DEL PDF
 app.get('/resultados/:orden/:centro', (req,res)=>{
-  var orden  = req.params.orden;
-  var centro = req.params.centro;
+  let orden  = req.params.orden;
+  let centro = req.params.centro;
   connection.query(`select nombreExamen,resultado,Comentario, valorDeReferencia from Resultados where Orden ='${orden}' and Centro = '${centro}';`,
   
     function(err, results, fields) {
@@ -103,17 +103,16 @@ var TIME = 2;
 setInterval(estabilizador,(TIME * 1000));
 
 function estabilizador(){
-        connection.query(`UPDATE Orden SET Genero = 'M' where Orden = "220201349"`,[],function (error, results) {
+        connection.query(`UPDATE Orden SET Genero = ? where Orden = ?;`,['M','220201349'],function (error, results) {
+          console.log("estabilizado");
         }
         );
-       console.log('estabilizado');
 }
 
 app.get('/resultado/:codigo',(req, res)=>{
 
     // mostrar cantidad de ordenes
-    cantidadConsultados = cantidadConsultados + 1;
-    console.log(cantidadConsultados);
+
    
     //recibir contenido
     var codigoenc = req.params.codigo;
@@ -122,9 +121,9 @@ app.get('/resultado/:codigo',(req, res)=>{
         return Buffer.from(base64, 'base64').toString('ascii');
     };
     var codigo = debtoa(codigoenc);
-    
+    console.log(codigo + " " + codigoenc);
     var codigoarray = codigo.split('-');
-    console.log(codigoarray);
+    
     
     var centro = codigoarray[0];
     var orden  = codigoarray[1];
