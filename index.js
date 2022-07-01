@@ -9,41 +9,14 @@ const express = require('express');
 var   path    = require('path');
 const app     = express();
 //var http      = require('http').Server(app);
-const mysql   = require('mysql2');
+
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.set('view engine', 'ejs' );
 
-var mysql_config = {
-  host     : 'localhost',
-  user     : 'mli',
-  password : 'password',
-  database : 'SGI_ROCHEGT'
-};
-var connection=null;
 
-function handleDisconnection() {
-  connection = mysql.createConnection(mysql_config);
- 
-  connection.connect(function(err) {
-      if(err) {
-          setTimeout(handleDisconnection(), 2000);
-      }
-  });
-
-  connection.on('error', function(err) {
-      logger.error('db error', err);
-      if(err.code === 'PROTOCOL_CONNECTION_LOST') {
-          logger.error('db error ejecutar reconexión:'+err.message);
-          handleDisconnection();
-      } else {
-          throw err;
-      }
-  });
-//  exports.connection = connection;
-}
-
-handleDisconnection();
+var connection = require("./mysqlconnection.js");
+var handleDisconnection = require("./mysqlconnection.js");
 
 
 app.get('/', (req,res)=>{
