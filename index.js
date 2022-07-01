@@ -9,14 +9,41 @@ const express = require('express');
 var   path    = require('path');
 const app     = express();
 //var http      = require('http').Server(app);
-
+const mysql   = require('mysql2');
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.set('view engine', 'ejs' );
 
+var mysql_config = {
+  host     : 'localhost',
+  user     : 'mli',
+  password : 'password',
+  database : 'SGI_ROCHEGT'
+};
+var connection=null;
 
-var connection = require("./mysqlconnection.js");
-var handleDisconnection = require("./mysqlconnection.js");
+function handleDisconnection() {
+    connection = mysql.createConnection(mysql_config);
+ 
+  connection.connect(function(err) {
+      if(err) {
+          setTimeout('handleDisconnection()', 2000);
+      }
+  });
+
+  connection.on('error', function(err) {
+      logger.error('db error', err);
+      if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+          logger.error('db error ejecutar reconexión:'+err.message);
+          handleDisconnection();
+      } else {
+          throw err;
+      }
+  });
+//  exports.connection = connection;
+}
+
+handleDisconnection();
 
 
 app.get('/', (req,res)=>{
@@ -79,18 +106,11 @@ app.get('/resultados/:orden/:centro', (req,res)=>{
   );
 });
 
-var TIME = 2;
-    TIME = (TIME * 60 * 60);
 
-setInterval(estabilizador,(TIME * 1000));
 
-function estabilizador(){
-        connection.query(`UPDATE Orden SET Genero = ? where Orden = ?;`,['M','220201349'],function(error,results,fielsds){
-          if (error) console.log({ error: error });
-          console.log('estabilizado');
-//                        
-      });
-}
+setInterval(function (){
+        connection.query(`select Nombre from usuario limit 1;`);
+},5000);
 
 app.get('/resultado/:codigo',(req, res)=>{
 
