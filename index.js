@@ -87,7 +87,7 @@ app.get('/datospaciente/:orden/:centro', (req,res)=>{
   let orden  = req.params.orden;
   let centro = req.params.centro;
 
-  connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%m") as FechaOrden FROM Orden O where O.Orden = '${orden}' and O.Centro = '${centro}';`,
+  connection.query(`SELECT O.Orden,O.Centro,O.NombrePaciente,O.nombreCentro,DATE_FORMAT(O.fechaDeNacimiento, "%d/%m/%Y") as fechaDeNacimiento,O.Genero,O.Comentario as ccomentario, DATE_FORMAT(O.FechaOrden, "%d/%m/%Y %H:%i") as FechaOrden FROM Orden O where O.Orden = '${orden}' and O.Centro = '${centro}';`,
     function(err, results, fields) {
           res.json(results)
     }
